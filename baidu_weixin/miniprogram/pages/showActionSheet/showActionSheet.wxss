@@ -1,0 +1,10 @@
+.button{
+  color: #333 ;
+  font-size: 18px ;
+}
+.button::after{
+  border-color: #999 ;
+}
+.page-title-line{
+  width: 85px ;
+}

@@ -1,0 +1,27 @@
+.wrap{
+  font-size: 16px ;
+}
+.date-section{
+  margin-bottom: 10px ;
+}
+.section{
+  height: 60px ;
+  line-height: 60px ;
+  font-size: 18px ;
+  background: #fff ;
+  display: flex ;
+}
+.section:active{
+  background-color: #f2f2f2 ;
+}
+.section-title{
+  color: #000 ;
+  flex: 0 0 1rem ;
+}
+picker{
+  width: 100% ;
+  padding: 0 22px ;
+}
+.chooseItem{
+  margin-right: 20px ;
+}

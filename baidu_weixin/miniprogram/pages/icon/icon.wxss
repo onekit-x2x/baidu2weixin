@@ -1,0 +1,37 @@
+.wrap{
+  font-size: 16px ;
+}
+.group{
+  background: #fff ;
+  padding: 17px 40px ;
+}
+icon:last-child{
+  margin-right: 0 ;
+}
+.big-default{
+  margin-right: 19px ;
+}
+.small-default{
+  margin: 20px 20px 10px 0 ;
+  display: inline-block ;
+}
+.small-primary{
+  margin: 15px 20px 10px 0 ;
+  display: inline-block ;
+}
+.default{
+  height: 180px ;
+}
+.choose{
+  height: 83.67px ;
+  line-height: 80px ;
+}
+.icon-color{
+  margin-right: 15px ;
+  line-height: 1 ;
+  margin-right: 08px ;
+}
+.icon-size{
+  margin-right: 15px ;
+  line-height: 1 ;
+}

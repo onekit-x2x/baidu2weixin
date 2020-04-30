@@ -1,0 +1,52 @@
+.wrap{
+  font-size: 16px ;
+  padding-top: 70px ;
+}
+.mini-btn-content{
+  margin-bottom: 12px ;
+}
+.title{
+  display: inline-block ;
+  width: 134px ;
+  font-size: 16px ;
+  color: #999 ;
+  padding: 0 0 0 20px important;
+}
+.mini-btn{
+  margin: 0 20px 0 0 important;
+  padding: 0 important;
+  width: 57px ;
+  height: 28px ;
+  line-height: 28px important;
+}
+.mini-btn:last-child{
+  margin-right: 0 important;
+}
+.btn-content{
+  padding-top: 52px ;
+}
+.disabled{
+  opacity: .3 important;
+}
+.btn{
+  margin: 0 auto 12px important;
+  padding: 0 important;
+  width: 329px ;
+  height: 43px ;
+  line-height: 44px ;
+}
+.middle-btn{
+  margin: 0 auto 15px ;
+  width: 110px ;
+  height: 36px ;
+  line-height: 36px ;
+}
+.primary::after{
+  border: none important;
+}
+.warn::after{
+  border: none important;
+}
+.btn-bottom{
+  padding-bottom: 20px ;
+}

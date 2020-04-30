@@ -1,0 +1,6 @@
+.video-wrap{
+  padding: 30px 23px 0 ;
+}
+.btn{
+  margin: 15px 23px 0 ;
+}

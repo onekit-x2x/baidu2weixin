@@ -1,0 +1,18 @@
+.animation-info{
+  padding-top: 40px ;
+}
+.controls{
+  width: 88% ;
+  margin: 0 auto ;
+}
+.button-content{
+  position: relative ;
+  top: 0 ;
+}
+.toggle-animation{
+  margin-top: 22px important;
+  border-radius: 04px ;
+}
+.toggle-animation::after{
+  border: none ;
+}

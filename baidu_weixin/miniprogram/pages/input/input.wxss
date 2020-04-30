@@ -1,0 +1,15 @@
+.section{
+  font-size: 16px ;
+}
+.title{
+  padding: 20px 20px 14px important;
+}
+.ipt{
+  width: 100% ;
+  padding-left: 20px ;
+  height: 40px ;
+  background: #fff ;
+}
+.small-ipt{
+  width: 279px ;
+}

@@ -1,0 +1,6 @@
+<view >
+    <web-view  wx:if="{{src}}" src="{{src}}"></web-view>
+    <view  class="tip">web-view是承载网页的容器</view>
+    <onekit_button  type="primary" class="btn" bindtap="openWebViewInNewPage">新页面打开web-view</onekit_button>
+    <onekit_button  type="primary" class="btn" bindtap="openWebViewCurrent">当前页打开web-view</onekit_button>
+</view>

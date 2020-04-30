@@ -1,0 +1,14 @@
+<view  class="wrap">
+    <view  class="image-area">
+        <view  wx:if="{{filePath}}" class="image-container">
+            <image  class="image-items" src="{{filePath}}" mode="aspectFit" bindtap="previewImage"></image>
+        </view>
+        <view  wx:else class="empty">
+            <view >图片显示区</view>
+        </view>
+    </view>
+    <view  class="button-area">
+        <onekit_button  type="primary" bindtap="uploadFile">添加图片</onekit_button>
+        <onekit_button  type="default" style="margin-top:015px;" bindtap="clearImage">清空图片</onekit_button>
+    </view>
+</view>

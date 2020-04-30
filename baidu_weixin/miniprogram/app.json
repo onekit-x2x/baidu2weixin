@@ -1,0 +1,130 @@
+{
+  "sitemapLocation": "sitemap.json",
+  "permission": {
+    "scope.userInfo": {
+      "desc": "小程序需要用户信息"
+    },
+    "scope.userLocation": {
+      "desc": "小程序需要定位"
+    },
+    "scope.userLocationBackground": {
+      "desc": "小程序需要后台定位"
+    },
+    "scope.address": {
+      "desc": "小程序需要通讯地址"
+    },
+    "scope.invoiceTitle": {
+      "desc": "小程序需要发票抬头"
+    },
+    "scope.invoice": {
+      "desc": "小程序需要获取发票"
+    },
+    "scope.werun": {
+      "desc": "小程序需要微信运动步数"
+    },
+    "scope.record": {
+      "desc": "小程序需要录音功能"
+    },
+    "scope.writePhotosAlbum": {
+      "desc": "小程序需要保存到相册"
+    },
+    "scope.camera": {
+      "desc": "小程序需要摄像头"
+    }
+  },
+  "pages": [
+    "pages/component/component",
+    "pages/api/api",
+    "pages/form/form",
+    "pages/view/view",
+    "pages/label/label",
+    "pages/scroll-view/scroll-view",
+    "pages/swiper/swiper",
+    "pages/icon/icon",
+    "pages/text/text",
+    "pages/progress/progress",
+    "pages/lottie/lottie",
+    "pages/button/button",
+    "pages/picker/picker",
+    "pages/input/input",
+    "pages/textarea/textarea",
+    "pages/navigator/navigator",
+    "pages/image/image",
+    "pages/webview/webview",
+    "pages/detail/detail",
+    "pages/canvas/canvas",
+    "pages/video/video",
+    "pages/switch/switch",
+    "pages/authorize/authorize",
+    "pages/login/login",
+    "pages/getUserInfo/getUserInfo",
+    "pages/openSetting/openSetting",
+    "pages/openShare/openShare",
+    "pages/checkbox/checkbox",
+    "pages/radio/radio",
+    "pages/payment/payment",
+    "pages/refund/refund",
+    "pages/pullDownRefresh/pullDownRefresh",
+    "pages/getSystemInfo/getSystemInfo",
+    "pages/chooseLocation/chooseLocation",
+    "pages/getNetworkType/getNetworkType",
+    "pages/onNetworkStatusChange/onNetworkStatusChange",
+    "pages/makePhoneCall/makePhoneCall",
+    "pages/clipboardData/clipboardData",
+    "pages/api-image/api-image",
+    "pages/file/file",
+    "pages/getLocation/getLocation",
+    "pages/openLocation/openLocation",
+    "pages/request/request",
+    "pages/storage/storage",
+    "pages/live-player/live-player",
+    "pages/slider/slider",
+    "pages/setNavigationBarTitle/setNavigationBarTitle",
+    "pages/navigationBarLoading/navigationBarLoading",
+    "pages/navigateTo/navigateTo",
+    "pages/showActionSheet/showActionSheet",
+    "pages/toast/toast",
+    "pages/update/update",
+    "pages/modal/modal",
+    "pages/movableView/movableView",
+    "pages/uploadFile/uploadFile",
+    "pages/downloadFile/downloadFile",
+    "pages/audio/audio",
+    "pages/map/map",
+    "pages/chooseVideo/chooseVideo",
+    "pages/getRecorderManager/getRecorderManager",
+    "pages/getGravity/getGravity",
+    "pages/getCompass/getCompass",
+    "pages/openAppStore/openAppStore",
+    "pages/ar-camera/ar-camera",
+    "pages/imageAudit/imageAudit"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "智能小程序官方组件",
+    "navigationBarTextStyle": "black",
+    "backgroundTextStyle": "dark",
+    "enablePullDownRefresh": false,
+    "backgroundColor": "#f5f5f5"
+  },
+  "tabBar": {
+    "color": "#a2a2a2",
+    "selectedColor": "#3388ff",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/component/component",
+        "iconPath": "images/component_normal.png",
+        "selectedIconPath": "images/component_selected.png",
+        "text": "组件"
+      },
+      {
+        "pagePath": "pages/api/api",
+        "iconPath": "images/API_normal.png",
+        "selectedIconPath": "images/API_selected.png",
+        "text": "接口"
+      }
+    ]
+  }
+}

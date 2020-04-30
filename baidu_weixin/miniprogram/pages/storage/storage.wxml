@@ -1,0 +1,17 @@
+<view  class="wrap">
+    <view  class="input-area">
+        <view  class="input-item border-top border-bottom">
+            <label >key</label>
+            <input  bindinput="keyInput" class="input" type="text" placeholder="请输入key">{onekit_2}</input>
+        </view>
+        <view  class="input-item border-bottom">
+            <label >value</label>
+            <input  bindinput="valueInput" class="input" type="text" placeholder="请输入value">{onekit_2}</input>
+        </view>
+    </view>
+    <view >
+        <onekit_button  class="btn" bindtap="setStorage" type="primary" hover-stop-propagation="true">存储数据</onekit_button>
+        <onekit_button  class="btn" bindtap="getStorage" hover-stop-propagation="true">读取数据</onekit_button>
+        <onekit_button  class="btn" bindtap="clearStorage" hover-stop-propagation="true">清理数据</onekit_button>    
+    </view>
+</view>

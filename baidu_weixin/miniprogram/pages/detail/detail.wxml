@@ -1,0 +1,6 @@
+<view  class="container detail-container">
+    <view  class="page-top">
+        <view  class="page-top-text">{{id}}</view>
+        <view  class="page-top-line"></view>
+    </view>
+</view> 

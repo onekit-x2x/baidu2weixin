@@ -1,0 +1,18 @@
+<view  class="wrap">
+    <view  class="title">默认样式</view>
+    <view  class="group">
+        <view >
+            <icon  wx:for-item="type" wx:key="type" wx:for="{{types.smallDefault}}" type="{{type}}" class="small-default"></icon>
+        </view>
+    </view>
+
+    <view  class="title">尺寸选择</view>
+    <view  class="group choose">
+        <icon  wx:for-item="size" wx:key="size" wx:for="{{sizes}}" type="success" size="{{size}}" class="icon-size"></icon>
+    </view>
+
+    <view  class="title">颜色选择</view>
+    <view  class="group choose">
+        <icon  wx:for-item="color" wx:key="color" wx:for="{{colors}}" type="success" size="40" color="{{color}}" class="icon-color"></icon>
+    </view>
+</view>

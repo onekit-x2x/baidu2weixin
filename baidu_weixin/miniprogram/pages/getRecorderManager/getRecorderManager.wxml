@@ -1,0 +1,30 @@
+<view  class="wrap">
+    <view  class="page-top">
+        <view  class="page-top-text">start/stopRecord、play/stopVoice</view>
+        <view  class="page-top-line"></view>
+    </view>
+    <view  class="page-record">
+        <view  class="page-time">
+            <view  wx:if="{{!isEnd}}">
+                <view  wx:if="{{nearFinish}}" class="record-tip finish-tip">即将超时</view>
+                <view  wx:else class="record-tip">支持60秒以内音频录制</view>
+            </view>
+            <view  wx:else style="height:035px;"></view>
+            <view  class="record-time {{nearFinish?'finish-tip':''}}">{{startTime}}</view>
+        </view>
+        <view  class="page-status">
+            <view  wx:if="{{isEnd}}">
+                <view  class="endtime">{{endTime}}</view>
+                <view  class="page-finish">
+                    <view  wx:if="{{!isPlay}}" class="pause" bindtap="playRecord"></view>
+                    <view  wx:else class="play" bindtap="pauseRecord"></view>
+                    <view  class="delete" bindtap="deleteRecord"></view>
+                </view>
+            </view>
+            <view  wx:else>
+                <view  wx:if="{{isRecord}}" class="btn-record" bindtap="stopRecord"></view>
+                <view  wx:else class="btn-start" bindtap="startRecord"></view>
+            </view>
+        </view>
+    </view>
+</view>

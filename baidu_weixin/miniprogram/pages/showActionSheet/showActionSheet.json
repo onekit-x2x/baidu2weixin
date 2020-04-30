@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "操作菜单",
+  "usingComponents": {
+    "onekit_ad": "/onekit/ui/ad/ad",
+    "onekit_button": "/onekit/ui/button/button",
+    "onekit_map": "/onekit/ui/map/map",
+    "onekit_video": "/onekit/ui/video/video"
+  }
+}

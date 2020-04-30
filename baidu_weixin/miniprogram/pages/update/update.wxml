@@ -1,0 +1,12 @@
+<view  class="container">
+    <view  class="update-content">
+        <image  class="update-img" src="{{updateImgSrc}}" mode="aspectFit"></image>
+        <view  class="tips-text">
+            <text >
+                小程序无法在当前版本运行
+            </text>
+            <text >请升级版本后尝试</text>
+        </view>
+        <onekit_button  class="update-button" type="primary" bindtap="update">立即升级</onekit_button>
+    </view>
+</view>

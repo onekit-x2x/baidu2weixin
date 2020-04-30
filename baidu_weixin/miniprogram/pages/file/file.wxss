@@ -1,0 +1,33 @@
+body{
+  background: #fff ;
+}
+.wrap{
+  font-size: 16px ;
+}
+.file-area{
+  height: 224px ;
+  text-align: center ;
+  color: #666 ;
+  background: #fafafa ;
+}
+.file-icon{
+  width: 62px ;
+  margin-top: 60px ;
+}
+.save-success-icon{
+  width: 13px ;
+  height: 09px ;
+}
+.file-label{
+  margin-top: 14px ;
+}
+.file-save{
+  margin-top: 07px ;
+}
+.button-area{
+  margin-top: 30px ;
+}
+.btn{
+  line-height: 44px ;
+  margin-bottom: 16px ;
+}

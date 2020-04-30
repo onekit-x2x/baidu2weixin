@@ -1,0 +1,38 @@
+
+<ar-camera  ar-key="10298931" ar-type="5" flash="{{flashState}}" class="camera" bindload="loadCameraSuccess" bindmessage="message" binderror="error">
+    
+    <cover-image  class="flash-button" wx:if="{{!isRecordComplete && flashState==='on'}}" src="https://b.bdstatic.com/miniapp_cl_ar_flash_on.png" bindtap="toggleFlash"></cover-image>
+    <cover-image  wx:if="{{!isRecordComplete && flashState==='off'}}" class="flash-button" src="https://b.bdstatic.com/miniapp_cl_ar_flash_off.png" bindtap="toggleFlash"></cover-image>
+
+    
+    <cover-view  wx:if="{{!isNetError && !isRecordComplete}}" class="record-container" bindtouchstart="touchStart" bindtouchend="touchEnd">
+        <cover-view  class="switch-camera {{cameraState==='photo'? 'photo-state':'record-state'}}">
+            <cover-view ></cover-view>
+            <cover-view  class="{{cameraState==='record'?'active':''}}" bindtap="switchToRecord">
+                录制
+            </cover-view>
+            <cover-view  class="{{cameraState==='photo'?'active':''}}" bindtap="switchToPhoto">
+                拍摄
+            </cover-view>
+        </cover-view>
+    </cover-view>
+
+    
+    <cover-view  class="action-complete" wx:if="{{isRecordComplete}}">
+        <cover-image  class="giveup-img" src="https://b.bdstatic.com/miniapp_cl_ar_back.png" bindtap="reTake"></cover-image>
+        <cover-image  class="save-img" src="https://b.bdstatic.com/miniapp_cl_ar_save.png" bindtap="save"></cover-image>
+    </cover-view>
+
+    
+    <cover-view  class="net-cover" wx:if="{{isNetError}}">
+        <cover-view  class="net">
+            <cover-view  class="net-desc">网络不给力，请检查网络并重试</cover-view>
+            <cover-view  class="reload" bindtap="reload">重新加载</cover-view>
+        </cover-view>
+    </cover-view>    
+
+    
+    <canvas  wx:if="{{!isNetError && !isRecordComplete}}" class="record-circle" canvas-id="recordCanvas" bindtouchstart="handleAction">
+    </canvas>
+
+</ar-camera>

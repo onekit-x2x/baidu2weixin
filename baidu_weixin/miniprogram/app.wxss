@@ -1,0 +1,196 @@
+@import "/onekit/onekit.wxss";
+ad,button,map,video{
+  margin: 0 ;
+  padding: 0 ;
+  box-sizing: border-box ;
+}
+html{
+  background-color: #f5f5f5 ;
+  font-size: 100px ;
+  font-family: -apple-system-font, Helvetica Neue, Helvetica, sans-serif ;
+  height: 100% ;
+  font-size: 90px ;
+}
+body{
+  background-color: #f5f5f5 ;
+  font-size: 100px ;
+  font-family: -apple-system-font, Helvetica Neue, Helvetica, sans-serif ;
+  height: 100% ;
+}
+swan-wrapper{
+  height: 100% ;
+}
+swan-button{
+  margin: 0 20px ;
+}
+.container{
+  display: flex ;
+  flex-direction: column ;
+  min-height: 100% ;
+  justify-content: space-between ;
+  font-size: 16px ;
+}
+.ensp{
+  white-space: normal ;
+}
+.page-body{
+  margin-top: 42px ;
+}
+.title{
+  font-size: 15px ;
+  color: #666 ;
+  padding: 30px 22px 18px 22px ;
+}
+.input{
+  box-sizing: content-box ;
+  margin: 0 22.67px 15px ;
+  height: 38px ;
+  line-height: 38px ;
+  font-size: 18px ;
+  padding-left: 10px ;
+}
+.page-title{
+  margin: 1rem 0 30px 0 ;
+  text-align: center ;
+}
+.page-title-line{
+  margin: 0 auto ;
+  width: 83px ;
+  height: 02px ;
+  background-color: #E6E6E6 ;
+}
+.page-top{
+  text-align: center ;
+  margin-top: 36px ;
+}
+.page-top-line{
+  margin: 0 auto ;
+  width: 54px ;
+  height: 01px ;
+  background-color: #979797 ;
+  border: 0 ;
+  position: relative ;
+}
+.page-top-text{
+  margin-bottom: 10px ;
+  color: #999 ;
+}
+.page-title-text{
+  margin-top: 07px ;
+  color: #ccc ;
+}
+.border-top{
+  border: 0 ;
+  position: relative ;
+}
+.border-top:before{
+  content: "" ;
+  position: absolute ;
+  width: 100% ;
+  height: 1px ;
+  left: 0 ;
+  top: 0 ;
+  -webkit-transform-origin: 0 0 ;
+  transform-origin: 0 0 ;
+  background: #e6e6e6 ;
+  -webkit-transform: scaleY(0.66666667) ;
+  transform: scaleY(0.66666667) ;
+  -webkit-transform: scaleY(0.5) ;
+  transform: scaleY(0.5) ;
+  -webkit-transform: scaleY(0.33333333) ;
+  transform: scaleY(0.33333333) ;
+}
+.border-right{
+  position: relative ;
+}
+.border-right:after{
+  content: "" ;
+  width: 1px ;
+  position: absolute ;
+  right: 0 ;
+  top: 0 ;
+  bottom: 0 ;
+  -webkit-transform-origin: 100% 0 ;
+  transform-origin: 100% 0 ;
+  background: #e6e6e6 ;
+  -webkit-transform: scaleX(0.66666667) ;
+  transform: scaleX(0.66666667) ;
+  -webkit-transform: scaleX(0.5) ;
+  transform: scaleX(0.5) ;
+  -webkit-transform: scaleX(0.33333333) ;
+  transform: scaleX(0.33333333) ;
+}
+.border-bottom{
+  border: 0 ;
+  position: relative ;
+}
+.border-bottom:after{
+  content: "" ;
+  position: absolute ;
+  width: 100% ;
+  height: 1px ;
+  left: 0 ;
+  bottom: 0 ;
+  -webkit-transform-origin: 0 100% ;
+  transform-origin: 0 100% ;
+  background: #e6e6e6 ;
+  -webkit-transform: scaleY(0.66666667) ;
+  transform: scaleY(0.66666667) ;
+  -webkit-transform: scaleY(0.5) ;
+  transform: scaleY(0.5) ;
+  -webkit-transform: scaleY(0.33333333) ;
+  transform: scaleY(0.33333333) ;
+}
+.border-left{
+  border: 0 ;
+  position: relative ;
+}
+.border-left:before{
+  content: "" ;
+  position: absolute ;
+  height: 100% ;
+  width: 1px ;
+  left: 0 ;
+  top: 0 ;
+  -webkit-transform-origin: left center ;
+  transform-origin: left center ;
+  background: #e6e6e6 ;
+  -webkit-transform: scaleX(0.66666667) ;
+  transform: scaleX(0.66666667) ;
+  -webkit-transform: scaleX(0.5) ;
+  transform: scaleX(0.5) ;
+  -webkit-transform: scaleX(0.33333333) ;
+  transform: scaleX(0.33333333) ;
+}
+.border-all{
+  border: 0 ;
+  position: relative ;
+}
+.border-all:before{
+  content: "" ;
+  box-sizing: border-box ;
+  position: absolute ;
+  top: 0 ;
+  left: 0 ;
+  right: 0 ;
+  bottom: 0 ;
+  font-size: 0 ;
+  line-height: 0 ;
+  border-radius: 0 ;
+  border: 1px solid #e6e6e6 ;
+  -webkit-transform-origin: 0 0 ;
+  transform-origin: 0 0 ;
+  background: 0 0 ;
+  width: 150% ;
+  height: 150% ;
+  -webkit-transform: scale(0.66666667) ;
+  transform: scale(0.66666667) ;
+  width: 200% ;
+  height: 200% ;
+  -webkit-transform: scale(0.48) ;
+  transform: scale(0.48) ;
+  width: 300% ;
+  height: 300% ;
+  -webkit-transform: scale(0.3326) ;
+  transform: scale(0.3326) ;
+}

@@ -1,0 +1,5 @@
+<view  class="wrap">
+    <text >{{text}}</text>
+    <onekit_button  class="btn" type="primary" bindtap="add">add text</onekit_button>
+    <onekit_button  class="btn" type="primary" bindtap="remove">remove text</onekit_button>
+</view>

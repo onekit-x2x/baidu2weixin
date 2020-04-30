@@ -1,0 +1,6 @@
+<view  class="wrap">
+    <view  class="video-wrap">
+        <onekit_video  id="myde" style="width: 100%;" src="{{src}}" controls bindplay="play" bindpause="pause" bindfullscreenchange="fullscreen" bindended="ended" autoplay="{{autoplay}}"></onekit_video>
+    </view>
+    <onekit_button  class="btn" bindtap="next" type="primary">切换视频地址</onekit_button>
+</view>

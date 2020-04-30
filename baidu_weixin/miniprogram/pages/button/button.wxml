@@ -1,0 +1,54 @@
+<view  class="wrap">
+    <view  class="mini-btn-content">
+        <view  class="title">默认态</view>
+        <onekit_button  type="primary" size="mini" class="mini-btn primary">
+            按钮
+        </onekit_button>
+        <onekit_button  type="default" size="mini" class="mini-btn">按钮</onekit_button>
+        <onekit_button  type="warn" size="mini" class="mini-btn warn">
+            按钮
+        </onekit_button>
+    </view>
+
+    <view  class="mini-btn-content">
+        <view  class="title">禁用态</view>
+        <onekit_button  type="primary" size="mini" class="mini-btn primary" disabled>
+            按钮
+        </onekit_button>
+        <onekit_button  type="default" size="mini" class="mini-btn" disabled>
+            按钮
+        </onekit_button>
+        <onekit_button  type="warn" size="mini" class="mini-btn warn" disabled>
+            按钮
+        </onekit_button>
+    </view>
+
+    <view  class="btn-content">
+        <onekit_button  type="primary" class="btn primary">
+            主操作按钮 默认态
+        </onekit_button>
+        <onekit_button  type="primary" loading="true" class="btn primary">
+            主操作按钮 loading
+        </onekit_button>
+        <onekit_button  type="primary" class="btn primary" disabled>
+            主操作按钮 禁用态
+        </onekit_button>
+        <onekit_button  type="default" class="btn">
+            次要操作按钮 默认态
+        </onekit_button>
+        <onekit_button  type="default" class="btn" disabled>
+            次要操作按钮 禁用态
+        </onekit_button>
+        <onekit_button  type="warn" class="btn warn">
+            警告类操作按钮 默认态
+        </onekit_button>
+        <onekit_button  type="warn" class="btn warn" disabled>
+            警告类操作按钮 禁用态
+        </onekit_button>
+    </view>
+
+    <view  class="btn-bottom">
+        <onekit_button  type="default" class="middle-btn">按钮</onekit_button>
+        <onekit_button  type="default" class="middle-btn disabled">按钮</onekit_button>
+    </view>
+</view>

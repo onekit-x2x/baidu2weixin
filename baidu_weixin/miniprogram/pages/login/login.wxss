@@ -1,0 +1,4 @@
+.page-body-info{
+  text-align: center ;
+  font-size: 60px ;
+}

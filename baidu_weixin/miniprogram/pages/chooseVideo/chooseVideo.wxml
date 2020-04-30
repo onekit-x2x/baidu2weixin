@@ -1,0 +1,30 @@
+<view  class="wrap">
+    <view  class="video-area">
+        <onekit_video  class="video" wx:if="{{videoSrc}}" src="{{videoSrc}}" controls="true" binderror="videoError"></onekit_video>
+        <view  wx:else class="empty">视频显示区</view>
+    </view>
+    <view  class="option-area border-top border-bottom">
+        <view  class="option border-bottom">
+            <text  class="option-title">视频来源</text>
+            <picker  class="option-selection" mode="selector" value="{{sourceIndex}}" range="{{sourceArray}}" bindchange="sourceChange">
+                <view  class="picker" hover-class="hover">{{sourceArray[sourceIndex]}}</view>
+            </picker>
+        </view>
+        <view  class="option border-bottom">
+            <text  class="option-title">视频质量</text>
+            <picker  class="option-selection" mode="selector" value="{{compressIndex}}" range="{{compressArray}}" bindchange="compressChange">
+                <view  class="picker" hover-class="hover">{{compressArray[compressIndex]}}</view>
+            </picker>
+        </view>
+        <view  class="option">
+            <text  class="option-title">拍摄长度</text>
+            <picker  class="option-selection" mode="selector" value="{{durationIndex}}" range="{{durationArray}}" bindchange="durationChange">
+                <view  class="picker" hover-class="hover">{{durationArray[durationIndex]}}</view>
+            </picker>
+        </view>
+    </view>
+    <view  class="button-area">
+        <onekit_button  class="btn" type="primary" bindtap="selectVideo">添加视频</onekit_button>
+        <onekit_button  class="btn" type="default" style="margin-top:016px;" bindtap="clearVideo">清空视频</onekit_button>
+    </view>
+</view>
