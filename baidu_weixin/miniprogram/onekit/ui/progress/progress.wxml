@@ -1,0 +1,18 @@
+<progress 
+class="onekit-progress {{Class}}" 
+style="{{Style}}"
+percent="{{percent}}"
+show-info="{{showInfo}}"
+border-radius="{{borderRadius}}"
+stroke-width="{{strokeWidth}}"
+font-size="{{fontSize}}"
+color="{{color}}"
+activeColor="{{activeColor}}"
+backgroundColor="{{backgroundColor}}"
+active="{{active}}"
+active-mode="{{activeMode}}"
+duration="{{duration}}"
+>
+<slot>
+</slot>
+</progress>

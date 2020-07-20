@@ -1,0 +1,8 @@
+<cover-view
+class="onekit_cover-view {{Class}}"
+style="{{Style}}"
+bindtap="coverView_tap"
+>
+<slot>
+</slot>
+</cover-view>

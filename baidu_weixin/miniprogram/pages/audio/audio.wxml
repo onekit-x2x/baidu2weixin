@@ -1,1 +1,13 @@
-<audio  poster="{{poster}}" name="{{name}}" author="{{author}}" src="{{src}}" id="myAudio" controls binderror="error" bindplay="audioPlay" bindpause="audioPause" bindtimeupdate="timeupdate" bindended="audioEnded"></audio>
+<onekit-audio  
+poster="{{poster}}" 
+name="{{name}}" 
+author="{{author}}" 
+src="{{src}}" 
+id="myAudio" controls
+ binderror="error" 
+ bindplay="audioPlay" 
+ bindpause="audioPause"
+bindtimeupdate="timeupdate" 
+bindended="audioEnded">
+  
+  </onekit-audio>

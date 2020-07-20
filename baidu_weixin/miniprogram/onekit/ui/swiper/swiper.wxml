@@ -1,0 +1,22 @@
+<!--onekit/ui/swiper/swiper.wxml-->
+<swiper
+class="onekit-swiper {{Class}}"
+style="{{Style}}"
+indicator-dots="{{indicatorDots}}"
+indicator-color="{{indicatorColor}}"
+indicator-active-color="{{indicatorActiveColor}}"
+autoplay="{{autoplay}}"
+current="{{current}}"
+current-item-id="{{current-item-id}}"
+interval="{{interval}}"
+duration="{{duration}}"
+circular="{{circular}}"
+vertical="{{vertical}}"
+previous-margin="{{previousMargin}}"
+next-margin="{{nextMargin}}"
+display-multiple-items="{{displayMultipleItems}}"
+
+bindchange="swiper_Change"
+bindanimationfinish="swiper_AnimationEnd"
+>
+</swiper>

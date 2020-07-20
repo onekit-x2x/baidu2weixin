@@ -1,34 +1,34 @@
 <view  class="wrap">
-    <form  bindsubmit="formSubmit" bindreset="formReset">
+    <onekit-form  bindsubmit="formSubmit" bindreset="formReset">
         <view  class="section">
             <view  class="section-title">switch</view>
-            <switch  name="switch" checked></switch>
+            <onekit-switch  name="switch" checked></onekit-switch>
         </view>
         <view  class="section">
             <view  class="section-title">radio</view>
             <radio-group  name="radio-group">
-                <label ><radio  value="radio1" checked></radio>选中</label>
-                <label  class="label"><radio  value="radio2"></radio>未选中</label>
+                <onekit-label ><radio  value="radio1" checked></radio>选中</onekit-label>
+                <onekit-label  class="label"><radio  value="radio2"></radio>未选中</onekit-label>
             </radio-group>
         </view>
         <view  class="section section-gap">
             <view  class="section-title">checkbox</view>
-            <checkbox-group  name="checkbox">               
-                <label ><checkbox  value="checkbox1" checked></checkbox>选项一</label>
-                <label  class="label-checkbox"><checkbox  value="checkbox2"></checkbox>选项二</label>              
-            </checkbox-group>
+            <onekit-checkbox-group   name="checkbox">               
+                <onekit-label ><checkbox  value="checkbox1" checked></checkbox>选项一</onekit-label>
+                <onekit-label  class="label-checkbox"><checkbox  value="checkbox2"></checkbox>选项二</onekit-label>              
+            </onekit-checkbox-group >
         </view>
         <view  class="section section-gap">
             <view  class="section-title">slider</view>
-            <slider  name="slider" show-value></slider>
+            <onekit-slider  name="slider" show-value></onekit-slider>
         </view>
         <view  class="section">
             <view  class="section-title">input</view>
         </view>
-         <input  name="input" placeholder="这是一个输入框">{onekit_2}</input>
+         <onekit-input  name="input" placeholder="这是一个输入框">{onekit_2}</onekit-input>
         <view  class="btn-area">
             <onekit_button  formType="submit" type="primary">Submit</onekit_button>
             <onekit_button  formType="reset">Reset</onekit_button>
         </view>
-    </form>
+    </onekit-form>
 </view>

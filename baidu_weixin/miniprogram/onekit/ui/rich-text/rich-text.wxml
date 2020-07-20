@@ -1,0 +1,12 @@
+<rich-text
+class="onekit-rich-text {{Class}}"
+style="{{style}}"
+nodes="{{nodes}}"
+selectable="{{selectable}}"
+name="{{name}}"
+attrs="{{attrs}}"
+children="{{children}}"
+text="{{text}}"
+image-menu-prevent="{{image-menu-prevent}}"
+preview="{{preview}}"
+></rich-text>

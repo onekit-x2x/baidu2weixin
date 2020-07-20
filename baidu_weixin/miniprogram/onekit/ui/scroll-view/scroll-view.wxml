@@ -1,0 +1,19 @@
+<scroll-view
+class="onekit-scroll-view {{Class}}"
+style="{{Style}}"
+scroll-y="{{scrollY}}"
+scroll-x="{{scrollX}}"
+upper-threshold="{{UpperThreshold}}"
+lower-threshold="{{LowerThreshold}}"
+scroll-into-view="{{ScrollIntoView}}"
+scroll-top="{{ScrollTop}}"
+scroll-left="{{ScrollLeft}}"
+scroll-with-animation="{{ScrollWithAnimation}}"
+enable-back-to-top ="{{EnableBackToTop}}"
+bindscrolltoupper="on_toupper"
+bindscrolltolower="on_tolower"
+bindscroll="on_scroll"
+>
+<slot>
+</slot>
+</scroll-view>

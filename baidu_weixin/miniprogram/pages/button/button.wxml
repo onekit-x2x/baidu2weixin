@@ -1,54 +1,144 @@
-<view  class="wrap">
+<!-- <view  class="wrap">
     <view  class="mini-btn-content">
         <view  class="title">默认态</view>
-        <onekit_button  type="primary" size="mini" class="mini-btn primary">
+        <onekit-onekit-button  type="primary" size="mini" class="mini-btn primary">
             按钮
-        </onekit_button>
-        <onekit_button  type="default" size="mini" class="mini-btn">按钮</onekit_button>
-        <onekit_button  type="warn" size="mini" class="mini-btn warn">
+        </onekit-onekit-button>
+        <onekit-onekit-button  type="default" size="mini" class="mini-btn">按钮</onekit-onekit-button>
+        <onekit-onekit-button  type="warn" size="mini" class="mini-btn warn">
             按钮
-        </onekit_button>
+        </onekit-onekit-button>
     </view>
 
     <view  class="mini-btn-content">
         <view  class="title">禁用态</view>
-        <onekit_button  type="primary" size="mini" class="mini-btn primary" disabled>
+        <onekit-onekit-button  type="primary" size="mini" class="mini-btn primary" disabled>
             按钮
-        </onekit_button>
-        <onekit_button  type="default" size="mini" class="mini-btn" disabled>
+        </onekit-onekit-button>
+        <onekit-onekit-button  type="default" size="mini" class="mini-btn" disabled>
             按钮
-        </onekit_button>
-        <onekit_button  type="warn" size="mini" class="mini-btn warn" disabled>
+        </onekit-onekit-button>
+        <onekit-onekit-button  type="warn" size="mini" class="mini-btn warn" disabled>
             按钮
-        </onekit_button>
+        </onekit-onekit-button>
     </view>
 
     <view  class="btn-content">
-        <onekit_button  type="primary" class="btn primary">
+        <onekit-onekit-button  type="primary" class="btn primary">
             主操作按钮 默认态
-        </onekit_button>
-        <onekit_button  type="primary" loading="true" class="btn primary">
+        </onekit-onekit-button>
+        <onekit-onekit-button  type="primary" loading="true" class="btn primary">
             主操作按钮 loading
-        </onekit_button>
-        <onekit_button  type="primary" class="btn primary" disabled>
+        </onekit-onekit-button>
+        <onekit-onekit-button  type="primary" class="btn primary" disabled>
             主操作按钮 禁用态
-        </onekit_button>
-        <onekit_button  type="default" class="btn">
+        </onekit-onekit-button>
+        <onekit-onekit-button  type="default" class="btn">
             次要操作按钮 默认态
-        </onekit_button>
-        <onekit_button  type="default" class="btn" disabled>
+        </onekit-onekit-button>
+        <onekit-onekit-button  type="default" class="btn" disabled>
             次要操作按钮 禁用态
-        </onekit_button>
-        <onekit_button  type="warn" class="btn warn">
+        </onekit-onekit-button>
+        <onekit-onekit-button  type="warn" class="btn warn">
             警告类操作按钮 默认态
-        </onekit_button>
-        <onekit_button  type="warn" class="btn warn" disabled>
+        </onekit-onekit-button>
+        <onekit-onekit-button  type="warn" class="btn warn" disabled>
             警告类操作按钮 禁用态
-        </onekit_button>
+        </onekit-onekit-button>
     </view>
 
     <view  class="btn-bottom">
-        <onekit_button  type="default" class="middle-btn">按钮</onekit_button>
-        <onekit_button  type="default" class="middle-btn disabled">按钮</onekit_button>
+        <onekit-onekit-button  type="default" class="middle-btn">按钮</onekit-onekit-button>
+        <onekit-onekit-button  type="default" class="middle-btn disabled">按钮</onekit-onekit-button>
+    </view>
+</view> -->
+
+
+
+<view class="wrap">
+    <view class="card-area">
+        <view class="top-description border-bottom">
+            <view>主要按钮</view>
+            <view>primary</view>
+        </view>
+        <onekit-button type="primary" plain="false">
+            主按钮 normal
+        </onekit-button>
+        <onekit-button type="primary" loading>
+            主按钮 loading
+        </onekit-button>
+        <onekit-button type="primary" disabled>
+            主按钮 disabled
+        </onekit-button>
+    </view>
+</view>
+<view class="wrap">
+    <view class="card-area">
+        <view class="top-description border-bottom">
+            <view>次要按钮</view>
+            <view>default</view>
+        </view>
+        <onekit-button type="default" plain="false">
+            次按钮 normal
+        </onekit-button>
+        <onekit-button type="default" loading>
+            次按钮 loading
+        </onekit-button>
+        <onekit-button type="default" disabled>
+            次按钮 disabled
+        </onekit-button>
+    </view>
+</view>
+
+<view class="wrap">
+    <view class="card-area">
+        <view class="top-description border-bottom">
+            <view>警示按钮</view>
+            <view>warn</view>
+        </view>
+        <onekit-button type="warn">
+            警示按钮 normal
+        </onekit-button>
+        <onekit-button type="warn" loading>
+            警示按钮 loading
+        </onekit-button>
+        <onekit-button type="warn" disabled>
+            警示按钮 disabled
+        </onekit-button>
+    </view>
+</view>
+
+<view class="wrap">
+    <view class="card-area">
+        <view class="top-description border-bottom">
+            <view>小尺寸按钮</view>
+            <view>size='mini'</view>
+        </view>
+        <onekit-button type="primary" size="mini">
+            按钮 
+        </onekit-button>
+        <onekit-button type="default" size="mini">
+            按钮 
+        </onekit-button>
+        <onekit-button type="warn" size="mini">
+            按钮 
+        </onekit-button>
+    </view>
+</view>
+
+<view class="wrap">
+    <view class="card-area">
+        <view class="top-description border-bottom">
+            自定义点击态
+        </view>
+        <onekit-button type="primary" hover-class="none" bind:tap="tap">
+            无点击态
+        </onekit-button>
+        <onekit-button type="primary" hover-start-time="1000">
+            点击态延迟出现
+        </onekit-button>
+        <onekit-button type="primary" hover-stay-time="2000">
+            点击态延迟消失
+        </onekit-button>
     </view>
 </view>

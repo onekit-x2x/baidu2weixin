@@ -1,26 +1,75 @@
-import swan from "../../onekit/swan"
 /**
- * @file test for camera component
- * @author xiongyang
+ * @file demo component for camera
+ * @author swan
  */
 
-/* eslint-disable fecs-camelcase */
-/* globals Page, swan */
+let app = getApp();
+
 Page({
     data: {
-        hidden: true
+        src: '',
+        device: 'back',
+        videoSrc: ''
     },
-    changeShow() {
-        let showType = swan.getData(this,'hidden');
-        swan.setData(this,'hidden', !showType);
+    onLoad(e) {
+    },
+    onShow() {
+        // 打点操作
+        var openParams= app.globalData.openParams;
+        if (openParams) {
+            wx.reportAnalytics('pageshow', {
+                fr: openParams,
+                type: 'component',
+                name: 'camera',
+           });
+        }
+    },
+    onHide() {
+        getApp().globalData.openParams = ''
+    },
+    switchCamera() {
+        const devices = this.getData('device');
+        if (devices === 'back') {
+            this.setData({
+                device: 'front'
+            });
+        } else {
+            this.setData({
+                device: 'back'
+            });
+        }
     },
     takePhoto() {
-        const ctx = swan.createCameraContext();
+        const ctx = wx.createCameraContext();
         ctx.takePhoto({
             quality: 'high',
             success: res => {
-                swan.setData(this,{
+                this.setData({
                     src: res.tempImagePath
+                });
+            }
+        });
+    },
+    startRecord() {
+        const ctx = wx.createCameraContext();
+        ctx.startRecord({
+            success: res => {
+                wx.showToast({
+                    title: 'startRecord'
+                });
+            }
+        });
+    },
+    stopRecord() {
+        const ctx = wx.createCameraContext();
+        ctx.stopRecord({
+            success: res => {
+                wx.showModal({
+                    title: '提示',
+                    content: res.tempVideoPath
+                });
+                this.setData({
+                    videoSrc: res.tempVideoPath
                 });
             }
         });

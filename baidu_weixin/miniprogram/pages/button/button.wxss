@@ -50,3 +50,18 @@
 .btn-bottom{
   padding-bottom: 20px ;
 }
+
+/* 自定义组件的css，在该自定义组件内部生效 (custom.css) */
+
+.top-description{
+  display:flex;
+  justify-content:space-between;
+  padding:16rpx 16rpx;
+  font-family:PingFangSC-Medium;
+}
+.card-area {
+  background:#fff;
+  margin:17rpx 17rpx 0 17rpx;
+  border-radius:8px 8px;
+  overflow:hidden;
+}

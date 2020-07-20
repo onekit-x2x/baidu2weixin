@@ -1,8 +1,15 @@
-<view  class="wrap">
-    <view  wx:if="{{canvasShow}}" class="canvas-wrap {{canvasOff}}">
-        <canvas  canvas-id="myCanvas" class="canvas" bindtouchend="canvas" bindtouchmove="mvcan"></canvas>
-    </view>
-    <onekit_button  class="btn" type="primary" bindtap="showcanvas">展示canvas</onekit_button>
-    <onekit_button  class="btn" type="primary" bindtap="delcanvas">删除canvas</onekit_button>
-    <onekit_button  class="btn" type="primary" bindtap="sendadraw">执行一条绘制指令</onekit_button>
-</view>
+<onekit-view Class="wrap">
+    <onekit-view Class="card-area">
+        <onekit-canvas 
+            Class="canvas" 
+            canvas-id="myCanvas" 
+            disable-scroll="false" 
+            bindtouchstart="touchstart"
+            bindtouchmove="touchmove"
+            bindtouchend="touchend"
+            bindtouchcancel="touchcancel"
+            bindlongtap="longtap"
+            binderror="error">
+        </onekit-canvas>
+    </onekit-view>
+</onekit-view>

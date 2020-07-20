@@ -1,0 +1,9 @@
+<view
+id="view_id"
+class="onekit-radio-group {{Class}}"
+style="{{Style}}"
+bindclick="radio_click"
+>
+
+<slot></slot>
+</view>

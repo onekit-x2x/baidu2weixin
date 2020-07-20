@@ -1,0 +1,11 @@
+<form
+class="onekit-form {{Class}}"
+style="{{Style}}"
+report-submit="{{reportSubmit}}"
+
+report-type="{{reportType}}"
+template-id="{{templateId}}"
+subscribe-id="{{subscribeId}}"
+>
+<slot></slot>
+</form>

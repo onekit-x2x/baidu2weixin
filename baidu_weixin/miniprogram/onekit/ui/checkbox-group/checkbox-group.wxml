@@ -1,0 +1,8 @@
+<checkbox-group
+class="onekit-checkbox-group {{Class}}"
+style="{{Style}}"
+
+bindchange="checkboxGroup_change"
+>
+<slot></slot>
+</checkbox-group>

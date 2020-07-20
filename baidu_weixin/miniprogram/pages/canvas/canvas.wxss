@@ -1,18 +1,6 @@
-.wrap{
-  padding-top: 30px ;
-}
-.canvas-wrap{
-  margin: 0 23px ;
-}
-.canvas{
-  width: 100% ;
-  height: 100% ;
-  display: block ;
-  background: #fff ;
-}
-.btn{
-  margin: 15px 23px 0 ;
-}
-.canvas-off{
-  margin-top: 1rem ;
+.canvas {
+  width: 610rpx;
+  height: 610rpx;
+  margin-left: .3rem;
+  background-color: #fff;
 }
