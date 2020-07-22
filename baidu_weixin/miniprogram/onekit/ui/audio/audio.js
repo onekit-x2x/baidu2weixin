@@ -1,7 +1,7 @@
 Component({
-  // options: {
-  //         addGlobalClass: true,
-  //     },
+    options: {
+        styleIsolation: 'apply-shared'
+      },
       properties: {
           id: {
               type: String, 

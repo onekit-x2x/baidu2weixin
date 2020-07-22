@@ -33,10 +33,11 @@
     }
   },
   "pages": [
-    "pages/component/component",
     "pages/video/video",
-    "pages/camera/camera",
     "pages/image/image",
+    "pages/camera/camera",
+    "pages/audio/audio",
+    "pages/component/component",
     "pages/api/api",
     "pages/form/form",
     "pages/view/view",
@@ -90,7 +91,6 @@
     "pages/movableView/movableView",
     "pages/uploadFile/uploadFile",
     "pages/downloadFile/downloadFile",
-    "pages/audio/audio",
     "pages/map/map",
     "pages/chooseVideo/chooseVideo",
     "pages/getRecorderManager/getRecorderManager",

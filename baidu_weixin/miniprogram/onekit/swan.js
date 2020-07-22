@@ -1,12 +1,12 @@
 import onekit from "onekit"
 import swan_ai from "swan.ai"
-import CanvasContext from "./api/CanvasContext"
+// import CanvasContext from "./api/CanvasContext"
 import CameraContext from "./api/CameraContext"
 import InnerAudioContext from "./api/InnerAudioContext"
 import VideoContext from "./api/VideoContext"
 import LivePlayerContext from "./api/LivePlayerContext"
 
-import Context from "./api/Context"
+// import Context from "./api/Context"
 export default class swan {
   static getData(that, key) {
     return that.data[key];
