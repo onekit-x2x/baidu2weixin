@@ -33,11 +33,11 @@
     }
   },
   "pages": [
+    "pages/component/component",
     "pages/video/video",
     "pages/image/image",
     "pages/camera/camera",
     "pages/audio/audio",
-    "pages/component/component",
     "pages/api/api",
     "pages/form/form",
     "pages/view/view",
