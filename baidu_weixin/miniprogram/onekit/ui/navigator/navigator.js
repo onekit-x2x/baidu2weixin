@@ -1,7 +1,6 @@
 import swan from "../../../onekit/swan"
 Component({
   options: {
-    styleIsolation: 'apply-shared'
   },
   properties: {
     class:{

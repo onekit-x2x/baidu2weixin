@@ -1,6 +1,5 @@
 Component({
     options: {
-        styleIsolation: 'apply-shared'
       },
   properties: {
     src:{
