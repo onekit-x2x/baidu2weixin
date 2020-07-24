@@ -1,3 +1,6 @@
-<view style="width:330rpx;height:80rpx;">
-  广告
-</view>
+<ad
+class="onekit-ad {{Class}}"
+style="{{Style}}"
+unit-id="{{apid}}"
+
+></ad>
