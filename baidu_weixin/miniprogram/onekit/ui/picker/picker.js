@@ -4,7 +4,6 @@ Component({
    * 组件的属性列表
    */
   options: {
-    styleIsolation: 'apply-shared'
   },
   properties: {
     Class:{type:String,value:""},

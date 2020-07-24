@@ -1,8 +1,6 @@
 // onekit/ui/view/view.js
 Component({
   options: {
-    styleIsolation: 'apply-shared',
-    addGlobalClass: true
   },
   /**
    * 组件的属性列表
