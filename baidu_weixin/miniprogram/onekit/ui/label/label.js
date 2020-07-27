@@ -8,7 +8,7 @@ Component({
   properties: {
     Class:{type:String,value:""},
     Style:{type:String,value:""},
-    "for":{type:String,value:""}
+    for:{type:String,value:""}
   },
 
   /**

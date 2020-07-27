@@ -1,4 +1,8 @@
-.wrap{
+/* .wrap{
   font-size: 16px ;
   padding: 0 30px ;
+} */
+
+.slider {
+  margin: .3rem;
 }

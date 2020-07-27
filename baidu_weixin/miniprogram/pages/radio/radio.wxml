@@ -1,18 +1,63 @@
-<view  class="wrap">
-    <view  class="title">默认样式</view>
-    <radio-group  bindchange="radioChange" class="radio-group">
-        <radio  class="radio" checked>  选中</radio>
-        <radio  class="radio" checked="false">  未选中</radio>
-    </radio-group>
+    <custom chineseName="单项选择器" engName="radio"></custom>
+    <view class="wrap">
+        <view class="card-area">
+            <view class="top-description border-bottom">默认样式</view>
+            <view class="radio">
+                <onekit-radio-group>
+                    <onekit-radio checked>单选项一</onekit-radio>
+                    <onekit-radio Class="radio-before" >单选项二</onekit-radio>
+                </onekit-radio-group>
+            </view>
+        </view>
+        <view class="card-area">
+            <view class="top-description border-bottom">列表展示</view>
+            <view class="radio-area">
+                <onekit-radio-group>
+                    <onekit-radio Class="radio border-bottom" checked>单选项一</onekit-radio>
+                    <onekit-radio Class="radio border-bottom"  >单选项二</onekit-radio>
+                    <onekit-radio Class="radio border-bottom"  >单选项三</onekit-radio>
+                </onekit-radio-group>
+            </view>
+        </view>
+        <view class="card-area">
+            <view class="top-description border-bottom">
+                <view>包含禁用选项</view>
+                <view>disabled</view>
+            </view>
+            <view class="radio-area">
+                <onekit-radio-group>
+                    <onekit-radio Class="radio border-bottom" checked>可用选项</onekit-radio>
+                    <onekit-radio Class="radio border-bottom"  >可用选项</onekit-radio>
+                    <onekit-radio Class="radio"   disabled>
+                        <text class="disabledText">禁用选项</text>
+                    </onekit-radio>
+                </onekit-radio-group>
+            </view>
+        </view>
 
-    <view  class="title">推荐示例</view>
-    <view  class="item-wrap">
-        <radio-group  bindchange="radioChange">
-            <label  wx:for-item="item" wx:key="item" wx:for="{{items}}" class="radio-background-active" for="{{item.id}}">
-                <view  class="item">
-                    <radio  value="{{item.value}}" checked="{{item.checked}}" id="{{item.id}}">  {{item.text}}</radio>
-                </view>
-            </label>
-        </radio-group>
+        <view class="card-area">
+            <view class="top-description border-bottom">
+                <view>默认不选中</view>
+                <view> </view>
+            </view>
+            <view class="radio-area">
+                <onekit-radio-group>
+                    <onekit-radio Class="radio border-bottom" checked>单选项一</onekit-radio>
+                    <onekit-radio Class="radio border-bottom"  >单选项二</onekit-radio>
+                </onekit-radio-group>
+            </view>
+        </view>
+
+        <view class="card-area">
+            <view class="top-description border-bottom">
+                <view>自定义颜色</view>
+                <view>color="#00BC89"</view>
+            </view>
+            <view class="radio-area">
+                <onekit-radio-group>
+                    <onekit-radio Class="radio border-bottom" color="#00BC89" checked>单选项一</onekit-radio>
+                    <onekit-radio Class="radio border-bottom" color="#00BC89">单选项二</onekit-radio>
+                </onekit-radio-group>
+            </view>
+        </view>
     </view>
-</view>

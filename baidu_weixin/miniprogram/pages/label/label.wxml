@@ -1,36 +1,44 @@
-<view  class="wrap">
-    <view  class="page-section">
-        <view  class="page-section-title">表单组件在label内</view>
-        <onekit-checkbox-group  class="group">
-            <view  class="label-1 {{index === 0 ? 'label-first': ''}}" wx:for-index="index" wx:for-item="item" wx:key="item" wx:for="{{checkboxItems}}">
-              <onekit-label >
-                <onekit-checkbox  value="{{item.name}}" checked="{{item.checked}}"></onekit-checkbox>
-                <text  class="label-1-text">{{item.value}}</text>
-              </onekit-label>
-            </view>
-        </onekit-checkbox-group>
-    </view>
-    <view  class="page-section">
-        <view  class="page-section-title">label用for标识表单组件</view>
-        <radio-group  class="group">
-            <view  class="label-2 {{index === 0 ? 'label-first': ''}}" wx:for-index="index" wx:for-item="item" wx:key="item" wx:for="{{radioItems}}">
-              <radio  id="{{item.name}}" value="{{item.name}}" checked="{{item.checked}}"></radio>
-              <onekit-label  class="label-2-text" for="{{item.name}}"><text >{{item.value}}</text></onekit-label>
+<custom chineseName="表单组件标签" engName="label"></custom>
+<view class="wrap">
+    <view class="card-area">
+        <view class="top-description border-bottom">label用for标识表单组件</view>
+        <radio-group class="group">
+            <view class="label-2 {{index === 0 ? 'label-first': ''}}" wx:for="{{radioItems}}">
+                <onekit-label Class="block {{item.checked == 'true' ? 'border-bottom': ''}}">
+                    <radio id="{{item.name}}" value="{{item.name}}" checked="{{item.checked}}"></radio>
+                    <onekit-label Class="label-2-text" for="{{item.name}}"><text>{{item.value}}</text>
+                    </onekit-label>
+                </onekit-label>
             </view>
         </radio-group>
     </view>
-    <view  class="page-section">
-        <view  class="page-section-title">label内有多个时选中第一个</view>
-        <onekit-label  class="label-3">
-            <view  class="label-box">
-                <view  class="checkbox-3 label-first">
-                    <onekit-checkbox >选项一</onekit-checkbox>
-                </view>
-                <view  class="checkbox-3">
-                    <onekit-checkbox >选项二</onekit-checkbox>
-                </view>
+    <view class="card-area">
+        <view class="top-description border-bottom">表单组件在label内</view>
+        <checkbox-group class="group">
+            <view class="label-1 {{index === 0 ? 'label-first': ''}}" wx:for="{{checkboxItems}}">
+              <onekit-label Class="block {{item.checked == 'true' ? 'border-bottom': ''}}">
+                <checkbox value="{{item.name}}" checked="{{item.checked}}"></checkbox>
+                <text class="label-1-text">{{item.value}}</text>
+              </onekit-label>
             </view>
-            <view  class="label-3-text">点击该label下的文字默认选中第一个checkbox</view>
+        </checkbox-group>
+    </view>
+    <view class="card-area">
+        <view class="top-description border-bottom">label内有多个选项时，选中第一个</view>
+        <onekit-label Class="label-3">         
+            <onekit-label Class="label-box border-bottom">
+                <checkbox>选项一</checkbox>
+            </onekit-label>
+            <onekit-label Class="label-box border-bottom"> 
+                <checkbox>选项二</checkbox>
+            </onekit-label> 
+            <onekit-label Class="label-box border-bottom"> 
+                <checkbox>选项三</checkbox>      
+            </onekit-label>
+            <view class="near-button">
+                点击选中第一项
+            </view>
         </onekit-label>
     </view>
 </view>
+

@@ -1,8 +1,10 @@
 import swan from "../../onekit/swan"
 /**
- * @demo test for radio component
- * @author lvlei
+ * @file demo component for radio
+ * @author swan
  */
+/* globals Page, swan */
+let app = getApp();
 
 Page({
     data: {
@@ -17,21 +19,27 @@ Page({
                 value: 'have',
                 text: '未选中选项',
                 id: 2
-            },
-            {
-                value: 'none',
-                text: '未选中选项',
-                id: 3
             }
         ],
         result: []
     },
-
+    onLoad(e) {
+    },
+    onShow() {
+        // 打点操作
+        var openParams = app.globalData.openParams;
+        if (openParams) {
+            swan.reportAnalytics('pageshow', {
+                fr: openParams,
+                type: 'component',
+                name: 'radio',
+           });
+        }
+    },
+    onHide() {
+        getApp().globalData.openParams = ''
+    },
     radioChange: e => {
         console.log(e);
-    },
-
-    formSubmit: e => {
-        console.log('ljh', e);
     }
 });

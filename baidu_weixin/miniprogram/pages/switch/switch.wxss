@@ -1,25 +1,14 @@
-.wrap{
-  font-size: 16px ;
+.init-switch {
+  vertical-align: middle;
+  margin: .14rem 0 .14rem .17rem;
 }
-.init-switch{
-  margin: 0 05px 0 25px ;
-  vertical-align: middle ;
+.init-switch-after {
+  vertical-align: middle;
+  margin: .14rem 0 .14rem .5rem;
 }
-.switch-text{
-  vertical-align: -02px ;
+.switch-text {
+  vertical-align: -.02rem;
 }
-.item-wrap{
-  background: #fff ;
-}
-.item{
-  padding: 15px 0 ;
-  border-bottom: 1px #f5f5f5 solid ;
-  margin-left: 20px ;
-  position: relative ;
-}
-.switch{
-  position: absolute ;
-  top: 50% ;
-  right: 20px ;
-  transform: translateY(-50%) ;
+.switch-text-before {
+  margin-top: .17rem;
 }
