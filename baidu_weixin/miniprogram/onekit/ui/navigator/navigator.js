@@ -1,6 +1,6 @@
 import swan from "../../../onekit/swan"
 Component({
-  options: {
+  options: {  virtualHost: true
   },
   properties: {
     class:{

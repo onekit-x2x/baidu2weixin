@@ -3,13 +3,13 @@ Component({
   /**
    * 组件的属性列表
    */
-  options: {
+  options: {  virtualHost: true
+ 
   },
   properties: {
     Class:{type:String,value:""},
     Style:{type:String,value:""},
-    reportSubmit:{type:Boolean},
-
+    reportSubmit:{type:Boolean}
   },
 
   /**
@@ -23,6 +23,13 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    form_submit:function(){
+      console.log(e)
+      this.triggerEvent('submit',e)
+    },
+    form_rese:function(){
+      console.log(e)
+      this.triggerEvent('reset',e)
+    },
   }
 })

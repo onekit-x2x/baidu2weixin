@@ -17,4 +17,9 @@ cursor="{{cursor}}"
 selection-start="{{selectionStart}}"
 selection-end="{{selectionEnd}}"
 adjust-position="{{adjustPosition}}"
+
+bindinput="input_input"
+bindfocus="input_focus"
+bindblur="input_blur"
+bindconfirm="input_confirm"
 ></input>

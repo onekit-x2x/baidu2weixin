@@ -1,35 +1,87 @@
 
-<view  class="section">
-    <view  class="title">可以自动聚焦的input</view>
-    <onekit-input  class="ipt" placeholder="将会获取焦点" focus="autoFocus">{onekit_2}</onekit-input>
-</view>
+<view class="wrap">
+    <view class="card-area">
+        <view class="top-description border-bottom">基础用法</view>
+        <onekit-input class="ipt" placeholder="请在此输入标题"/>
+    </view>
+   
+    <view class="card-area">
+        <view class="top-description border-bottom">自定义输入控制</view>
+        <view class="list-area border-bottom">
+            <view class="list-item-key-4">自动聚焦</view>
+            <view class="list-item-value">
+                <onekit-input bindfocus="bindKeyfocus" selection-start="3" placeholder="focus='true'" selection-end="7"  confirm-hold="false" confirm-type="send"/>
+            </view> 
+        </view>
 
-<view  class="section">
-    <view  class="title">控制最大输入长度的input</view>
-    <onekit-input  class="ipt" maxlength="10" placeholder="最大输入长度为10">{onekit_2}</onekit-input>
-</view>
-<view  class="section">
-    <view  class="title">实时获取输入值：{{inputValue}}</view>
-    <onekit-input  class="ipt" bindinput="bindKeyInput" placeholder="输入同步到view中" maxlength="19">{onekit_2}</onekit-input>
-</view>
+        <view class="list-area border-bottom">
+            <view class="list-item-key-4">控制长度</view>
+            <view class="list-item-value">
+                <onekit-input cursor='100' bindblur="bindKeyblur"  bindconfirm="bindKeyconfirm" placeholder="maxlength='10'" maxlength="10"/>
+            </view> 
+        </view>
 
-<view  class="section">
-    <view  class="title">数字输入的input</view>
-    <onekit-input  class="ipt" type="number" placeholder="这是一个数字输入框">{onekit_2}</onekit-input>
-</view>
-<view  class="section">
-    <view  class="title">密码输入的input</view>
-    <onekit-input  class="ipt" password placeholder="这是一个密码输入框">{onekit_2}</onekit-input>
-</view>
-<view  class="section">
-    <view  class="title">带小数点的input</view>
-    <onekit-input  class="ipt" type="digit" placeholder="带小数点的数字键盘">{onekit_2}</onekit-input>
-</view>
-<view  class="section">
-    <view  class="title">身份证输入的input</view>
-    <onekit-input  class="ipt" type="idcard" placeholder="身份证输入键盘">{onekit_2}</onekit-input>
-</view>
-<view  class="section" style="padding-bottom: 20px;">
-    <view  class="title">控制占位符颜色的input</view>
-    <onekit-input  class="ipt" placeholder-style="color:red" placeholder="占位符字体是红色的">{onekit_2}</onekit-input>
+        <view class="list-area border-bottom">
+            <view class="list-item-key-4">禁用</view>
+            <view class="list-item-value">
+                <onekit-input disabled="true" placeholder="disabled='true'"/>
+            </view> 
+        </view>
+
+        <view class="list-area">
+            <view class="list-item-key-4">带有内容</view>
+            <view class="list-item-value">
+                <onekit-input value="value='{= value =}'"/>
+            </view> 
+        </view>
+    </view>
+
+    <view class="card-area">
+            <view class="top-description border-bottom">自定义输入内容</view>
+
+        <view class="list-area border-bottom">
+            <view class="list-item-key-4">文本</view>
+            <view class="list-item-value">
+                <onekit-input type="text" placeholder="type='text'" />
+            </view> 
+        </view>
+
+        <view class="list-area border-bottom">
+            <view class="list-item-key-4">数字</view>
+            <view class="list-item-value">
+                <onekit-input type="number" placeholder="type='number'" />
+            </view> 
+        </view>
+
+        <view class="list-area border-bottom">
+            <view class="list-item-key-4">身份证</view>
+            <view class="list-item-value">
+                <onekit-input type="idcard" adjust-position="true" placeholder="type='idcard'" />
+            </view>
+        </view>
+
+        <view class="list-area">
+            <view class="list-item-key-4">小数</view>
+            <view class="list-item-value">
+            <onekit-input type="digit" placeholder="type='digit'"/>
+            </view>
+        </view>
+    </view>
+
+    <view class="card-area">
+        <view class="top-description border-bottom">
+            <view>自定义占位符颜色</view>
+            <view>placeholder-style=color:"#3388FF"</view>
+        </view>
+        <onekit-input class="ipt" placeholder-class="placeholder" placeholder-style="color:#3388FF" placeholder="请在此输入" />
+    </view>
+
+    <view class="card-area">
+        <view class="top-description">
+            <view>实时获取输入值</view>
+            <view>bindinput="bindKeyInput"</view>
+        </view>
+        <view class="textarea">{{inputValue}}</view>
+        <onekit-input class="ipt" bindinput="bindKeyInput" placeholder="请在此输入内容" />
+    </view>
 </view>

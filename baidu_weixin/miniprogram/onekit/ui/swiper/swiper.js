@@ -3,7 +3,7 @@ Component({
   /**
    * 组件的属性列表
    */
-  options: {
+  options: {  virtualHost: true
   },
   properties: {
     Class:{type:String,value:''},

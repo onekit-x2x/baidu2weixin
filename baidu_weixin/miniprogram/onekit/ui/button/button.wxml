@@ -1,4 +1,6 @@
-<button wx:if="{{open-data}}"
+<!-- <button wx:if="{{open-data}}"
+  class="onekit-button Class {{Class}}"
+  style="{{Style}}"
   bindtap="button_bindTap"
   size="{{size}}"
   type="{{type}}"
@@ -35,4 +37,27 @@
   data-disabled="{{disabled}}"
   data-loading="{{loading}}">
  <slot/>
- </view>
+ </view> -->
+<button
+class="onekit-button Class {{Class}}"
+style="{{Style}}"
+bindtap="button_bindtap"
+  size="{{size}}"
+  type="{{type}}"
+  plain="{{plain}}"
+  form-type="{{formType}}"
+  openType="{{openType}}"
+  hover-class="{{hoverClass}}"
+  hover-stop-propagation="{{hoverStopPropagation}}"
+  hover-start-time="{{hoverStartTime}}"
+  hover-stay-time="{{hoverStayTime}}"
+  disabled="{{disabled}}"
+  loading="{{loading}}"
+
+  bindgetphonenumber="bindgetphonenumber"
+  bindgetuserinfo="bindgetuserinfo"
+  bindopensetting="bindopensetting"
+  bindcontact="bindcontact"
+  >
+ <slot/>
+</button> 

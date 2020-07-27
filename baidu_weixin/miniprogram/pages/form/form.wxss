@@ -1,4 +1,4 @@
-.wrap{
+/* .wrap{
   font-size: 16px ;
   background-color: white ;
 }
@@ -40,4 +40,45 @@ input{
 }
 .section-top{
   margin-top: 12px ;
+} */
+
+
+.item-scroll {
+  margin: .17rem;
+}
+
+.switch-text {
+  vertical-align: -.02rem;
+}
+
+.radio-item {
+  padding: .15rem 0;
+  margin: 0 .15rem;
+}
+
+.checkbox-item {
+  padding: .15rem 0;
+  margin: 0 .15rem;
+  display: block;
+}
+
+.input {
+  height: .51rem;
+  margin: 0;
+}
+
+.plh {
+  font-family: PingFangSC-Regular;
+  color: #CCC;
+  letter-spacing: 0;
+  line-height: .18rem;
+}
+
+.slider {
+  margin: .3rem;
+}
+
+.ipt {
+  height: .51rem;
+  margin: 0 .17rem;
 }

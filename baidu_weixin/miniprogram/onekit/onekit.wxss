@@ -293,7 +293,7 @@ display:block;
 
 
 
-/* nav */
+/* navigator */
 .onekit-navigator {
    display:block;
    width:auto;
@@ -435,9 +435,9 @@ display:block;
    width:300px;
    height:225px;
 }
-/* .onekit-canvas {
+.onekit-canvas {
    display:none;
-} */
+}
 
 /* ad */
 .onekit-ad {

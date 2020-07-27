@@ -1,5 +1,5 @@
 Component({
-    options: {
+    options: {  virtualHost: true
     
       },
       properties: {

@@ -3,7 +3,7 @@ Component({
   /**
    * 组件的属性列表
    */
-  options: {
+  options: {  virtualHost: true
     
   },
   properties: {
@@ -39,6 +39,23 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    input_input(e){
+      console.log("input_input",e)
+      this.triggerEvent("input",e.details)
+    },
+    input_focus(e){
+      console.log("input_focus",e)
+      this.triggerEvent("focu",e.details)
+    },
+    input_blur(e){
+      console.log("input_blur",e)
+      this.triggerEvent("blur",e.details)
+    },
+    input_confirm(e){
+      console.log("input_confirm",e)
+      this.triggerEvent("confirm",e.details)
+    },
+
 
   }
 })
