@@ -1,12 +1,10 @@
 <textarea
 class="onekit-input {{Class}}"
 style="{{Style}}"
-<<<<<<< HEAD
 
-=======
 id="{{Id}}"
 name="{{name}}"
->>>>>>> bfe817915d9d8e8e81548221f2cb69fc826d4c39
+
 value="{{value}}"
 placeholder="{{placeholder}}"
 placeholder-style="{{placeholderStyle}}"

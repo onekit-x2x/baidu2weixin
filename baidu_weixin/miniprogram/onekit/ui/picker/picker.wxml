@@ -1,9 +1,6 @@
 <picker
 class="onekit-picker {{Class}}"
 style="{{Style}}"
-<<<<<<< HEAD
-
-=======
 id="{{Id}}"
 range="{{range}}"
 range-key="{{rangeKey}}"
@@ -13,7 +10,7 @@ start="{{start}}"
 end="{{start}}"
 fields="{{fields}}"
 custom-item="{{customItem}}"
->>>>>>> bfe817915d9d8e8e81548221f2cb69fc826d4c39
+
 mode="{{mode}}"
 disabled="{{disabled}}"
 bindchange="piker_change"
