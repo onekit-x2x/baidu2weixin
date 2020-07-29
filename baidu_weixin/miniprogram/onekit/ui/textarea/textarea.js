@@ -10,7 +10,7 @@ Component({
     Class:{type:String,value:""},
     Style:{type:String,value:""},
     value:{type:String},
-    name:{type:String},
+
     placeholder:{type:String,value:""},
     placeholderStyle :{type:String,value:""},
     placeholderClass :{type:String,value:""},
@@ -40,6 +40,26 @@ Component({
    * 组件的方法列表
    */
   methods: {
+            textarea_focus(e){
+              console.log("textarea_focus", e);
+              this.triggerEvent('focus',e.details)
+              },
+              textarea_blur(e){
+              console.log("textarea_blur", e);
+              this.triggerEvent('blur',e.details)
+              },
+              textarea_linechange(e){
+              console.log("textarea_linechange", e);
+              this.triggerEvent('linechange',e.details)
+              },
+              textarea_input(e){
+              console.log("textarea_input", e);
+              this.triggerEvent('input',e.details)
+              },
+              textarea_confirm(e){
+              console.log("textarea_confirm", e);
+               this.triggerEvent('confirm',e.details)
+              },
 
   }
 })

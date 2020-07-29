@@ -1,50 +1,99 @@
-<view  class="wrap">
-    <view  class="title">时间选择</view>
-    <onekit-form >
-        <label  class="section" for="section1">
-            <onekit-picker  id="section1" mode="time" value="{{time}}" start="1:01" end="22:59" bindchange="timeChange">
-                <view  class="onekit-picker">
-                    <text  class="chooseItem">当前选择:</text>{{time}}
+<view class="wrap">
+    <view class="card-area">
+        <view class="top-description border-bottom">
+            <view>普通选择器</view>
+            <view>mode='selector'</view>
+        </view>
+        <view class="section" hover-class="section-active">
+            <onekit-picker mode="selector" value="{{arrIndex}}" range="{{selector}}" bindchange="selectorChange">
+                <view class="picker">
+                    <onekit-text Class='chooseItem'>请选择:</onekit-text>{{selector[arrIndex]}}
                 </view>
             </onekit-picker>
-        </label>
-    </onekit-form>
-    <view  class="title">日期选择</view>
-    <onekit-form >
-        <label  class="section date-section" for="section2">
-            <onekit-picker  id="section2" mode="date" value="{{dateDay}}" bindchange="dateChangeDay" fields="day">
-                <view >
-                    <text  class="chooseItem">当前选择:</text>{{dateDay}}
+        </view>
+    </view>
+
+    <view class="card-area">
+        <view class="top-description border-bottom">
+            <view>时间选择器</view>
+            <view>mode='time'</view>
+        </view>
+        <view class="section" hover-class="section-active">
+            <onekit-picker mode="time" value="{{time}}" start="1:01" end="22:59" bindchange="timeChange" >
+                <view class="picker">
+                    <onekit-text Class='chooseItem'>请选择时间:</onekit-text>{{time}}
                 </view>
             </onekit-picker>
-        </label>
-    </onekit-form>
-    <onekit-form >
-        <label  class="section date-section" for="section3">
-            <onekit-picker  id="section3" mode="date" value="{{dateMonth}}" bindchange="dateChangeMonth" fields="month">
-                <view >
-                    <text  class="chooseItem">当前选择:</text>{{dateMonth}}
+        </view>
+    </view>
+
+    <view class="card-area">
+        <view class="top-description border-bottom">
+            <view>日期选择器</view>
+            <view>mode='date'</view>
+        </view>
+        <view class="section date-section" hover-class="section-active">
+            <onekit-picker mode="date" value="{{dateDay}}" bindchange="dateChangeDay" fields="day">
+                <view>
+                    <onekit-text Class='chooseItem'>请选择日期:</onekit-text>{{dateDay}}
                 </view>
             </onekit-picker>
-        </label>
-    </onekit-form>
-    <onekit-form >
-        <label  class="section date-section" for="section4">
-            <onekit-picker  id="section4" mode="date" value="{{dateYear}}" bindchange="dateChangeYear" fields="year">
-                <view >
-                    <text  class="chooseItem">当前选择:</text>{{dateYear}}
+        </view>
+    </view>
+
+    <view class="card-area">
+        <view class="top-description border-bottom">
+            <view>多列选择器</view>
+            <view>mode='multiSelector'</view>
+        </view>
+        <view class="section date-section" hover-class="section-active">
+            <onekit-picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}" title="多列选择器">
+                <view class="picker">
+                    <onekit-text Class='chooseItem'>请选择:</onekit-text>{{multiArray[0][multiIndex[0]]}} {{multiArray[1][multiIndex[1]]}} {{multiArray[2][multiIndex[2]]}}
                 </view>
             </onekit-picker>
-        </label>
-    </onekit-form>
-    <view  class="title">地区选择</view>
-    <onekit-form >
-        <label  class="section" for="section5">
-            <onekit-picker  id="section5" mode="region" bindchange="regionChange" custom-item="{{customItem}}" title="地区选择器">
-                <view  class="picker">
-                    <text  class="chooseItem">当前选择:</text>{{regionData[0]}} {{regionData[1]}} {{regionData[2]}}
+        </view>
+    </view>
+
+    <view class="card-area">
+        <view class="top-description border-bottom">
+            <view>省市区选择器</view>
+            <view>mode='region'</view>
+        </view>
+        <view class="section" hover-class="section-active">
+            <onekit-picker mode="region" bindchange="regionChange" custom-item="{{customItem}}" title="地区选择器">
+                <view class="picker">
+                    <onekit-text Class='chooseItem'>请选择地区:</onekit-text>{{regionData[0]}} {{regionData[1]}} {{regionData[2]}}
                 </view>
             </onekit-picker>
-        </label>
-    </onekit-form>
+        </view>
+    </view>
+
+    <view class="card-area">
+        <view class="top-description border-bottom">
+            <view>设置禁用</view>
+            <view>disabled</view>
+        </view>
+        <view class="section" hover-class="section-active">
+            <onekit-picker mode="selector" class="disabled" value="{{arrIndex}}"  range="{{selector}}" bindchange="selectorChange">
+                <view class="picker">
+                    <onekit-text Class='chooseItem'>请选择:</onekit-text>{{selector[arrIndex]}}
+                </view>
+            </onekit-picker>
+        </view>
+    </view>
+
+    <view class="card-area">
+        <view class="top-description border-bottom">
+            <view>取消选择时触发提示</view>
+            <view>bindcancel</view>
+        </view>
+        <view class="section" hover-class="section-active">
+            <onekit-picker mode="selector" value="{{arrIndex}}" range="{{selector}}" bind:change="selectorChange"  bind:cancel="cancel">
+                <view class="picker">
+                    <onekit-text Class='chooseItem'>请选择:</onekit-text>{{selector[arrIndex]}}
+                </view>
+            </onekit-picker>
+        </view>
+    </view>
 </view>

@@ -1,27 +1,28 @@
-.wrap{
-  font-size: 16px ;
+.wrap {
+  font-size: 16px;
 }
-.date-section{
-  margin-bottom: 10px ;
+
+.maskStyle {
+  color: #74fa7d;
 }
-.section{
-  height: 60px ;
-  line-height: 60px ;
-  font-size: 18px ;
-  background: #fff ;
-  display: flex ;
+
+.item {
+  line-height: .46rem;
+  text-align: center;
 }
-.section:active{
-  background-color: #f2f2f2 ;
+.selected-date {
+  text-align: center;
+  margin: 30px;
 }
-.section-title{
-  color: #000 ;
-  flex: 0 0 1rem ;
+
+.icon-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-picker{
-  width: 100% ;
-  padding: 0 22px ;
-}
-.chooseItem{
-  margin-right: 20px ;
+
+.picker-icon {
+  width: 50px;
+  height: 50px;
 }

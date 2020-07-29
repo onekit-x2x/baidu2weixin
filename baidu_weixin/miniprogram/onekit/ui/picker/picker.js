@@ -8,16 +8,10 @@ Component({
   properties: {
     Class:{type:String,value:""},
     Style:{type:String,value:""},
-    title:{type:String},
-    range:{type:Array},
-    rangeKey:{type:String},
-    value:{type:Number,value:0},
-    disabled:{type:Boolean,value:Boolean},
-    start:{type:String},
-    end:{type:String},
-    fields:{type:String},
+    value:{type:String,value:""},
+    disabled:{type:Boolean,value:false},
     mode:{type:String,value:"selector"},
-    customItem:{type:String}
+    
   },
 
   /**
@@ -31,8 +25,14 @@ Component({
    * 组件的方法列表
    */
   methods: {
+   
     piker_change(e){
       this.triggerEvent("Change",{})
-    }
+    },
+    piker_cancel(e){
+      this.triggerEvent("cancel",{})
+    },
   }
 })
+
+
