@@ -1,2 +1,5 @@
-<!--onekit/ui/web-view/web-view.wxml-->
-<text>onekit/ui/web-view/web-view.wxml</text>
+<view
+class="onekit-web-view {{Class}}"
+style="{{Style}}"
+id="{{Id}}"
+></view>
