@@ -7,8 +7,18 @@ Component({
   
   },
   properties: {
-    Class:{type:String,value:""},
-    Style:{type:String,value:""},
+    Class: {
+      type: String,
+      value: ""
+    },
+    Style: {
+      type: String,
+      value: ""
+    },
+    Id: {
+      type: String,
+      value: ""
+    },
     value:{type:String},
     checked:{type:Boolean,value:false},
     disabled:{type:Boolean,value:false},

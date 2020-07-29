@@ -1,6 +1,7 @@
 <canvas
 class="onekit-canvas {{Class}}"
 style="{{Style}}"
+id="{{Id}}"
 canvas-id="{{canvasId}}"
 disable-scroll="{{disableScroll}}"
 >

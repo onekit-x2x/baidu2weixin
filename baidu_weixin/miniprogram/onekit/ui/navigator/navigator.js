@@ -3,13 +3,17 @@ Component({
   options: {  virtualHost: true
   },
   properties: {
-    class:{
-      type:String,
-      value:""
+    Class: {
+      type: String,
+      value: ""
     },
-    Style:{
-      type:String,
-      value:""
+    Style: {
+      type: String,
+      value: ""
+    },
+    Id: {
+      type: String,
+      value: ""
     },
     // 在哪个目标上发生跳转，默认当前小程序
     target: {

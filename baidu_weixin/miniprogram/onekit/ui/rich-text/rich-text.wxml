@@ -1,6 +1,7 @@
 <rich-text
 class="onekit-rich-text {{Class}}"
 style="{{style}}"
+id="{{Id}}"
 nodes="{{nodes}}"
 selectable="{{selectable}}"
 name="{{name}}"
