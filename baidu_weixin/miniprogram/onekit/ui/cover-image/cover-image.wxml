@@ -1,6 +1,7 @@
 <cover-image
 class="onekit-cover-image {{Class}}"
 style="{{Style}}"
+id="{{Id}}"
 src="{{src}}"
 bindload="coverImage_load"
 binderror="coverImage_error"

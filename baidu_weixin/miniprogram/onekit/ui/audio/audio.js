@@ -3,9 +3,17 @@ Component({
     
       },
       properties: {
-          id: {
-              type: String, 
-              value: "",
+        Class:{
+            type:String,
+            value:""
+          },
+          Style:{
+            type:String,
+            value:""
+          },
+          Id:{
+            type:String,
+            value:""
           },
           src: {
               type: String, 

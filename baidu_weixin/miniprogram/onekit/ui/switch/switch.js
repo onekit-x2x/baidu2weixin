@@ -6,8 +6,18 @@ Component({
   options: {  virtualHost: true
   },
   properties: {
-    Class:{type:String,value:""},
-    Style:{type:String,value:""},
+    Class: {
+      type: String,
+      value: ""
+    },
+    Style: {
+      type: String,
+      value: ""
+    },
+    Id: {
+      type: String,
+      value: ""
+    },
     checked:{type:Boolean,value:false},
     type:{type:String,value:"switch"},
     disabled:{type:Boolean,value:false},

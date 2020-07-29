@@ -1,6 +1,7 @@
 <image 
 class="onekit-image {{Class}}"
 style="{{Style}}"
+id="{{Id}}"
 mode="{{mode}}" 
 src="{{src}}"
 webp="{{webp}}"

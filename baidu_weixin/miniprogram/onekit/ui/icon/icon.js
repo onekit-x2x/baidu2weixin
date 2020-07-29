@@ -1,12 +1,22 @@
 
 Component({
-  mixins: [],
-  data: {},
-  props: {},
-  didMount() {},
-  didUpdate() {
+  options: {
+    virtualHost: true
+
   },
-  didUnmount() {},
-  methods: {},
+properties:{
+  Class: {
+    type: String,
+    value: ""
+  },
+  Style: {
+    type: String,
+    value: ""
+  },
+  Id: {
+    type: String,
+    value: ""
+  },
+}
   
 });

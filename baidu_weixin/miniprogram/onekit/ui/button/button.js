@@ -8,8 +8,18 @@ Component({
   },
   detached() { },
   properties: {
-    Class:{type:String,value:""},
-    Style:{type:String,value:""},
+    Class:{
+      type:String,
+      value:""
+    },
+    Style:{
+      type:String,
+      value:""
+    },
+    Id:{
+      type:String,
+      value:""
+    },
     size: { type: String, value: "default" },
     type: { type: String, value: "default" },
     plain: { type: Boolean, value: false },
