@@ -33,7 +33,7 @@
     }
   },
   "pages": [
-    "pages/picker/picker"
+    "pages/input/input"
   ],
   "window": {
     "navigationBarBackgroundColor": "#ffffff",
