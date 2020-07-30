@@ -12,3 +12,4 @@ $RECYCLE.BIN/
 
 # Node.js
 node_modules/
+baidu_weixin/miniprogram/project.config.json
