@@ -1,6 +1,6 @@
 <label
-class="onekit-label {{Class}}"
-style="{{Style}}"
+class="onekit-label {{onekitClass}}"
+style="{{onekitStyle}}"
 id="{{Id}}"
 for="{{for}}"
 >

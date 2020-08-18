@@ -1,6 +1,6 @@
 	<navigator
-  class="onekit-navigator {{Class}}"
-  style="{{Style}}"
+  class="onekit-navigator {{onekitClass}}"
+  style="{{onekitStyle}}"
   id="{{Id}}"
   target="{{target}}"
   url="{{url}}"

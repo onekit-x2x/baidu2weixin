@@ -1,6 +1,6 @@
 <slider
-class="onekit-slider {{Class}}"
-style="{{Style}}"
+class="onekit-slider {{onekitClass}}"
+style="{{onekitStyle}}"
 id="{{Id}}"
 min="{{min}}"
 max="{{max}}"

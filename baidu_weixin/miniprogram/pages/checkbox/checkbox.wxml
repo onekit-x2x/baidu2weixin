@@ -1,14 +1,14 @@
 <view  class="wrap">
     <view  class="title">默认样式</view>
-    <onekit-checkbox-group  bindchange="radioChange" Class="checkbox-group">
-        <onekit-checkbox  Class="checkbox" checked>  选中</onekit-checkbox>
-        <onekit-checkbox  Class="checkbox" >  未选中</onekit-checkbox>
+    <onekit-checkbox-group  bindchange="radioChange" onekit-class="checkbox-group">
+        <onekit-checkbox  onekit-class="checkbox" checked>  选中</onekit-checkbox>
+        <onekit-checkbox  onekit-class="checkbox" >  未选中</onekit-checkbox>
     </onekit-checkbox-group>
 
     <view  class="title">推荐示例</view>
     <view  class="item-wrap">
         <view  class="check" wx:for-item="item" wx:key="item" wx:for="{{items}}">
-            <onekit-checkbox  Class="check-box" value="{{item.value}}" checked="{{item.checked}}" id="{{item.id}}">{{item.text}}</onekit-checkbox>
+            <onekit-checkbox  onekit-class="check-box" value="{{item.value}}" checked="{{item.checked}}" id="{{item.id}}">{{item.text}}</onekit-checkbox>
         </view>
     </view>
 </view>

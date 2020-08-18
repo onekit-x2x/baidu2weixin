@@ -1,7 +1,7 @@
 
 <form
-class="onekit-form {{Class}}"
-style="{{Style}}"
+class="onekit-form {{onekitClass}}"
+style="{{onekitStyle}}"
 id="{{Id}}"
 report-submit="{{reportSubmit}}"
 report-submit-timeout="{{report-submit-timeout}}"

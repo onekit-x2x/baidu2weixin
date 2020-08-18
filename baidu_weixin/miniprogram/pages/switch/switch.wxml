@@ -2,20 +2,20 @@
 <view class="wrap">
     <view class="card-area">
         <view class="top-description border-bottom">默认样式</view>
-         <onekit-switch Class="init-switch" checked  ></onekit-switch>
+         <onekit-switch onekit-class="init-switch" checked  ></onekit-switch>
         <text class="switch-text">已开启</text>
-         <onekit-switch Class="init-switch-after"></onekit-switch>
+         <onekit-switch onekit-class="init-switch-after"></onekit-switch>
         <text class="switch-text">已关闭</text>
     </view>
     <view class="card-area">
         <view class="top-description border-bottom">列表展示</view>
         <view class="item-scroll border-bottom">
             <text class="switch-text switch-text-before">已开启</text>
-             <onekit-switch Class="init-switch" checked  ></onekit-switch>
+             <onekit-switch onekit-class="init-switch" checked  ></onekit-switch>
         </view>
         <view class="item-scroll">
             <text class="switch-text switch-text-before">已关闭</text>
-             <onekit-switch Class="init-switch"></onekit-switch>     
+             <onekit-switch onekit-class="init-switch"></onekit-switch>     
         </view>
     </view>
     <view class="card-area">
@@ -25,11 +25,11 @@
         </view>
         <view class="item-scroll border-bottom">
             <text class="switch-text switch-text-before">已开启</text>
-             <onekit-switch Class="init-switch" checked color="#C3D1FF" disabled></onekit-switch>
+             <onekit-switch onekit-class="init-switch" checked color="#C3D1FF" disabled></onekit-switch>
         </view>
         <view class="item-scroll">
             <text class="switch-text switch-text-before">已关闭</text>
-             <onekit-switch Class="init-switch" disabled></onekit-switch>     
+             <onekit-switch onekit-class="init-switch" disabled></onekit-switch>     
         </view>
     </view>
     <view class="card-area">
@@ -39,11 +39,11 @@
         </view>
          <view class="item-scroll border-bottom">
             <text class="switch-text switch-text-before">已开启</text>
-             <onekit-switch Class="init-switch" checked color="#00BC89"></onekit-switch>
+             <onekit-switch onekit-class="init-switch" checked color="#00BC89"></onekit-switch>
         </view>
         <view class="item-scroll">
             <text class="switch-text switch-text-before">已关闭</text>
-             <onekit-switch Class="init-switch" color="#00BC89"></onekit-switch>     
+             <onekit-switch onekit-class="init-switch" color="#00BC89"></onekit-switch>     
         </view>
     </view>
 </view>

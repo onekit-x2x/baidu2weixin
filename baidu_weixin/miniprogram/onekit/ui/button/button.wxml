@@ -1,6 +1,6 @@
 <!-- <button wx:if="{{open-data}}"
-  class="onekit-button Class {{Class}}"
-  style="{{Style}}"
+  class="onekit-button Class {{onekitClass}}"
+  style="{{onekitStyle}}"
   bindtap="button_bindTap"
   size="{{size}}"
   type="{{type}}"
@@ -39,8 +39,8 @@
  <slot/>
  </view> -->
 <button
-class="onekit-button Class {{Class}}"
-style="{{Style}}"
+class="onekit-button Class {{onekitClass}}"
+style="{{onekitStyle}}"
 id="{{Id}}"
 bindtap="button_bindtap"
   size="{{size}}"

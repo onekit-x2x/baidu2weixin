@@ -6,11 +6,11 @@ Component({
   options: {  virtualHost: true
   },
   properties: {
-    Class: {
+    onekitClass: {
       type: String,
       value: ""
     },
-    Style: {
+    onekitStyle: {
       type: String,
       value: ""
     },

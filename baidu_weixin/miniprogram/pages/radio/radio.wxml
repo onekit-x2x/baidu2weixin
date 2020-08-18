@@ -5,7 +5,7 @@
             <view class="radio">
                 <onekit-radio-group>
                     <onekit-radio checked>单选项一</onekit-radio>
-                    <onekit-radio Class="radio-before" >单选项二</onekit-radio>
+                    <onekit-radio onekit-class="radio-before" >单选项二</onekit-radio>
                 </onekit-radio-group>
             </view>
         </view>
@@ -13,9 +13,9 @@
             <view class="top-description border-bottom">列表展示</view>
             <view class="radio-area">
                 <onekit-radio-group>
-                    <onekit-radio Class="radio border-bottom" checked>单选项一</onekit-radio>
-                    <onekit-radio Class="radio border-bottom"  >单选项二</onekit-radio>
-                    <onekit-radio Class="radio border-bottom"  >单选项三</onekit-radio>
+                    <onekit-radio onekit-class="radio border-bottom" checked>单选项一</onekit-radio>
+                    <onekit-radio onekit-class="radio border-bottom"  >单选项二</onekit-radio>
+                    <onekit-radio onekit-class="radio border-bottom"  >单选项三</onekit-radio>
                 </onekit-radio-group>
             </view>
         </view>
@@ -26,9 +26,9 @@
             </view>
             <view class="radio-area">
                 <onekit-radio-group>
-                    <onekit-radio Class="radio border-bottom" checked>可用选项</onekit-radio>
-                    <onekit-radio Class="radio border-bottom"  >可用选项</onekit-radio>
-                    <onekit-radio Class="radio"   disabled>
+                    <onekit-radio onekit-class="radio border-bottom" checked>可用选项</onekit-radio>
+                    <onekit-radio onekit-class="radio border-bottom"  >可用选项</onekit-radio>
+                    <onekit-radio onekit-class="radio"   disabled>
                         <text class="disabledText">禁用选项</text>
                     </onekit-radio>
                 </onekit-radio-group>
@@ -42,8 +42,8 @@
             </view>
             <view class="radio-area">
                 <onekit-radio-group>
-                    <onekit-radio Class="radio border-bottom" checked>单选项一</onekit-radio>
-                    <onekit-radio Class="radio border-bottom"  >单选项二</onekit-radio>
+                    <onekit-radio onekit-class="radio border-bottom" checked>单选项一</onekit-radio>
+                    <onekit-radio onekit-class="radio border-bottom"  >单选项二</onekit-radio>
                 </onekit-radio-group>
             </view>
         </view>
@@ -55,8 +55,8 @@
             </view>
             <view class="radio-area">
                 <onekit-radio-group>
-                    <onekit-radio Class="radio border-bottom" color="#00BC89" checked>单选项一</onekit-radio>
-                    <onekit-radio Class="radio border-bottom" color="#00BC89">单选项二</onekit-radio>
+                    <onekit-radio onekit-class="radio border-bottom" color="#00BC89" checked>单选项一</onekit-radio>
+                    <onekit-radio onekit-class="radio border-bottom" color="#00BC89">单选项二</onekit-radio>
                 </onekit-radio-group>
             </view>
         </view>

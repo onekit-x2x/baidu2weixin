@@ -1,6 +1,6 @@
   <picker-view-column 
-  class="onekit-picker-view-column {{Class}}" 
-  style="{{Style}}"
+  class="onekit-picker-view-column {{onekitClass}}" 
+  style="{{onekitStyle}}"
   id="{{Id}}"
 
   >

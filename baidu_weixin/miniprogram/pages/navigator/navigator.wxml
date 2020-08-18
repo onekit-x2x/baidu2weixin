@@ -1,6 +1,6 @@
 <custom chineseName="页面导航" engName="navigator"></custom>
-<onekit-view Class="wrap">
-    <onekit-view Class="card-area">
+<onekit-view onekit-class="wrap">
+    <onekit-view onekit-class="card-area">
         <button type="primary">
             <onekit-navigator 
                 target="self" 

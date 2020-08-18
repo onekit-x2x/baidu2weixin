@@ -1,6 +1,6 @@
 <view
-class="onekit-view {{Class}}"
-style="{{Style}}"
+class="onekit-view {{onekitClass}}"
+style="{{onekitStyle}}"
 id="{{Id}}"
 hover-class="{{hoverClass}}"
 hover-start-time="{{hoverStarTime}}"

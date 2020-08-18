@@ -11,28 +11,28 @@
 <view class="wrap">
     <view class="card-area">
         <view class="top-description border-bottom">默认样式</view>
-        <onekit-slider Class="slider" min="0" max="1500" value="200" step="30" bindchange="sliderChange" ></onekit-slider>
+        <onekit-slider onekit-class="slider" min="0" max="1500" value="200" step="30" bindchange="sliderChange" ></onekit-slider>
     </view>
     <view class="card-area">
         <view class="top-description border-bottom">
             <view>显示当前取值</view>
             <view>show-value</view>
         </view>
-        <onekit-slider Class="slider" min="0" max="200" value="30" show-value step="30" bindchange="sliderChange"  ></onekit-slider>
+        <onekit-slider onekit-class="slider" min="0" max="200" value="30" show-value step="30" bindchange="sliderChange"  ></onekit-slider>
     </view>
     <view class="card-area">
         <view class="top-description border-bottom">
             <view>自定义最大/最小值</view>
             <view>min="200" max="1500"</view>
         </view>
-        <onekit-slider Class="slider" min="200" max="1500" value="400"  show-value step="30" bindchange="sliderChange"  ></onekit-slider>
+        <onekit-slider onekit-class="slider" min="200" max="1500" value="400"  show-value step="30" bindchange="sliderChange"  ></onekit-slider>
     </view>
     <view class="card-area">
         <view class="top-description border-bottom">
             <view>自定义步长</view>
             <view>step="30"</view>
         </view>
-        <onekit-slider Class="slider" min="0" max="1500" value="200" step="30" bindchange="sliderChange"  ></onekit-slider>
+        <onekit-slider onekit-class="slider" min="0" max="1500" value="200" step="30" bindchange="sliderChange"  ></onekit-slider>
     </view>
 
     <view class="card-area">
@@ -40,6 +40,6 @@
             <view>自定义样式</view>
             <view>block-size="16"  block-color="#3388FF"</view>
         </view>
-        <onekit-slider Class="slider"  min="0" max="1500" value="200" step="30" block-size="16"  block-color="#3388FF" bindchange="sliderChange"  ></onekit-slider>
+        <onekit-slider onekit-class="slider"  min="0" max="1500" value="200" step="30" block-size="16"  block-color="#3388FF" bindchange="sliderChange"  ></onekit-slider>
     </view>
 </view>

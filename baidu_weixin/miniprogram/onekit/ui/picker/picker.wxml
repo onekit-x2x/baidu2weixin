@@ -1,6 +1,6 @@
 <picker
-class="onekit-picker {{Class}}"
-style="{{Style}}"
+class="onekit-picker {{onekitClass}}"
+style="{{onekitStyle}}"
 id="{{Id}}"
 range="{{range}}"
 range-key="{{rangeKey}}"

@@ -1,6 +1,6 @@
 <picker-view
-class="onekit-picker-view {{Class}}"
-style="{{Style}}"
+class="onekit-picker-view {{onekitClass}}"
+style="{{onekitStyle}}"
 id="{{Id}}"
 value="{{value}}"
 indicator-style="{{indicatorStyle}}"

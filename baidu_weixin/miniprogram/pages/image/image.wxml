@@ -1,20 +1,20 @@
-<view Class="wrap">
-    <view Class="mode-title" Style="margin-top:.2rem">
-        <view Class="mode-title-line-left"></view>
-        <view Class="mode-title-text">自定义缩放模式</view>
-        <view Class="mode-title-line-right"></view>
+<view onekit-class="wrap">
+    <view onekit-class="mode-title" onekit-Style="margin-top:.2rem">
+        <view onekit-class="mode-title-line-left"></view>
+        <view onekit-class="mode-title-text">自定义缩放模式</view>
+        <view onekit-class="mode-title-line-right"></view>
     </view>
-    <view Class="card-area" wx:for="{{scaleArray}}">
-        <onekit-image Class="image-area {{item.hasBackgroud == 1 ? 'backGround': ''}}" data-name="{{item.mode}}" bindtap="onTap" mode="{{item.mode}}" src="{{src}}" binderror="imageError" bindload="imageLoad" />
-        <view Class="bottom-description">{{item.text}}</view>
+    <view onekit-class="card-area" wx:for="{{scaleArray}}">
+        <onekit-image onekit-class="image-area {{item.hasBackgroud == 1 ? 'backGround': ''}}" data-name="{{item.mode}}" bindtap="onTap" mode="{{item.mode}}" src="{{src}}" binderror="imageError" bindload="imageLoad" />
+        <view onekit-class="bottom-description">{{item.text}}</view>
     </view>
-    <view Class="mode-title" Style="margin-top: .5rem">
-        <view Class="mode-title-line-left"></view>
-        <view Class="mode-title-text">不缩放图片，自定义裁切模式</view>
-        <view Class="mode-title-line-right"></view>
+    <view onekit-class="mode-title" onekit-Style="margin-top: .5rem">
+        <view onekit-class="mode-title-line-left"></view>
+        <view onekit-class="mode-title-text">不缩放图片，自定义裁切模式</view>
+        <view onekit-class="mode-title-line-right"></view>
     </view>
-    <view Class="card-area" wx:for="{{cutArray}}">
-        <onekit-image Class="image-area" data-name="{{item.mode}}" bindtap="onTap" mode="{{item.mode}}" src="{{src}}" binderror="imageError" bindload="imageLoad" />
-        <view Class="bottom-description">{{item.text}}</view>
+    <view onekit-class="card-area" wx:for="{{cutArray}}">
+        <onekit-image onekit-class="image-area" data-name="{{item.mode}}" bindtap="onTap" mode="{{item.mode}}" src="{{src}}" binderror="imageError" bindload="imageLoad" />
+        <view onekit-class="bottom-description">{{item.text}}</view>
     </view>
 </view>

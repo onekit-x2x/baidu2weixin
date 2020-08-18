@@ -1,6 +1,6 @@
 <scroll-view
-class="onekit-scroll-view {{Class}}"
-style="{{Style}}"
+class="onekit-scroll-view {{onekitClass}}"
+style="{{onekitStyle}}"
 id="{{Id}}"
 scroll-y="{{scrollY}}"
 scroll-x="{{scrollX}}"

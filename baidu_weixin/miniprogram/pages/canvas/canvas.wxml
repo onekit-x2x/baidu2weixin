@@ -1,7 +1,7 @@
-<onekit-view Class="wrap">
-    <onekit-view Class="card-area">
+<onekit-view onekit-class="wrap">
+    <onekit-view onekit-class="card-area">
         <onekit-canvas 
-            Class="canvas" 
+            onekit-class="canvas" 
             canvas-id="myCanvas" 
             disable-scroll="false" 
             bindtouchstart="touchstart"

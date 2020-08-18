@@ -1,6 +1,6 @@
 <progress 
-class="onekit-progress {{Class}}" 
-style="{{Style}}"
+class="onekit-progress {{onekitClass}}" 
+style="{{onekitStyle}}"
 id="{{Id}}"
 percent="{{percent}}"
 show-info="{{showInfo}}"

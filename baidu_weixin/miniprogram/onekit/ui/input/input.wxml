@@ -1,6 +1,6 @@
 <input
-class="onekit-input {{Class}}"
-style="{{Style}}"
+class="onekit-input {{onekitClass}}"
+style="{{onekitStyle}}"
 id="{{Id}}"
 value="{{value}}"
 type="{{type}}"

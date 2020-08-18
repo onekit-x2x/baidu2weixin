@@ -1,6 +1,6 @@
-<onekit-view Class="wrap">
-    <onekit-view Class="video-wrap">
-        <onekit-video Style="width: 100%;"
+<onekit-view onekit-class="wrap">
+    <onekit-view onekit-class="video-wrap">
+        <onekit-video onekit-Style="width: 100%;"
                id="myVideo"
                src="{{src}}"
                initial-time="{{initialTime}}"
@@ -32,44 +32,44 @@
         </onekit-video>
     </onekit-view>
     <form bindreset="cleanInput">
-        <onekit-view Class="swan-cells">
-            <onekit-view Class="swan-cell swan-cell_input">
-                <onekit-view Class="swan-cell__hd">
-                    <onekit-view Class="swan-label">弹幕内容</onekit-view>
+        <onekit-view onekit-class="swan-cells">
+            <onekit-view onekit-class="swan-cell swan-cell_input">
+                <onekit-view onekit-class="swan-cell__hd">
+                    <onekit-view onekit-class="swan-label">弹幕内容</onekit-view>
                 </onekit-view>
-                <onekit-view Class="swan-cell__bd">
-                    <input bindinput="bindInput" Class="swan-input" type="text" value="baidu" placeholder="在此处输入弹幕内容" />
+                <onekit-view onekit-class="swan-cell__bd">
+                    <input bindinput="bindInput" onekit-class="swan-input" type="text" value="baidu" placeholder="在此处输入弹幕内容" />
                 </onekit-view>
             </onekit-view>
         </onekit-view>
-        <onekit-view Class="btn-area">
-        <button Class="page-body-button" type="primary" formTypclasse="reset">发送弹幕</button>
+        <onekit-view onekit-class="btn-area">
+        <button onekit-class="page-body-button" type="primary" formTypclasse="reset">发送弹幕</button>
 
-            <onekit-view Class="page-section-btns bottom-border">
+            <onekit-view onekit-class="page-section-btns bottom-border">
                 <onekit-view hover-class="hover" bindtap="initialTime">指定初始播放位置为20</onekit-view>
                 <onekit-view hover-class="hover" bindtap="controls">显示默认播放控件</onekit-view>
                 <onekit-view hover-class="hover" bindtap="loop">设置循环播放</onekit-view>
             </onekit-view>
             
-            <onekit-view Class="page-section-btns bottom-border">
+            <onekit-view onekit-class="page-section-btns bottom-border">
                 <onekit-view hover-class="hover" bindtap="voice">点击{{voice ? '有音':'无音'}}</onekit-view>
                 <onekit-view hover-class="hover" data-set="contain" bindtap="objectFit">包含容器</onekit-view>
                 <onekit-view hover-class="hover" data-set="fill" bindtap="objectFit">填充容器</onekit-view>
             </onekit-view>
 
-            <onekit-view Class="page-section-btns bottom-border">
+            <onekit-view onekit-class="page-section-btns bottom-border">
                 <onekit-view hover-class="hover" data-set="cover" bindtap="objectFit">覆盖容器</onekit-view>
                 <onekit-view hover-class="hover" bindtap="pageGesture">开启手势调节亮度与音量</onekit-view>
                 <onekit-view hover-class="hover" bindtap="fullscreenBtn">{{fullscreenBtn?'不显示':'显示'}}全屏按钮</onekit-view>
             </onekit-view>
                
-            <onekit-view  Class="page-section-btns bottom-border">
+            <onekit-view  onekit-class="page-section-btns bottom-border">
                 <onekit-view hover-class="hover" bindtap="progressGesture">去掉全屏播放时手势控制进度</onekit-view>
                 <onekit-view hover-class="hover" bindtap="playBtn">{{playBtn ? '': '不'}}显示视频底部控制栏的播放按钮</onekit-view>
                 <onekit-view hover-class="hover" bindtap="centerPlayBtn">{{centerPlayBtn ? '': '不'}}显示视频中间的播放按钮</onekit-view>
             </onekit-view>
 
-            <onekit-view Class="page-section-btns bottom-border">
+            <onekit-view onekit-class="page-section-btns bottom-border">
                 <onekit-view hover-class="hover" bindtap="noWifiTip">wifi/4g浮层</onekit-view>
                 <onekit-view hover-class="hover" bindtap="nextVideo">切换视频地址</onekit-view>
             </onekit-view>

@@ -2,7 +2,7 @@
 <view class="wrap">
     <view class="card-area">
         <view class="top-description border-bottom">基础用法</view>
-        <onekit-input class="ipt" placeholder="请在此输入标题"/>
+        <onekit-input onekit-class="ipt" placeholder="请在此输入标题"/>
     </view>
    
     <view class="card-area">
@@ -42,7 +42,7 @@
         <view class="list-area border-bottom">
             <view class="list-item-key-4">文本</view>
             <view class="list-item-value">
-                <onekit-input type="text" placeholder="type='text'" />
+                <onekit-input type="text" placeholder="type='text'"/>
             </view> 
         </view>
 
