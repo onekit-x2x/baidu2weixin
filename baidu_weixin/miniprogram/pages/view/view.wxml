@@ -1,5 +1,5 @@
-<onekit-view >
-    <onekit-view  onekit-class="title">横向布局</onekit-view>
+<onekit-view onekit-id="hhh">
+    <onekit-view onekit-id="hemo1" onekit-class="title">横向布局</onekit-view>
     <onekit-view  onekit-class="rowlike">
         <onekit-view  onekit-class="color-a">
             <onekit-text >A</onekit-text>

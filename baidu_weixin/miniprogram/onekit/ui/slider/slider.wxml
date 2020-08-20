@@ -1,7 +1,7 @@
 <slider
 class="onekit-slider {{onekitClass}}"
 style="{{onekitStyle}}"
-id="{{Id}}"
+id="{{onekitId}}"
 min="{{min}}"
 max="{{max}}"
 step="{{step}}"

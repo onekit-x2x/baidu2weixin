@@ -41,7 +41,7 @@
 <button
 class="onekit-button Class {{onekitClass}}"
 style="{{onekitStyle}}"
-id="{{Id}}"
+id="{{onekitId}}"
 bindtap="button_bindtap"
   size="{{size}}"
   type="{{type}}"

@@ -33,7 +33,7 @@
     }
   },
   "pages": [
-    "pages/input/input"
+    "pages/view/view"
   ],
   "window": {
     "navigationBarBackgroundColor": "#ffffff",

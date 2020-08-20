@@ -1,7 +1,7 @@
 <label
 class="onekit-label {{onekitClass}}"
 style="{{onekitStyle}}"
-id="{{Id}}"
+id="{{onekitId}}"
 for="{{for}}"
 >
 <slot></slot>

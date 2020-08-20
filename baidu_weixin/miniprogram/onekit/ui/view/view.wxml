@@ -1,7 +1,7 @@
 <view
 class="onekit-view {{onekitClass}}"
 style="{{onekitStyle}}"
-id="{{Id}}"
+id="{{onekitId}}"
 hover-class="{{hoverClass}}"
 hover-start-time="{{hoverStarTime}}"
 hover-stay-time="{{hoverStayTime}}"

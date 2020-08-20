@@ -1,7 +1,7 @@
   <picker-view-column 
   class="onekit-picker-view-column {{onekitClass}}" 
   style="{{onekitStyle}}"
-  id="{{Id}}"
+  id="{{onekitId}}"
 
   >
   <slot>
