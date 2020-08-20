@@ -3,11 +3,11 @@ Component({
     
       },
       properties: {
-        Class:{
+        onekitClass:{
             type:String,
             value:""
           },
-          Style:{
+          onekitStyle:{
             type:String,
             value:""
           },

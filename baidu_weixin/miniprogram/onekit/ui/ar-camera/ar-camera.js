@@ -4,11 +4,11 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    Class:{
+    onekitClass:{
       type:String,
       value:""
     },
-    Style:{
+    onekitStyle:{
       type:String,
       value:""
     },

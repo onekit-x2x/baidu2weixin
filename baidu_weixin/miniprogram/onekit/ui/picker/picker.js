@@ -6,8 +6,8 @@ Component({
   options: {  virtualHost: true
   },
   properties: {
-    Class:{type:String,value:""},
-    Style:{type:String,value:""},
+    onekitClass:{type:String,value:""},
+    onekitStyle:{type:String,value:""},
     value:{type:String,value:""},
     disabled:{type:Boolean,value:false},
     mode:{type:String,value:"selector"},
