@@ -8,10 +8,10 @@ Component({
   properties: {
     onekitClass:{type:String,value:""},
     onekitStyle:{type:String,value:""},
+    onekitId:{type:String,value:""},
     value:{type:String,value:""},
     disabled:{type:Boolean,value:false},
     mode:{type:String,value:"selector"},
-    
   },
 
   /**
