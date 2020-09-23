@@ -60,7 +60,7 @@ Component({
    */
   methods: {
     view_Tap(e){
-      this.triggerEvent("Tap",e)
+      this.triggerEvent("Tap")
     }
   }
 })

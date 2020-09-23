@@ -32,10 +32,10 @@ Component({
    */
   methods: {
     coverImage_load:function(e){
-      this.triggerEvent('load',e)
+      this.triggerEvent('load')
     },
     coverImage_error:function(e){
-      this.triggerEvent('error',e)
+      this.triggerEvent('error')
     }
   }
 })
