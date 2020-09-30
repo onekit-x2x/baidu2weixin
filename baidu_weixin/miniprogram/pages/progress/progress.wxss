@@ -1,8 +1,0 @@
-.wrap{
-  font-size: 16px ;
-  padding: 30px 15px ;
-}
-.progress{
-  margin-bottom: 35px ;
-  border-radius: 3px ;
-}

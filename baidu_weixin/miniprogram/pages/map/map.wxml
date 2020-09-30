@@ -1,4 +1,0 @@
-<view  class="wrap">
-    <onekit_map  id="myMap" style="width: 100%" scale="{{scale}}" longitude="{{longitude}}" latitude="{{latitude}}" markers="{{markers}}" position="{{position}}" showLocation="{{showLocation}}" polyline="{{polyline}}" controls="{{controls}}" circles="{{circles}}">
-    </onekit_map>
-</view>

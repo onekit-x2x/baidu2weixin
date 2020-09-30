@@ -1,9 +1,0 @@
-<view >
-    <view  class="tip">当前位置经纬度</view>
-    <view  class="content">
-        <view  wx:if="{{location}}" class="info location">E: {{location.longitude[0]}}°{{location.longitude[1]}}′ N: {{location.latitude[0]}}°{{location.latitude[1]}}′</view>
-        <view  wx:else class="info">未选择位置</view>
-    </view>
-    <onekit_button  class="btn" type="primary" loading="{{loading}}" bindtap="getLocation">点击获取位置信息</onekit_button>
-    <onekit_button  class="btn" type="default" bindtap="clearLocation">清空</onekit_button>
-</view>

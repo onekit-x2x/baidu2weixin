@@ -1,9 +1,0 @@
-
-
-.radio-before {
-  margin-left: .5rem;
-}
-
-.disabledText {
-  color: #ccc;
-}

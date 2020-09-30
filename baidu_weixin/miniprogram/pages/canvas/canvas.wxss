@@ -1,6 +1,0 @@
-.canvas {
-  width: 610rpx;
-  height: 610rpx;
-  margin-left: .3rem;
-  background-color: #fff;
-}

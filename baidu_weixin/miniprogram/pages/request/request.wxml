@@ -1,5 +1,0 @@
-<view  class="container">
-    <view  class="page-body">
-        <onekit_button  bindtap="request" type="primary" loading="{{loading}}" hover-stop-propagation="true">点击向服务器发起请求</onekit_button>
-    </view>
-</view>
