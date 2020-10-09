@@ -1,10 +1,8 @@
-<icon
+<<<<<<< Updated upstream
+<view
 class="onekit-icon-{{type}};{{onekitClass}}" 
-style="color:{{color}};font-size:{{size}}px;{{onekitStyle}}"
+style="color:{{color}};font-size:{{size}}px;width:{{size}}px;height:{{size}}px;{{onekitStyle}}"
 id="{{onekitId}}"
-type="{{type}}"
-size="{{size}}"
-color="{{color}}"
 
 bindtap="ui_tap"
 bindtouchstart="ui_touchstart"
@@ -19,4 +17,8 @@ bindanimationiteration="ui_animationiteration"
 bindanimationend="ui_animationend"
 bindtouchforcechange="ui_touchforcechange"
 >
-</icon>
+=======
+<view class="onekit_icon-{{type}}" style="color:{{color}};font-size:{{size}}px;"
+id="{{onekitId}}">
+>>>>>>> Stashed changes
+</view>

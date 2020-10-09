@@ -1,4 +1,4 @@
-import tt from '../toutiao2weixin/tt'
+import tt from '../baidu2weixin/swan'
 Page({
 
   /**

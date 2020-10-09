@@ -1,0 +1,13 @@
+<image 
+class="onekit-image {{onekitClass}}"
+style="{{onekitStyle}}"
+id="{{onekitId}}"
+mode="{{mode}}" 
+src="{{src}}"
+webp="{{webp}}"
+lazy-load="{{lazyLoad}}"
+binderror="image_error"
+bindload="image_load"
+>
+   <slot/>
+</image> 

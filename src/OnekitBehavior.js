@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-export default function OnekitBehavior(tt_object) {
-  const wx_object = tt_object
+export default function OnekitBehavior(swan_object) {
+  const wx_object = swan_object
   return wx_object
 }

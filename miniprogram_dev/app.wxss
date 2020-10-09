@@ -1,5 +1,5 @@
 
-@import '/toutiao2weixin/onekit.wxss';
+@import '/baidu2weixin/onekit.wxss';
 page {
   font-size: 16px;
   font-family: 'PingFangSC-Regular';

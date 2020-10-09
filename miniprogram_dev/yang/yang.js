@@ -1,4 +1,4 @@
-import OnekitPage from '../toutiao2weixin/OnekitPage';
+import OnekitPage from '../baidu2weixin/OnekitPage';
 
 OnekitPage({
     data:{

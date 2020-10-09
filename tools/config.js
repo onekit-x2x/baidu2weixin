@@ -19,7 +19,13 @@ module.exports = {
     'ui/progress/progress',
     'ui/slider/slider',
     'ui/video/video',
-    'ui/view/view'
+    'ui/view/view',
+    'OnekitApp',
+    'OnekitBehavior',
+    'OnekitComponent',
+    'OnekitPage',
+    'swan.ai',
+    'swan'
   ],
 
   isDev,
@@ -100,5 +106,5 @@ module.exports = {
     }
   },
 
-  copy: ['onekit.wxss', 'api', 'js', 'OnekitApp.js', 'OnekitBehavior.js', 'OnekitComponent.js', 'OnekitPage.js', 'tt.js'], // 将会复制到目标目录
+  copy: ['onekit.wxss']// , 'OnekitApp.js', 'OnekitBehavior.js', 'OnekitComponent.js', 'OnekitPage.js', 'swan.ai.js', 'swan.js'], // 将会复制到目标目录
 }

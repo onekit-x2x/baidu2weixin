@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <view
 class="onekit-icon-{{type}};{{onekitClass}}" 
 style="color:{{color}};font-size:{{size}}px;width:{{size}}px;height:{{size}}px;{{onekitStyle}}"
@@ -16,4 +17,8 @@ bindanimationiteration="ui_animationiteration"
 bindanimationend="ui_animationend"
 bindtouchforcechange="ui_touchforcechange"
 >
+=======
+<view class="onekit_icon-{{type}}" style="color:{{color}};font-size:{{size}}px;"
+id="{{onekitId}}">
+>>>>>>> Stashed changes
 </view>

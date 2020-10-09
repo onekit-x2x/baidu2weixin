@@ -1,34 +1,50 @@
-/* eslint-disable no-console */
-/* eslint-disable camelcase */
-import onekit_behavior from '../../behavior/onekit_behavior'
-import toutiao_behavior from '../../behavior/toutiao_behavior'
-
+// onekit/ui/view/view.js
 Component({
-  behaviors: [onekit_behavior, toutiao_behavior],
-
+  options: {virtualHost: true},
   /**
    * 组件的属性列表
    */
-  options: {
-    virtualHost: true
-  },
   properties: {
-
+    onekitClass: {
+      type: String,
+      value: ''
+    },
+    onekitStyle: {
+      type: String,
+      value: ''
+    },
+    onekitId: {
+      type: String,
+      value: ''
+    },
     hoverClass: {
       type: String,
-      value: 'none'
+      value: ''
     },
     hoverStarTime: {
       type: Number,
-      value: 50
+      value: ''
     },
     hoverStayTime: {
       type: Number,
-      value: 400
+      value: ''
     },
     hoverStopPropagation: {
       type: Boolean,
       value: false
+    },
+    disableScroll: {
+      type: Boolean,
+      value: false
+    },
+    hidden: {
+      type: Boolean,
+      value: false
+    },
+    // eslint-disable-next-line no-dupe-keys
+    disableScroll: {
+      type: Object,
+      value: {}
     },
   },
 
@@ -38,10 +54,14 @@ Component({
   data: {
 
   },
+
+  /**
+   * 组件的方法列表
+   */
   methods: {
-  },
-  lifetimes: {
-    attached() {
+    // eslint-disable-next-line no-unused-vars
+    view_Tap(e) {
+      this.triggerEvent('Tap')
     }
-  },
+  }
 })

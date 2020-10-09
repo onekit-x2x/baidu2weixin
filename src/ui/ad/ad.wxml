@@ -2,25 +2,6 @@
 class="onekit-ad {{onekitClass}}"
 style="{{onekitStyle}}"
 id="{{onekitId}}"
-unit-id="{{preRollUnitId}}"
-ad-intervals="{{adIntervals}}"
-ad-type="{{type}}"
+unit-id="{{apid}}"
 
-bindload="ad_load"
-binderror="ad_error"
-bindclose="ad_close"
-
-
-bindtap="ui_tap"
-bindtouchstart="ui_touchstart"
-bindtouchmove="ui_touchmove"
-bindtouchcancel="ui_touchcancel"
-bindtouchend="ui_touchend"
-bindlongpress="ui_longpress"
-bindlongtap="ui_longtap"
-bindtransitionend="ui_transitionend"
-bindanimationstart="ui_animationstart"
-bindanimationiteration="ui_animationiteration"
-bindanimationend="ui_animationend"
-bindtouchforcechange="ui_touchforcechange"
 ></ad>

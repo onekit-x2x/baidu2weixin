@@ -1,75 +1,159 @@
-/* eslint-disable camelcase */
 /* eslint-disable no-console */
-import onekit_behavior from '../../behavior/onekit_behavior'
-import toutiao_behavior from '../../behavior/toutiao_behavior'
-
 Component({
-  behaviors: [onekit_behavior, toutiao_behavior],
-  options: {
-    virtualHost: true
-  },
+  options: {virtualHost: true},
   properties: {
+    onekitClass: {
+      type: String,
+      value: ''
+    },
+    onekitStyle: {
+      type: String,
+      value: ''
+    },
+    onekitId: {
+      type: String,
+      value: ''
+    },
     src: {
       type: String,
       value: '',
     },
-    autoplay: {
+    video: {
+      type: String,
+      value: '',
+    },
+    objectFit: {
+      type: String,
+      value: '',
+    },
+    duration: {
+      type: Number,
+      value: '',
+    },
+    controls: {
       type: Boolean,
       value: false,
     },
-    poster: {
-      type: String,
+    danmuList: {
+      type: Array,
       value: '',
+    },
+
+    danmuBtn: {
+      type: Boolean,
+      value: false,
+    },
+    enableBanmu: {
+      type: Boolean,
+      value: false,
+    },
+    autoplay: {
+      type: Boolean,
+      value: true,
     },
     loop: {
       type: Boolean,
       value: false,
     },
-    showFullscreenBtn: {
+    muted: {
       type: Boolean,
       value: false,
     },
-    showPlayBtn: {
+    initialTime: {
+      type: Number,
+      value: '0',
+    },
+    pageGesture: {
       type: Boolean,
       value: false,
     },
-    controls: {
+    direction: {
+      type: Number,
+      value: '',
+    },
+    showProgress: {
       type: Boolean,
       value: true,
     },
-    objectFit: {
-      type: String,
-      value: 'contain',
+    showFullscreenBtn: {
+      type: Boolean,
+      value: true,
     },
-    playBtnPosition: {
-      type: String,
-      value: 'center',
+
+    showPlayBtn: {
+      type: Boolean,
+      value: true,
     },
-    preRollUnitId: {
+    showCenterPlayBtn: {
+      type: Boolean,
+      value: true,
+    },
+    enableProgressGesture: {
+      type: Boolean,
+      value: true,
+    },
+    poster: {
       type: String,
       value: '',
     },
+    showMuteBtn: {
+      type: Boolean,
+      value: false,
+    },
+    title: {
+      type: String,
+      value: '',
+    },
+    enablePlayGesture: {
+      type: Boolean,
+      value: false,
+    },
+    // eslint-disable-next-line no-dupe-keys
+    pageGesture: {
+      type: Boolean,
+      value: false,
+    },
+    vslideGestureInFullscreen: {
+      type: Boolean,
+      value: true,
+    },
+    enableDanmu: {
+      type: Boolean,
+      value: false,
+    }
   },
   methods: {
-    video_play() {
-      this.triggerEvent('Play')
+    video_play(e) {
+      console.log('video_play', e)
+      this.triggerEvent('play', e.details)
     },
-    video_pause() {
-      this.triggerEvent('Pause')
+    video_pause(e) {
+      console.log('video_pause', e)
+      this.triggerEvent('pause', e.details)
     },
-    video_ended() {
-      this.triggerEvent('Ended')
+    video_ended(e) {
+      console.log('video_ended', e)
+      this.triggerEvent('ended', e.details)
     },
-    video_error() {
-      this.triggerEvent('Error')
+    video_timeupdate(e) {
+      console.log('video_timeupdate', e)
+      this.triggerEvent('timeupdate', e.details)
     },
-    video_timeupdate(wx_e) {
-      const wx_detail = wx_e.wx_detail
-      const tt_detail = wx_detail
-      this.triggerEvent('Timeupdate', tt_detail)
+    video_fullscreenchang(e) {
+      console.log('video_fullscreenchang', e)
+      this.triggerEvent('fullscreenchang', e.details)
     },
-    video_fullscreenchange() {
-      this.triggerEvent('Fullscreenchange')
+    video_waiting(e) {
+      console.log('video_waiting', e)
+      this.triggerEvent('waiting', e.details)
+    },
+    video_error(e) {
+      console.log('video_error', e)
+      this.triggerEvent('error', e.details)
+    },
+    video_loadedmetadata(e) {
+      console.log('video_loadedmetadata', e)
+      this.triggerEvent('loadedmetadata', e.details)
     },
   }
 

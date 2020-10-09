@@ -1,5 +1,5 @@
-import OnekitPage from '../toutiao2weixin/OnekitPage';
-import tt from '../toutiao2weixin/tt';
+import OnekitPage from '../baidu2weixin/OnekitPage';
+import tt from '../baidu2weixin/swan';
 OnekitPage({
     onReady:function(){
         this.animation = tt.createAnimation();

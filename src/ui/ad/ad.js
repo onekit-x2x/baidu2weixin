@@ -1,32 +1,35 @@
-/* eslint-disable no-undef */
-/* eslint-disable no-unused-vars */
-/* eslint-disable camelcase */
-import onekit_behavior from '../../behavior/onekit_behavior'
-import toutiao_behavior from '../../behavior/toutiao_behavior'
-
 Component({
-  behaviors: [onekit_behavior, toutiao_behavior],
-
   options: {
     virtualHost: true
+
+  },
+  properties: {
+    onekitClass: {
+      type: String,
+      value: ''
+    },
+    onekitStyle: {
+      type: String,
+      value: ''
+    },
+    onekitId: {
+      type: String,
+      value: ''
+    },
+
   },
 
-  data: {},
-  properties: {
-    preRollUnitId: {type: String, value: ''},
-    adIntervals: {type: Number, value: 0},
-    type: {type: String, value: 'banner'},
+  /**
+   * 组件的初始数据
+   */
+  data: {
+
   },
+
+  /**
+   * 组件的方法列表
+   */
   methods: {
-    ad_load() {
-      this.triggerEvent('Load')
-    },
-    ad_error() {
-      this.triggerEvent('Error')
-    },
-    ad_close() {
-      this.triggerEvent('Close')
-    },
 
   }
 })

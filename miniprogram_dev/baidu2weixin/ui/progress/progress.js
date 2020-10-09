@@ -82,143 +82,87 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
+/******/ ({
+
+/***/ 2:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-module.exports = Behavior({
-
-  properties: {
-    onekitId: {
-      type: String, value: ''
-    },
-    onekitStyle: {
-      type: String, value: ''
-    },
-    onekitClass: {
-      type: String, value: ''
-    }
-  }
-});
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/* eslint-disable no-console */
-/* eslint-disable camelcase */
-module.exports = Behavior({
-
-  properties: {
-    animation: { type: Object }
-  },
-  methods: {
-    ui_tap: function ui_tap() {
-      this.triggerEvent('Tap');
-    },
-    ui_touchstart: function ui_touchstart() {
-      this.triggerEvent('Touchstart');
-    },
-    ui_touchmove: function ui_touchmove() {
-      this.triggerEvent('Touchmove');
-    },
-    ui_touchcancel: function ui_touchcancel() {
-      this.triggerEvent('Touchcancel');
-    },
-    ui_touchend: function ui_touchend() {
-      this.triggerEvent('Touchend');
-    },
-    ui_longpress: function ui_longpress() {
-      this.triggerEvent('Longpress');
-    },
-    ui_longtap: function ui_longtap() {
-      this.triggerEvent('Longtap');
-    },
-    ui_transitionend: function ui_transitionend() {
-      this.triggerEvent('Transitionend');
-    },
-    ui_animationstart: function ui_animationstart() {
-      this.triggerEvent('Animationstart');
-    },
-    ui_animationiteration: function ui_animationiteration() {
-      this.triggerEvent('Animationiteration');
-    },
-    ui_animationend: function ui_animationend() {
-      this.triggerEvent('Animationend');
-    },
-    ui_touchforcechange: function ui_touchforcechange() {
-      this.triggerEvent('Touchforcechange');
-    }
-  }
-});
-
-/***/ }),
-/* 2 */,
-/* 3 */,
-/* 4 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _onekit_behavior = __webpack_require__(0);
-
-var _onekit_behavior2 = _interopRequireDefault(_onekit_behavior);
-
-var _toutiao_behavior = __webpack_require__(1);
-
-var _toutiao_behavior2 = _interopRequireDefault(_toutiao_behavior);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/* eslint-disable camelcase */
-
+// onekit/ui/progress/progress.js
 Component({
-  behaviors: [_onekit_behavior2.default, _toutiao_behavior2.default],
   /**
    * 组件的属性列表
    */
-  options: {
-    virtualHost: true
-  },
+  options: { virtualHost: true },
   properties: {
-    percent: { type: Number, value: 0 },
-    strokeWidth: { type: Number, value: 0 },
-    activeColor: { type: String, value: '#F85959' },
-    backgroundColor: { type: String, value: '#EBEBEB' },
-    active: { type: Boolean, value: false },
-    activeMode: { type: String, value: 'backwards' }
-
+    onekitClass: {
+      type: String,
+      value: ''
+    },
+    onekitStyle: {
+      type: String,
+      value: ''
+    },
+    onekitId: {
+      type: String,
+      value: ''
+    },
+    percent: {
+      type: Number,
+      value: 0
+    },
+    showInfo: {
+      type: Boolean,
+      value: false
+    },
+    strokeWidth: {
+      type: Number,
+      value: 2
+    },
+    borderRadius: {
+      type: Number,
+      value: 0
+    },
+    fontSize: {
+      type: Number,
+      value: 16
+    },
+    color: {
+      type: String,
+      value: '#09BB07'
+    },
+    activeColor: {
+      type: String,
+      value: '#09BB07'
+    },
+    backgroundColor: {
+      type: String,
+      value: '#E6E6E6'
+    },
+    active: {
+      type: Boolean,
+      value: false
+    },
+    activeMode: {
+      type: String,
+      value: 'backwards'
+    },
+    duration: {
+      type: Number,
+      value: 20
+    }
   },
 
   /**
    * 组件的初始数据
    */
   data: {},
-  // 生命周期函数，可以为函数，或一个在methods段中定义的方法名
-  // attached() {
-  //   let borderRadius = this.properties.borderRadius
-  //   borderRadius = this._num2str(borderRadius)
-  //   //
-  //   let strokeWidth = this.properties.strokeWidth
-  //   strokeWidth = this._str2num(strokeWidth)
-  //   //
-  //   let fontSize = this.properties.fontSize
-  //   fontSize = this._num2str(fontSize)
-  //   //
-  //   this.setData({borderRadius, strokeWidth, fontSize})
 
-  // // console.log(borderRadius)
-  // },
   /**
    * 组件的方法列表
    */
@@ -226,5 +170,6 @@ Component({
 });
 
 /***/ })
-/******/ ]);
+
+/******/ });
 //# sourceMappingURL=progress.js.map

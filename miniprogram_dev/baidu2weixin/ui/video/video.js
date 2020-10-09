@@ -82,180 +82,177 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 6);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
+/******/ ({
+
+/***/ 4:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-module.exports = Behavior({
+var _properties;
 
-  properties: {
-    onekitId: {
-      type: String, value: ''
-    },
-    onekitStyle: {
-      type: String, value: ''
-    },
-    onekitClass: {
-      type: String, value: ''
-    }
-  }
-});
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/* eslint-disable no-console */
-/* eslint-disable camelcase */
-module.exports = Behavior({
-
-  properties: {
-    animation: { type: Object }
-  },
-  methods: {
-    ui_tap: function ui_tap() {
-      this.triggerEvent('Tap');
-    },
-    ui_touchstart: function ui_touchstart() {
-      this.triggerEvent('Touchstart');
-    },
-    ui_touchmove: function ui_touchmove() {
-      this.triggerEvent('Touchmove');
-    },
-    ui_touchcancel: function ui_touchcancel() {
-      this.triggerEvent('Touchcancel');
-    },
-    ui_touchend: function ui_touchend() {
-      this.triggerEvent('Touchend');
-    },
-    ui_longpress: function ui_longpress() {
-      this.triggerEvent('Longpress');
-    },
-    ui_longtap: function ui_longtap() {
-      this.triggerEvent('Longtap');
-    },
-    ui_transitionend: function ui_transitionend() {
-      this.triggerEvent('Transitionend');
-    },
-    ui_animationstart: function ui_animationstart() {
-      this.triggerEvent('Animationstart');
-    },
-    ui_animationiteration: function ui_animationiteration() {
-      this.triggerEvent('Animationiteration');
-    },
-    ui_animationend: function ui_animationend() {
-      this.triggerEvent('Animationend');
-    },
-    ui_touchforcechange: function ui_touchforcechange() {
-      this.triggerEvent('Touchforcechange');
-    }
-  }
-});
-
-/***/ }),
-/* 2 */,
-/* 3 */,
-/* 4 */,
-/* 5 */,
-/* 6 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _onekit_behavior = __webpack_require__(0);
-
-var _onekit_behavior2 = _interopRequireDefault(_onekit_behavior);
-
-var _toutiao_behavior = __webpack_require__(1);
-
-var _toutiao_behavior2 = _interopRequireDefault(_toutiao_behavior);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/* eslint-disable camelcase */
 /* eslint-disable no-console */
 Component({
-  behaviors: [_onekit_behavior2.default, _toutiao_behavior2.default],
-  options: {
-    virtualHost: true
-  },
-  properties: {
+  options: { virtualHost: true },
+  properties: (_properties = {
+    onekitClass: {
+      type: String,
+      value: ''
+    },
+    onekitStyle: {
+      type: String,
+      value: ''
+    },
+    onekitId: {
+      type: String,
+      value: ''
+    },
     src: {
       type: String,
       value: ''
     },
-    autoplay: {
+    video: {
+      type: String,
+      value: ''
+    },
+    objectFit: {
+      type: String,
+      value: ''
+    },
+    duration: {
+      type: Number,
+      value: ''
+    },
+    controls: {
       type: Boolean,
       value: false
     },
-    poster: {
-      type: String,
+    danmuList: {
+      type: Array,
       value: ''
+    },
+
+    danmuBtn: {
+      type: Boolean,
+      value: false
+    },
+    enableBanmu: {
+      type: Boolean,
+      value: false
+    },
+    autoplay: {
+      type: Boolean,
+      value: true
     },
     loop: {
       type: Boolean,
       value: false
     },
-    showFullscreenBtn: {
+    muted: {
       type: Boolean,
       value: false
     },
-    showPlayBtn: {
+    initialTime: {
+      type: Number,
+      value: '0'
+    },
+    pageGesture: {
       type: Boolean,
       value: false
     },
-    controls: {
+    direction: {
+      type: Number,
+      value: ''
+    },
+    showProgress: {
       type: Boolean,
       value: true
     },
-    objectFit: {
-      type: String,
-      value: 'contain'
+    showFullscreenBtn: {
+      type: Boolean,
+      value: true
     },
-    playBtnPosition: {
-      type: String,
-      value: 'center'
+
+    showPlayBtn: {
+      type: Boolean,
+      value: true
     },
-    preRollUnitId: {
+    showCenterPlayBtn: {
+      type: Boolean,
+      value: true
+    },
+    enableProgressGesture: {
+      type: Boolean,
+      value: true
+    },
+    poster: {
       type: String,
       value: ''
+    },
+    showMuteBtn: {
+      type: Boolean,
+      value: false
+    },
+    title: {
+      type: String,
+      value: ''
+    },
+    enablePlayGesture: {
+      type: Boolean,
+      value: false
     }
-  },
+  }, _properties['pageGesture'] = {
+    type: Boolean,
+    value: false
+  }, _properties.vslideGestureInFullscreen = {
+    type: Boolean,
+    value: true
+  }, _properties.enableDanmu = {
+    type: Boolean,
+    value: false
+  }, _properties),
   methods: {
-    video_play: function video_play() {
-      this.triggerEvent('Play');
+    video_play: function video_play(e) {
+      console.log('video_play', e);
+      this.triggerEvent('play', e.details);
     },
-    video_pause: function video_pause() {
-      this.triggerEvent('Pause');
+    video_pause: function video_pause(e) {
+      console.log('video_pause', e);
+      this.triggerEvent('pause', e.details);
     },
-    video_ended: function video_ended() {
-      this.triggerEvent('Ended');
+    video_ended: function video_ended(e) {
+      console.log('video_ended', e);
+      this.triggerEvent('ended', e.details);
     },
-    video_error: function video_error() {
-      this.triggerEvent('Error');
+    video_timeupdate: function video_timeupdate(e) {
+      console.log('video_timeupdate', e);
+      this.triggerEvent('timeupdate', e.details);
     },
-    video_timeupdate: function video_timeupdate(wx_e) {
-      var wx_detail = wx_e.wx_detail;
-      var tt_detail = wx_detail;
-      this.triggerEvent('Timeupdate', tt_detail);
+    video_fullscreenchang: function video_fullscreenchang(e) {
+      console.log('video_fullscreenchang', e);
+      this.triggerEvent('fullscreenchang', e.details);
     },
-    video_fullscreenchange: function video_fullscreenchange() {
-      this.triggerEvent('Fullscreenchange');
+    video_waiting: function video_waiting(e) {
+      console.log('video_waiting', e);
+      this.triggerEvent('waiting', e.details);
+    },
+    video_error: function video_error(e) {
+      console.log('video_error', e);
+      this.triggerEvent('error', e.details);
+    },
+    video_loadedmetadata: function video_loadedmetadata(e) {
+      console.log('video_loadedmetadata', e);
+      this.triggerEvent('loadedmetadata', e.details);
     }
   }
 
 });
 
 /***/ })
-/******/ ]);
+
+/******/ });
 //# sourceMappingURL=video.js.map

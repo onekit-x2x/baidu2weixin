@@ -19,11 +19,27 @@ export default class VideoContext {
     return this.weixinVideoContext.seek(position)
   }
 
-  requestFullScreen() {
-    return this.weixinVideoContext.requestFullScreen()
+  sendDanmu(data) {
+    return this.weixinVideoContext.playbackRate(data)
+  }
+
+  playbackRate(rate) {
+    return this.weixinVideoContext.playbackRate(rate)
+  }
+
+  requestFullScreen(direction) {
+    return this.weixinVideoContext.requestFullScreen(direction)
   }
 
   exitFullScreen() {
     return this.weixinVideoContext.exitFullScreen()
+  }
+
+  showStatusBar() {
+    return this.weixinVideoContext.showStatusBar()
+  }
+
+  hideStatusBar() {
+    return this.weixinVideoContext.hideStatusBar()
   }
 }

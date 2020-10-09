@@ -1,28 +1,19 @@
-
-   <progress
-   class="onekit-progress {{onekitClass}}"
-   style="flex-grow:2;--borderRadius:{{borderRadius}} {{onekitStyle}}"
-   id="{{onekitId}}"
-   percent="{{percent}}" 
-   stroke-width="{{strokeWidth}}"
-   activeColor="{{activeColor}}"
-   backgroundColor="{{backgroundColor}}"
-   active="{{active}}"
-   active-mode="{{activeMode}}"
-
-
-
-   
-bindtap="ui_tap"
-bindtouchstart="ui_touchstart"
-bindtouchmove="ui_touchmove"
-bindtouchcancel="ui_touchcancel"
-bindtouchend="ui_touchend"
-bindlongpress="ui_longpress"
-bindlongtap="ui_longtap"
-bindtransitionend="ui_transitionend"
-bindanimationstart="ui_animationstart"
-bindanimationiteration="ui_animationiteration"
-bindanimationend="ui_animationend"
-bindtouchforcechange="ui_touchforcechange"
-   />
+<progress 
+class="onekit-progress {{onekitClass}}" 
+style="{{onekitStyle}}"
+id="{{onekitId}}"
+percent="{{percent}}"
+show-info="{{showInfo}}"
+border-radius="{{borderRadius}}"
+stroke-width="{{strokeWidth}}"
+font-size="{{fontSize}}"
+color="{{color}}"
+activeColor="{{activeColor}}"
+backgroundColor="{{backgroundColor}}"
+active="{{active}}"
+active-mode="{{activeMode}}"
+duration="{{duration}}"
+>
+<slot>
+</slot>
+</progress>

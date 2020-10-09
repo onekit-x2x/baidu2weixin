@@ -82,148 +82,84 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 7);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
+/******/ ({
+
+/***/ 5:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-module.exports = Behavior({
+var _properties;
 
-  properties: {
-    onekitId: {
-      type: String, value: ''
-    },
-    onekitStyle: {
-      type: String, value: ''
-    },
-    onekitClass: {
-      type: String, value: ''
-    }
-  }
-});
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/* eslint-disable no-console */
-/* eslint-disable camelcase */
-module.exports = Behavior({
-
-  properties: {
-    animation: { type: Object }
-  },
-  methods: {
-    ui_tap: function ui_tap() {
-      this.triggerEvent('Tap');
-    },
-    ui_touchstart: function ui_touchstart() {
-      this.triggerEvent('Touchstart');
-    },
-    ui_touchmove: function ui_touchmove() {
-      this.triggerEvent('Touchmove');
-    },
-    ui_touchcancel: function ui_touchcancel() {
-      this.triggerEvent('Touchcancel');
-    },
-    ui_touchend: function ui_touchend() {
-      this.triggerEvent('Touchend');
-    },
-    ui_longpress: function ui_longpress() {
-      this.triggerEvent('Longpress');
-    },
-    ui_longtap: function ui_longtap() {
-      this.triggerEvent('Longtap');
-    },
-    ui_transitionend: function ui_transitionend() {
-      this.triggerEvent('Transitionend');
-    },
-    ui_animationstart: function ui_animationstart() {
-      this.triggerEvent('Animationstart');
-    },
-    ui_animationiteration: function ui_animationiteration() {
-      this.triggerEvent('Animationiteration');
-    },
-    ui_animationend: function ui_animationend() {
-      this.triggerEvent('Animationend');
-    },
-    ui_touchforcechange: function ui_touchforcechange() {
-      this.triggerEvent('Touchforcechange');
-    }
-  }
-});
-
-/***/ }),
-/* 2 */,
-/* 3 */,
-/* 4 */,
-/* 5 */,
-/* 6 */,
-/* 7 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _onekit_behavior = __webpack_require__(0);
-
-var _onekit_behavior2 = _interopRequireDefault(_onekit_behavior);
-
-var _toutiao_behavior = __webpack_require__(1);
-
-var _toutiao_behavior2 = _interopRequireDefault(_toutiao_behavior);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/* eslint-disable no-console */
-/* eslint-disable camelcase */
+// onekit/ui/view/view.js
 Component({
-  behaviors: [_onekit_behavior2.default, _toutiao_behavior2.default],
-
+  options: { virtualHost: true },
   /**
    * 组件的属性列表
    */
-  options: {
-    virtualHost: true
-  },
-  properties: {
-
+  properties: (_properties = {
+    onekitClass: {
+      type: String,
+      value: ''
+    },
+    onekitStyle: {
+      type: String,
+      value: ''
+    },
+    onekitId: {
+      type: String,
+      value: ''
+    },
     hoverClass: {
       type: String,
-      value: 'none'
+      value: ''
     },
     hoverStarTime: {
       type: Number,
-      value: 50
+      value: ''
     },
     hoverStayTime: {
       type: Number,
-      value: 400
+      value: ''
     },
     hoverStopPropagation: {
       type: Boolean,
       value: false
+    },
+    disableScroll: {
+      type: Boolean,
+      value: false
+    },
+    hidden: {
+      type: Boolean,
+      value: false
     }
-  },
+  }, _properties['disableScroll'] = {
+    type: Object,
+    value: {}
+  }, _properties),
 
   /**
    * 组件的初始数据
    */
   data: {},
-  methods: {},
-  lifetimes: {
-    attached: function attached() {}
+
+  /**
+   * 组件的方法列表
+   */
+  methods: {
+    // eslint-disable-next-line no-unused-vars
+    view_Tap: function view_Tap(e) {
+      this.triggerEvent('Tap');
+    }
   }
 });
 
 /***/ })
-/******/ ]);
+
+/******/ });
 //# sourceMappingURL=view.js.map

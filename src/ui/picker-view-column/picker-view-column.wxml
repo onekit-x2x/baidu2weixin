@@ -1,0 +1,9 @@
+  <picker-view-column 
+  class="onekit-picker-view-column {{onekitClass}}" 
+  style="{{onekitStyle}}"
+  id="{{onekitId}}"
+
+  >
+  <slot>
+  </slot>
+  </picker-view-column>

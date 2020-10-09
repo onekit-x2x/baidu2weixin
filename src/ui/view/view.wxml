@@ -1,28 +1,16 @@
 <view
-id="{{onekitId}}"
-animation="{{animation}}"
 class="onekit-view {{onekitClass}}"
 style="{{onekitStyle}}"
+id="{{onekitId}}"
 hover-class="{{hoverClass}}"
 hover-start-time="{{hoverStarTime}}"
 hover-stay-time="{{hoverStayTime}}"
 hover-stop-propagation="{{hoverStopPropagation}}"
+hidden="{{hidden}}"
+disable-scroll="{{disableScroll}}"
+bindanimation="{{animation}}"
 
-
-
-bindtap="ui_tap"
-bindtouchstart="ui_touchstart"
-bindtouchmove="ui_touchmove"
-bindtouchcancel="ui_touchcancel"
-bindtouchend="ui_touchend"
-bindlongpress="ui_longpress"
-bindlongtap="ui_longtap"
-bindtransitionend="ui_transitionend"
-bindanimationstart="ui_animationstart"
-bindanimationiteration="ui_animationiteration"
-bindanimationend="ui_animationend"
-bindtouchforcechange="ui_touchforcechange"
-
+bindtap="view_Tap"
 >
 <slot></slot>
 </view>
