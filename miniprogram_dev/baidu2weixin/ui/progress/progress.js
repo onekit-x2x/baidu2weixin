@@ -172,4 +172,3 @@ Component({
 /***/ })
 
 /******/ });
-//# sourceMappingURL=progress.js.map

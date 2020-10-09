@@ -162,4 +162,3 @@ Component({
 /***/ })
 
 /******/ });
-//# sourceMappingURL=view.js.map

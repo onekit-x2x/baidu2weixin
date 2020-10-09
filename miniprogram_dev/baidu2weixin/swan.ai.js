@@ -145,4 +145,3 @@ exports.default = swan_ai;
 /***/ })
 
 /******/ });
-//# sourceMappingURL=swan.ai.js.map

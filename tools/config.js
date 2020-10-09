@@ -99,7 +99,6 @@ module.exports = {
     optimization: {
       minimize: false,
     },
-    devtool: 'source-map', // 生成 js sourcemap
     performance: {
       hints: 'warning',
       assetFilter: assetFilename => assetFilename.endsWith('.js')

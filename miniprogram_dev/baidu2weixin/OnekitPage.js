@@ -106,4 +106,3 @@ function OnekitPage(swan_object) {
 /***/ })
 
 /******/ });
-//# sourceMappingURL=OnekitPage.js.map

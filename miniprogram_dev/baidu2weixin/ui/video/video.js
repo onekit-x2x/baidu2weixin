@@ -255,4 +255,3 @@ Component({
 /***/ })
 
 /******/ });
-//# sourceMappingURL=video.js.map

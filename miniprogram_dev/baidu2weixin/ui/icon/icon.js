@@ -117,4 +117,3 @@ Component({
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=icon.js.map

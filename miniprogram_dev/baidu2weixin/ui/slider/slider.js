@@ -149,4 +149,3 @@ Component({
 /***/ })
 
 /******/ });
-//# sourceMappingURL=slider.js.map

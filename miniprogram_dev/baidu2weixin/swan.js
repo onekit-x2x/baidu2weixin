@@ -1781,4 +1781,3 @@ exports.default = LivePlayerContext;
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=swan.js.map
