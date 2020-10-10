@@ -37,3 +37,6 @@ miniprogram_dev/package.json
 miniprogram_dev/project.config.json
 miniprogram_dev/yang/yang.js
 miniprogram_dev/yang/yang.wxml
+miniprogram_dev/li/lottie_example_one.json.js
+miniprogram_dev/miniprogram_npm/lottie-miniprogram/index.d.ts
+miniprogram_dev/miniprogram_npm/lottie-miniprogram/index.js
