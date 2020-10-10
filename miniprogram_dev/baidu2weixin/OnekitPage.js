@@ -82,12 +82,12 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 24);
+/******/ 	return __webpack_require__(__webpack_require__.s = 20);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 24:
+/***/ 20:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -99,6 +99,9 @@ exports.default = OnekitPage;
 function OnekitPage(swan_object) {
   var wx_object = swan_object;
   wx_object.animate = function () {};
+  wx_object.getData = function (key) {
+    return this.data[key];
+  };
 
   return Page(wx_object);
 }
