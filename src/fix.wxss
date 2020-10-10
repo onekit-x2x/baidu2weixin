@@ -1,5 +1,5 @@
 page{
-  --onekit-rem:32rpx;
+  --onekit-REM:32rpx;
 }
 
 -[style*="flex-direction:column"]>view{
