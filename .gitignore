@@ -19,3 +19,5 @@ baidu_weixin/miniprogram/project.config.json
 miniprogram_dev/baidu2weixin/ui/animation-view/animation-view.wxml
 miniprogram_dev/li/li.js
 miniprogram_dev/li/li.wxml
+miniprogram_dev/baidu2weixin/ui/icon/icon.wxml
+miniprogram_dev/baidu2weixin/fix.wxss
