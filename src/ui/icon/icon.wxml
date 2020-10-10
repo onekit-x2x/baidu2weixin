@@ -1,3 +1,9 @@
-<view class="onekit_icon-{{type}}" style="color:{{color}};font-size:{{size}}px;"
-id="{{onekitId}}">
+<view 
+class="onekit_icon-{{type}};{{onekitClass}}" 
+style="color:{{color}};font-size:{{size}}px;{{onekitStyle}}"
+id="{{onekitId}}"
+type="{{type}}"
+size="{{size}}"
+color="{{color}}"
+>
 </view>

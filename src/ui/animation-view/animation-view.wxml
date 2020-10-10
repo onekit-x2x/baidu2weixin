@@ -1,2 +1,7 @@
-<!--onekit/ui/animation-view/animation-view.wxml-->
-<text>onekit/ui/animation-view/animation-view.wxml</text>
+<view 
+  class="onekit-animation-view {{onekitClass}}"
+  style="{{onekitStyle}}"
+  id="{{onekitId}}"
+>
+<slot/>
+</view>
