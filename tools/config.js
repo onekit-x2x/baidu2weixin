@@ -2,6 +2,7 @@
 const path = require('path')
 
 const webpack = require('webpack')
+const fs = require('fs')
 const nodeExternals = require('webpack-node-externals')
 
 const isDev = process.argv.indexOf('--develop') >= 0
@@ -17,6 +18,7 @@ module.exports = {
     'ui/ad/ad',
     'ui/animation-video/animation-video',
     'ui/animation-view/animation-view',
+    'ui/icon/icon',
     'ui/navigator/navigator',
     'ui/rtc-room/rtc-room',
     'ui/rtc-room-item/rtc-room-item',
@@ -27,7 +29,6 @@ module.exports = {
     'OnekitBehavior',
     'OnekitComponent',
     'OnekitPage',
-    'swan.ai',
     'swan'
   ],
 
@@ -68,6 +69,17 @@ module.exports = {
           },
         }, {
           loader: 'eslint-loader',
+        }, {
+          loader: 'string-replace-loader',
+          options: {
+            multiple: [{
+              search: '\'__LOTTIE_CANVAS__\'',
+              replace: fs.readFileSync('./node_modules/lottie-web/build/player/lottie_canvas.js', {encoding: 'utf8'}),
+            }, {
+              search: '__[STANDALONE]__',
+              replace: '',
+            }]
+          }
         }],
         exclude: /node_modules/
       }, {
@@ -108,5 +120,5 @@ module.exports = {
     }
   },
 
-  copy: ['onekit.wxss']// , 'OnekitApp.js', 'OnekitBehavior.js', 'OnekitComponent.js', 'OnekitPage.js', 'swan.ai.js', 'swan.js'], // 将会复制到目标目录
+  copy: ['onekit.wxss']// 将会复制到目标目录
 }

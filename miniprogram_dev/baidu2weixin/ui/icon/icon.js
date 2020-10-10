@@ -82,65 +82,38 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 18);
+/******/ 	return __webpack_require__(__webpack_require__.s = 8);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 18:
+/***/ 8:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-exports.__esModule = true;
+Component({
+  options: {
+    virtualHost: true
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-/* eslint-disable vars-on-top */
-/* eslint-disable no-var */
-// eslint-disable-next-line camelcase
-var swan_ai = function () {
-  function swan_ai() {
-    _classCallCheck(this, swan_ai);
+  },
+  properties: {
+    onekitClass: {
+      type: String,
+      value: ''
+    },
+    onekitStyle: {
+      type: String,
+      value: ''
+    },
+    onekitId: {
+      type: String,
+      value: ''
+    }
   }
 
-  swan_ai.run = function run(api, object) {
-    wx.request({
-      data: object,
-      // eslint-disable-next-line no-undef
-      url: "https://" + getApp().onekit.baidu + "ai." + api,
-      success: function success(res) {
-        // eslint-disable-next-line no-console
-        console.log(res);
-        // eslint-disable-next-line no-redeclare
-        var res = JSON.parse(res.data);
-        if (object.success) {
-          object.success(res);
-        }
-        if (object.complete) {
-          object.complete(res);
-        }
-      },
-      fail: function fail(res) {
-        // eslint-disable-next-line no-console
-        console.error(res);
-        // eslint-disable-next-line no-redeclare
-        var res = { Msg: res };
-        if (object.fail) {
-          object.fail(res);
-        }
-        if (object.complete) {
-          object.complete(res);
-        }
-      }
-    });
-  };
-
-  return swan_ai;
-}();
-
-exports.default = swan_ai;
+});
 
 /***/ })
 

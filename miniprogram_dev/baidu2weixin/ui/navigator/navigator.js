@@ -82,7 +82,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 8);
+/******/ 	return __webpack_require__(__webpack_require__.s = 9);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -1465,8 +1465,58 @@ var swan = function () {
     return wx.createSelectorQuery(object);
   };
 
-  swan.createIntersectionObserver = function createIntersectionObserver(object) {
-    return wx.createIntersectionObserver(object);
+  swan.createIntersectionObserver = function createIntersectionObserver(swan_object) {
+    if (!swan_object) {
+      return;
+    }
+    var swan_thresholds = swan_object.thresholds;
+    var swan_initialRatio = swan_object.initialRatio;
+    var swan_selectAll = swan_object.selectAll;
+    var swan_success = swan_object.success;
+    var swan_complete = swan_object.complete;
+    var swan_fail = swan_object.fail;
+
+    swan_object = null;
+    //
+    var wx_object = {};
+    if (swan_thresholds) {
+      wx_object.thresholds = swan_thresholds;
+    }
+    if (swan_initialRatio) {
+      wx_object.initialRatio = swan_initialRatio;
+    }
+    if (swan_selectAll) {
+      wx_object.observeAll = swan_selectAll;
+    }
+    if (swan_success) {
+      wx_object.success = swan_success;
+    }
+    if (swan_complete) {
+      wx_object.complete = swan_complete;
+    }
+    if (swan_fail) {
+      wx_object.fail = swan_fail;
+    }
+    wx_object.success = function (wx_res) {
+      var swan_res = wx_res;
+      if (swan_success) {
+        swan_success(swan_res);
+      }
+      if (swan_complete) {
+        swan_complete(swan_res);
+      }
+    };
+    wx_object.fail = function (wx_res) {
+      var swan_res = wx_res;
+      if (swan_fail) {
+        swan_fail(swan_res);
+      }
+      if (swan_complete) {
+        swan_complete(swan_res);
+      }
+    };
+
+    wx.createIntersectionObserver(wx_object);
   };
 
   // ///////////////////////////////////
@@ -1773,7 +1823,8 @@ exports.default = LivePlayerContext;
 /* 5 */,
 /* 6 */,
 /* 7 */,
-/* 8 */
+/* 8 */,
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
