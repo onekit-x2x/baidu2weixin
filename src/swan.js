@@ -31,8 +31,7 @@ export default class swan {
   }
 
   // /////////////// basic ////////////////////////////////
-  // eslint-disable-next-line no-unused-vars
-  static canIUse(object) {
+  static canIUse() {
     return true
   }
 
@@ -44,12 +43,12 @@ export default class swan {
     return wx.getSystemInfoSync()
   }
 
-  // eslint-disable-next-line no-unused-vars
+
   static base64ToArrayBuffer(base64) {
     return wx.base64ToArrayBuffer(base64)
   }
 
-  // eslint-disable-next-line no-unused-vars
+
   static arrayBufferToBase64(arrayBuffer) {
     return wx.arrayBufferToBase64(arrayBuffer)
   }
@@ -62,36 +61,42 @@ export default class swan {
     return wx.getLaunchOptionsSync(object)
   }
 
-  static offPageNotFound(object) {
-    return wx.offPageNotFound(object)
+  // static offPageNotFound(swan_callback) {
+  //   const wx_callback  =function(wx_res){
+  //     swan_callback(swan_res);
+  //   }
+  //   return wx.offPageNotFound(wx_callback)
+  // }
+  static offPageNotFound(callback) {
+    return wx.offPageNotFound(callback)
   }
 
-  static onPageNotFound(object) {
-    return wx.onPageNotFound(object)
+  static onPageNotFound(callback) {
+    return wx.onPageNotFound(callback)
   }
 
-  static offError(object) {
-    return wx.offError(object)
+  static offError(callback) {
+    return wx.offError(callback)
   }
 
-  static onError(object) {
-    return wx.onError(object)
+  static onError(callback) {
+    return wx.onError(callback)
   }
 
-  static offAppShow(object) {
-    return wx.offAppShow(object)
+  static offAppShow(callback) {
+    return wx.offAppShow(callback)
   }
 
-  static onAppShow(object) {
-    return wx.onAppShow(object)
+  static onAppShow(callback) {
+    return wx.onAppShow(callback)
   }
 
-  static offAppHide(object) {
-    return wx.offAppHide(object)
+  static offAppHide(callback) {
+    return wx.offAppHide(callback)
   }
 
-  static onAppHide(object) {
-    return wx.onAppHide(object)
+  static onAppHide(callback) {
+    return wx.onAppHide(callback)
   }
 
   static setEnableDebug(object) {
@@ -107,23 +112,23 @@ export default class swan {
     return new CanvasContext(wx.createCanvasContext(canvasId))
   } */
 
-  // eslint-disable-next-line no-unused-vars
-  static createCameraContext(cameraId, ui) {
+
+  static createCameraContext(cameraId) {
     return new CameraContext(wx.createCameraContext(cameraId))
   }
 
-  // eslint-disable-next-line no-unused-vars
-  static createInnerAudioContext(audioId, ui) {
+
+  static createInnerAudioContext(audioId) {
     return new InnerAudioContext(wx.createInnerAudioContext(audioId))
   }
 
-  // eslint-disable-next-line no-unused-vars
-  static createLivePlayerContext(playerId, ui) {
+
+  static createLivePlayerContext(playerId) {
     return new LivePlayerContext(wx.createLivePlayerContext(playerId))
   }
 
-  // eslint-disable-next-line no-unused-vars
-  static createVideoContext(videoId, ui) {
+
+  static createVideoContext(videoId) {
     return new VideoContext(wx.createVideoContext(videoId))
   }
 
@@ -141,12 +146,12 @@ export default class swan {
   }
 
   // //////////// Device //////////////////
-  static onBeaconServiceChange(object) {
-    return wx.onBeaconServiceChange(object)
+  static onBeaconServiceChange(callback) {
+    return wx.onBeaconServiceChange(callback)
   }
 
-  static onBeaconUpdate(object) {
-    return wx.onBeaconUpdate(object)
+  static onBeaconUpdate(callback) {
+    return wx.onBeaconUpdate(callback)
   }
 
   static getBeacons(object) {
@@ -173,12 +178,12 @@ export default class swan {
     return wx.setWifiList(object)
   }
 
-  static onWifiConnected(object) {
-    return wx.onWifiConnected(object)
+  static onWifiConnected(callback) {
+    return wx.onWifiConnected(callback)
   }
 
-  static onGetWifiList(object) {
-    return wx.onGetWifiList(object)
+  static onGetWifiList(callback) {
+    return wx.onGetWifiList(callback)
   }
 
   static getWifiList(object) {
@@ -239,7 +244,7 @@ export default class swan {
     return wx.addPhoneContact(object)
   }
 
-  // eslint-disable-next-line no-unused-vars
+
   static onGyroscopeChange(callback) {
     return wx.onGyroscopeChange(callback)
   }
@@ -253,8 +258,8 @@ export default class swan {
   }
 
   //
-  static onDeviceMotionChange(object) {
-    return wx.onDeviceMotionChange(object)
+  static onDeviceMotionChange(callback) {
+    return wx.onDeviceMotionChange(callback)
   }
 
   static stopDeviceMotionListening(object) {
@@ -293,8 +298,8 @@ export default class swan {
   }
 
   //
-  static onMemoryWarning(object) {
-    return wx.onMemoryWarning(object)
+  static onMemoryWarning(callback) {
+    return wx.onMemoryWarning(callback)
   }
 
   //
@@ -306,12 +311,12 @@ export default class swan {
     return wx.readBLECharacteristicValue(object)
   }
 
-  static onBLEConnectionStateChange(object) {
-    return wx.onBLEConnectionStateChange(object)
+  static onBLEConnectionStateChange(callback) {
+    return wx.onBLEConnectionStateChange(callback)
   }
 
-  static onBLECharacteristicValueChange(object) {
-    return wx.onBLECharacteristicValueChange(object)
+  static onBLECharacteristicValueChange(callback) {
+    return wx.onBLECharacteristicValueChange(callback)
   }
 
   static notifyBLECharacteristicValueChange(object) {
@@ -335,22 +340,21 @@ export default class swan {
   }
 
 
-  // eslint-disable-next-line no-unused-vars
-  static stopBluetoothDevicesDiscovery(object) { /* return wx.stopBluetoothDevicesDiscovery(object); */ }
+  static stopBluetoothDevicesDiscovery(object) { return wx.stopBluetoothDevicesDiscovery(object) }
 
   static startBluetoothDevicesDiscovery(object) {
     return wx.startBluetoothDevicesDiscovery(object)
   }
 
-  // eslint-disable-next-line no-unused-vars
-  static openBluetoothAdapter(object) { /* return wx.openBluetoothAdapter(object); */ }
 
-  static onBluetoothDeviceFound(object) {
-    return wx.onBluetoothDeviceFound(object)
+  static openBluetoothAdapter(object) { return wx.openBluetoothAdapter(object) }
+
+  static onBluetoothDeviceFound(callback) {
+    return wx.onBluetoothDeviceFound(callback)
   }
 
-  static onBluetoothAdapterStateChange(object) {
-    return wx.onBluetoothAdapterStateChange(object)
+  static onBluetoothAdapterStateChange(callback) {
+    return wx.onBluetoothAdapterStateChange(callback)
   }
 
   static getConnectedBluetoothDevices(object) {
@@ -382,8 +386,8 @@ export default class swan {
     return wx.sendHCEMessage(object)
   }
 
-  static onHCEMessage(object) {
-    return wx.onHCEMessage(object)
+  static onHCEMessage(callback) {
+    return wx.onHCEMessage(callback)
   }
 
   static getHCEState(object) {
@@ -399,8 +403,8 @@ export default class swan {
     return wx.setKeepScreenOn(object)
   }
 
-  static onUserCaptureScreen(object) {
-    return wx.onUserCaptureScreen(object)
+  static onUserCaptureScreen(callback) {
+    return wx.onUserCaptureScreen(callback)
   }
 
   static getScreenBrightness(object) {
@@ -525,16 +529,16 @@ export default class swan {
     return wx.createAudioContext(object)
   }
 
-  static onBackgroundAudioStop(object) {
-    return wx.onBackgroundAudioStop(object)
+  static onBackgroundAudioStop(callback) {
+    return wx.onBackgroundAudioStop(callback)
   }
 
-  static onBackgroundAudioPause(object) {
-    return wx.onBackgroundAudioPause(object)
+  static onBackgroundAudioPause(callback) {
+    return wx.onBackgroundAudioPause(callback)
   }
 
-  static onBackgroundAudioPlay(object) {
-    return wx.onBackgroundAudioPlay(object)
+  static onBackgroundAudioPlay(callback) {
+    return wx.onBackgroundAudioPlay(callback)
   }
 
   static stopBackgroundAudio(object) {
@@ -587,20 +591,31 @@ export default class swan {
     return wx.connectSocket(object)
   }
 
-  static onSocketError(object) {
-    return wx.onSocketError(object)
+  static onSocketError(callback) {
+    return wx.onSocketError(callback)
   }
 
-  static onSocketMessage(object) {
-    return wx.onSocketMessage(object)
+  static onSocketMessage(swan_callback) {
+    if (!swan_callback) {
+      return
+    }
+    const wx_callback = function (wx_res) {
+      const swan_res = {
+        data: wx_res.data,
+        dataType: wx_res.dataType
+      }
+
+      swan_callback(swan_res)
+    }
+    wx.onSocketMessage(wx_callback)
   }
 
-  static onSocketClose(object) {
-    return wx.onSocketClose(object)
+  static onSocketClose(callback) {
+    return wx.onSocketClose(callback)
   }
 
-  static onSocketOpen(object) {
-    return wx.connectSocket(object)
+  static onSocketOpen(callback) {
+    return wx.connectSocket(callback)
   }
 
   static sendSocketMessage(object) {
@@ -611,36 +626,36 @@ export default class swan {
     return wx.closeSocket(object)
   }
 
-  static offLocalServiceResolveFail(object) {
-    return wx.offLocalServiceResolveFail(object)
+  static offLocalServiceResolveFail(callback) {
+    return wx.offLocalServiceResolveFail(callback)
   }
 
-  static onLocalServiceResolveFail(object) {
-    return wx.onLocalServiceResolveFail(object)
+  static onLocalServiceResolveFail(callback) {
+    return wx.onLocalServiceResolveFail(callback)
   }
 
-  static offLocalServiceDiscoveryStop(object) {
-    return wx.offLocalServiceDiscoveryStop(object)
+  static offLocalServiceDiscoveryStop(callback) {
+    return wx.offLocalServiceDiscoveryStop(callback)
   }
 
-  static onLocalServiceDiscoveryStop(object) {
-    return wx.onLocalServiceDiscoveryStop(object)
+  static onLocalServiceDiscoveryStop(callback) {
+    return wx.onLocalServiceDiscoveryStop(callback)
   }
 
-  static offLocalServiceLost(object) {
-    return wx.offLocalServiceLost(object)
+  static offLocalServiceLost(callback) {
+    return wx.offLocalServiceLost(callback)
   }
 
-  static onLocalServiceLost(object) {
-    return wx.onLocalServiceLost(object)
+  static onLocalServiceLost(callback) {
+    return wx.onLocalServiceLost(callback)
   }
 
-  static offLocalServiceFound(object) {
-    return wx.offLocalServiceFound(object)
+  static offLocalServiceFound(callback) {
+    return wx.offLocalServiceFound(callback)
   }
 
-  static onLocalServiceFound(object) {
-    return wx.onLocalServiceFound(object)
+  static onLocalServiceFound(callback) {
+    return wx.onLocalServiceFound(callback)
   }
 
   static stopLocalServiceDiscovery(object) {
@@ -704,6 +719,7 @@ export default class swan {
   // /////// Open Interface //////////
   static _checkSession() {
     const now = new Date().getTime()
+
     // eslint-disable-next-line no-undef
     return getApp().onekitwx._jscode && getApp().onekitwx._login && now <= getApp().onekitwx._login + 1000 * 60 * 60 * 24 * 3
   }
@@ -727,50 +743,52 @@ export default class swan {
   }
 
   // eslint-disable-next-line consistent-return
-  static login(object) {
-    // eslint-disable-next-line no-unused-vars
-    const that = this
-    if (!object) {
-      return wx.login(object)
-    }
-    const object2 = {}
-    object2.success = function (res) {
-      // eslint-disable-next-line no-undef
-      getApp().onekitwx._code = res.code
-      // eslint-disable-next-line no-undef
-      getApp().onekitwx._login = new Date().getTime()
-      const result = {
-        code: res.code
-      }
-      if (object.success) {
-        object.success(result)
-      }
-      if (object.complete) {
-        object.complete(result)
-      }
-    }
-    object2.fail = function (res) {
-      if (object.fail) {
-        object.fail(res)
-      }
-      if (object.complete) {
-        object.complete(res)
-      }
-    }
-    if (swan._checkSession()) {
-      object2.success({
-        // eslint-disable-next-line no-undef
-        code: getApp().onekitwx._code
-      })
-    } else {
-      wx.login(object2)
-    }
-  }
+  // static login(object) {
+  //   const that = this
+  //   if (!object) {
+  //     return wx.login(object)
+  //   }
+  //   const object2 = {}
+  //   object2.success = function (res) {
+  //     // eslint-disable-next-line no-undef
+  //     getApp().onekitwx._code = res.code
+
+  //     // eslint-disable-next-line no-undef
+  //     getApp().onekitwx._login = new Date().getTime()
+  //     const result = {
+  //       code: res.code
+  //     }
+  //     if (object.success) {
+  //       object.success(result)
+  //     }
+  //     if (object.complete) {
+  //       object.complete(result)
+  //     }
+  //   }
+  //   object2.fail = function (res) {
+  //     if (object.fail) {
+  //       object.fail(res)
+  //     }
+  //     if (object.complete) {
+  //       object.complete(res)
+  //     }
+  //   }
+  //   if (swan._checkSession()) {
+  //     object2.success({
+
+  //       // eslint-disable-next-line no-undef
+  //       code: getApp().onekitwx._code
+  //     })
+  //   } else {
+  //     wx.login(object2)
+  //   }
+  // }
 
   static requestPolymerPayment(object) {
     swan.login({
       success(res) {
         const code = res.code
+
         // eslint-disable-next-line no-undef
         const url = getApp().onekitwx.server + 'orderinfo'
         wx.request({
@@ -814,6 +832,7 @@ export default class swan {
     swan.login({
       success(res) {
         const code = res.code
+
         // eslint-disable-next-line no-undef
         const url = getApp().onekitwx.server + 'userinfo'
         wx.request({
@@ -856,74 +875,80 @@ export default class swan {
     })
   }
 
-  static getOpenData(object) {
-    function success(res) {
-      const opendata = res.userInfo
-      // eslint-disable-next-line no-undef
-      getApp().onekitwx.opendata = opendata
-      // eslint-disable-next-line no-undef
-      getApp().onekitwx.opendataCallbacks = []
-      // eslint-disable-next-line no-undef
-      for (let cb = 0; cb < getApp().onekitwx.opendataCallbacks.length; cb++) {
-        // eslint-disable-next-line no-undef
-        getApp().onekitwx.opendataCallbacks[cb](opendata)
-      }
-      if (object.success) {
-        object.success(opendata)
-      }
-      if (object.complete) {
-        object.complete(opendata)
-      }
-    }
-    // eslint-disable-next-line no-undef
-    const opendata = getApp().onekitwx.opendata
-    if (opendata) {
-      if (Object.keys(opendata) > 0) {
-        object.success(opendata)
-      } else if (object.success) {
-        // eslint-disable-next-line no-undef
-        getApp().onekitwx.opendataCallbacks.push(object.success)
-      }
-      return
-    }
-    // eslint-disable-next-line no-undef
-    getApp().onekitwx.opendata = {}
-    swan.login({
-      success(res) {
-        const code = res.code
-        swan.getUserInfo({
-          // eslint-disable-next-line no-unused-vars
-          success(res) {
-            // eslint-disable-next-line no-undef
-            const url = getApp().onekitwx.server + 'userinfo'
-            wx.httpRequest({
-              url,
-              header: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-              },
-              method: 'POST',
-              data: {
-                withCredentials: false,
-                isAPI: false,
-                code
-              },
-              success(res) {
-                success(res.data)
-              },
-              fail(res) {
-                console.log(res)
-              }
-            })
-          }
-        })
-      }
-    })
-  }
+  // static getOpenData(object) {
+  //   function success(res) {
+  //     const opendata = res.userInfo
+
+  //     // eslint-disable-next-line no-undef
+  //     getApp().onekitwx.opendata = opendata
+
+  //     // eslint-disable-next-line no-undef
+  //     getApp().onekitwx.opendataCallbacks = []
+
+  //     // eslint-disable-next-line no-undef
+  //     for (let cb = 0; cb < getApp().onekitwx.opendataCallbacks.length; cb++) {
+  //       // eslint-disable-next-line no-undef
+  //       getApp().onekitwx.opendataCallbacks[cb](opendata)
+  //     }
+  //     if (object.success) {
+  //       object.success(opendata)
+  //     }
+  //     if (object.complete) {
+  //       object.complete(opendata)
+  //     }
+  //   }
+
+  //   // eslint-disable-next-line no-undef
+  //   const opendata = getApp().onekitwx.opendata
+  //   if (opendata) {
+  //     if (Object.keys(opendata) > 0) {
+  //       object.success(opendata)
+  //     } else if (object.success) {
+  //       // eslint-disable-next-line no-undef
+  //       getApp().onekitwx.opendataCallbacks.push(object.success)
+  //     }
+  //     return
+  //   }
+
+  //   // eslint-disable-next-line no-undef
+  //   getApp().onekitwx.opendata = {}
+  //   swan.login({
+  //     success(res) {
+  //       const code = res.code
+  //       swan.getUserInfo({
+
+  //         success(res) {
+  //           // eslint-disable-next-line no-undef
+  //           const url = getApp().onekitwx.server + 'userinfo'
+  //           wx.httpRequest({
+  //             url,
+  //             header: {
+  //               'Content-Type': 'application/x-www-form-urlencoded'
+  //             },
+  //             method: 'POST',
+  //             data: {
+  //               withCredentials: false,
+  //               isAPI: false,
+  //               code
+  //             },
+  //             success(res) {
+  //               success(res.data)
+  //             },
+  //             fail(res) {
+  //               console.log(res)
+  //             }
+  //           })
+  //         }
+  //       })
+  //     }
+  //   })
+  // }
 
   static getPhoneNumber(data, callback) {
     swan.login({
       success(res) {
         const code = res.code
+
         // eslint-disable-next-line no-undef
         const url = getApp().onekitwx.server + 'phonenumber'
         wx.request({
@@ -1236,12 +1261,12 @@ export default class swan {
     return wx.getMenuButtonBoundingClientRect(object)
   }
 
-  static offWindowResize(object) {
-    return wx.offWindowResize(object)
+  static offWindowResize(callback) {
+    return wx.offWindowResize(callback)
   }
 
-  static onWindowResize(object) {
-    return wx.onWindowResize(object)
+  static onWindowResize(callback) {
+    return wx.onWindowResize(callback)
   }
 
   // //////////// Worker ///////////////
@@ -1265,8 +1290,8 @@ export default class swan {
   }
 
   // /////////////////////////////////
-  // eslint-disable-next-line no-unused-vars
-  static createARCameraContext(object) {
+
+  static createARCameraContext() {
     throw new Error('createARCameraContext�ݲ�֧��!!')
   }
 }
