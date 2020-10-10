@@ -1,30 +1,92 @@
-.animation-element-wrapper {
-  display: flex;
-  width: 100%;
-  padding-top: 150rpx;
-  padding-bottom: 150rpx;
-  justify-content: center;
-  overflow: hidden;
-  background-color: #ffffff;
-}
-.animation-element {
-  width: 200rpx;
-  height: 200rpx;
-  background-color:rgba(248,89,89,1);
-}
-.animation-buttons {
-  padding: 30rpx 50rpx 10rpx;
-  width: 100%;
-  height: 360rpx;
-  box-sizing: border-box;
-}
-.animation-button {
-  float: left;
-  line-height: 2;
-  width: 300rpx;
-  margin: 15rpx 12rpx;
+@font-face {
+  font-family: "iconfont";  /* project id 2000141 */
+  src: url(http://at.alicdn.com/t/font_2000141_vma36b09h9.wof) format("woff"),
+      url(http://at.alicdn.com/t/font_2000141_vma36b09h9.ttf) format("truetype"),
+      url(http://at.alicdn.com/t/font_2000141_vma36b09h9.svg#iconfont) format("svg");
 }
 
-.animation-button-reset {
-  width: 620rpx;
+.iconfont {
+  display: inline-block;
+  font-size: 22px;
+  width: 30px;
+  height: 30px;
+  font-family: "iconfont" !important;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-image:before {
+  content: "\e60e";
+}
+
+.icon-format-header-1:before {
+  content: "\e610";
+}
+
+.icon-format-header-2:before {
+  content: "\e60f";
+}
+
+.icon-format-bold:before {
+  content: "\e60a";
+}
+
+.icon-format-list:before {
+  content: "\e60b";
+}
+
+.icon-divider:before {
+  content: "\e609";
+}
+
+.icon-clear:before {
+  content: "\e60c";
+}
+
+.icon-format-italic:before {
+  content: "\e60d";
+}
+
+.editor-wrap {
+  width: 100%;
+  height: 100vh;
+}
+
+.editor {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  margin-top: 50px;
+  padding: 38.043rpx 30.797rpx;
+}
+
+swan-editor {
+  display: block;
+}
+
+.ql-editor {
+  height: 100%;
+}
+
+.toolbar {
+  position: fixed;
+  box-sizing: border-box;
+  padding: 17px 17px;
+  width: 100%;
+  height: 45px;
+  top: 30;
+  left: 0;
+  border-top: .906rpx solid #e6e6e6;
+  border-bottom: .906rpx solid #e6e6e6;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  z-index: 99;
+}
+
+.ql-active {
+  color: #3388ff;
 }

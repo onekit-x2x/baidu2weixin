@@ -15,10 +15,13 @@ const dist = path.resolve(__dirname, '../miniprogram_dist')
 module.exports = {
   entry: [
     'ui/ad/ad',
-    'ui/icon/icon',
-    'ui/progress/progress',
-    'ui/slider/slider',
-    'ui/video/video',
+    'ui/animation-video/animation-video',
+    'ui/animation-view/animation-view',
+    'ui/navigator/navigator',
+    'ui/rtc-room/rtc-room',
+    'ui/rtc-room-item/rtc-room-item',
+    'ui/tabs/tabs',
+    'ui/tab-item/tab-item',
     'ui/view/view',
     'OnekitApp',
     'OnekitBehavior',

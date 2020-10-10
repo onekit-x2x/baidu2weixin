@@ -82,65 +82,50 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 18);
+/******/ 	return __webpack_require__(__webpack_require__.s = 9);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 18:
+/***/ 9:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-exports.__esModule = true;
+Component({
+  /**
+   * 组件的属性列表
+   */
+  behaviors: ['wx://form-field'],
+  options: {
+    virtualHost: true
+  },
+  properties: {
+    onekitClass: {
+      type: String,
+      value: ' '
+    },
+    onekitStyle: {
+      type: String,
+      value: ''
+    },
+    onekitId: {
+      type: String,
+      value: ''
+    }
+  },
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+  /**
+   * 组件的初始数据
+   */
+  data: {},
 
-/* eslint-disable vars-on-top */
-/* eslint-disable no-var */
-// eslint-disable-next-line camelcase
-var swan_ai = function () {
-  function swan_ai() {
-    _classCallCheck(this, swan_ai);
-  }
-
-  swan_ai.run = function run(api, object) {
-    wx.request({
-      data: object,
-      // eslint-disable-next-line no-undef
-      url: "https://" + getApp().onekit.baidu + "ai." + api,
-      success: function success(res) {
-        // eslint-disable-next-line no-console
-        console.log(res);
-        // eslint-disable-next-line no-redeclare
-        var res = JSON.parse(res.data);
-        if (object.success) {
-          object.success(res);
-        }
-        if (object.complete) {
-          object.complete(res);
-        }
-      },
-      fail: function fail(res) {
-        // eslint-disable-next-line no-console
-        console.error(res);
-        // eslint-disable-next-line no-redeclare
-        var res = { Msg: res };
-        if (object.fail) {
-          object.fail(res);
-        }
-        if (object.complete) {
-          object.complete(res);
-        }
-      }
-    });
-  };
-
-  return swan_ai;
-}();
-
-exports.default = swan_ai;
+  /**
+   * 组件的方法列表
+   */
+  methods: {}
+});
 
 /***/ })
 

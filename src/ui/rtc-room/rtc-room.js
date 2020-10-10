@@ -1,12 +1,16 @@
-// onekit/ui/animation-view/animation-view.js
+
 Component({
   /**
    * 组件的属性列表
    */
+  behaviors: ['wx://form-field'],
+  options: {
+    virtualHost: true
+  },
   properties: {
     onekitClass: {
       type: String,
-      value: ''
+      value: ' '
     },
     onekitStyle: {
       type: String,
@@ -16,7 +20,6 @@ Component({
       type: String,
       value: ''
     },
-
   },
 
   /**
@@ -30,6 +33,5 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
   }
 })
