@@ -82,11 +82,13 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 9);
+/******/ 	return __webpack_require__(__webpack_require__.s = 15);
 /******/ })
 /************************************************************************/
 /******/ ([
-/* 0 */
+/* 0 */,
+/* 1 */,
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -94,19 +96,19 @@ module.exports =
 
 exports.__esModule = true;
 
-var _CameraContext = __webpack_require__(1);
+var _CameraContext = __webpack_require__(3);
 
 var _CameraContext2 = _interopRequireDefault(_CameraContext);
 
-var _InnerAudioContext = __webpack_require__(2);
+var _InnerAudioContext = __webpack_require__(4);
 
 var _InnerAudioContext2 = _interopRequireDefault(_InnerAudioContext);
 
-var _VideoContext = __webpack_require__(3);
+var _VideoContext = __webpack_require__(5);
 
 var _VideoContext2 = _interopRequireDefault(_VideoContext);
 
-var _LivePlayerContext = __webpack_require__(4);
+var _LivePlayerContext = __webpack_require__(6);
 
 var _LivePlayerContext2 = _interopRequireDefault(_LivePlayerContext);
 
@@ -1548,7 +1550,7 @@ function ai_init(api) {
 exports.default = swan;
 
 /***/ }),
-/* 1 */
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1583,7 +1585,7 @@ var VideoContext = function () {
 exports.default = VideoContext;
 
 /***/ }),
-/* 2 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1706,7 +1708,7 @@ var InnerAudioContext = function () {
 exports.default = InnerAudioContext;
 
 /***/ }),
-/* 3 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1769,7 +1771,7 @@ var VideoContext = function () {
 exports.default = VideoContext;
 
 /***/ }),
-/* 4 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1820,17 +1822,21 @@ var LivePlayerContext = function () {
 exports.default = LivePlayerContext;
 
 /***/ }),
-/* 5 */,
-/* 6 */,
 /* 7 */,
 /* 8 */,
-/* 9 */
+/* 9 */,
+/* 10 */,
+/* 11 */,
+/* 12 */,
+/* 13 */,
+/* 14 */,
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _swan = __webpack_require__(0);
+var _swan = __webpack_require__(2);
 
 var _swan2 = _interopRequireDefault(_swan);
 

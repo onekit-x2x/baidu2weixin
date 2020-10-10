@@ -48,7 +48,6 @@
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-node": "^7.0.1",
     "eslint-plugin-promise": "^3.8.0",
-    "string-replace-loader": "^2.2.0",
     "gulp": "^4.0.0",
     "gulp-clean": "^0.4.0",
     "gulp-if": "^2.0.2",
@@ -65,8 +64,9 @@
     "typescript": "^3.8.3",
     "vinyl": "^2.2.0",
     "webpack": "^4.29.5",
-    "webpack-node-externals": "^1.7.2",
-    "lottie-web": "5.5.7"
+    "webpack-node-externals": "^1.7.2"
   },
-  "dependencies": {}
+  "dependencies": {
+    "lottie-miniprogram":"latest"
+  }
 }

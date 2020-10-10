@@ -1,3 +1,5 @@
 {
-	"dependencies": {}
+	"dependencies": {
+		"lottie-miniprogram": "latest"
+	}
 }

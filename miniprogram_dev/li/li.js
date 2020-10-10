@@ -3,7 +3,7 @@ import swan from '../baidu2weixin/swan';
 var app = getApp();
 OnekitPage({
     data:{
-        path:'/common/anims/lottie_example_one.json',
+        path:'lottie_example_one.json',
         loop:true,
         autoplay:true,
         action:'play',

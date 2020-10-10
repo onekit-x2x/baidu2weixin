@@ -1,7 +1,7 @@
-<view 
+<canvas 
   class="onekit-animation-view {{onekitClass}}"
   style="{{onekitStyle}}"
+    type="2d"
   id="{{onekitId}}"
 >
-<slot/>
-</view>
+</canvas>

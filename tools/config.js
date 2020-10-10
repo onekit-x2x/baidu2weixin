@@ -2,7 +2,6 @@
 const path = require('path')
 
 const webpack = require('webpack')
-const fs = require('fs')
 const nodeExternals = require('webpack-node-externals')
 
 const isDev = process.argv.indexOf('--develop') >= 0
@@ -69,17 +68,6 @@ module.exports = {
           },
         }, {
           loader: 'eslint-loader',
-        }, {
-          loader: 'string-replace-loader',
-          options: {
-            multiple: [{
-              search: '\'__LOTTIE_CANVAS__\'',
-              replace: fs.readFileSync('./node_modules/lottie-web/build/player/lottie_canvas.js', {encoding: 'utf8'}),
-            }, {
-              search: '__[STANDALONE]__',
-              replace: '',
-            }]
-          }
         }],
         exclude: /node_modules/
       }, {
