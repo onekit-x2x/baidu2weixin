@@ -1280,8 +1280,58 @@ export default class swan {
     return wx.createSelectorQuery(object)
   }
 
-  static createIntersectionObserver(object) {
-    return wx.createIntersectionObserver(object)
+  static createIntersectionObserver(swan_object) {
+    if (!swan_object) {
+      return
+    }
+    const swan_thresholds = swan_object.thresholds
+    const swan_initialRatio = swan_object.initialRatio
+    const swan_selectAll = swan_object.selectAll
+    const swan_success = swan_object.success
+    const swan_complete = swan_object.complete
+    const swan_fail = swan_object.fail
+
+    swan_object = null
+    //
+    const wx_object = {}
+    if (swan_thresholds) {
+      wx_object.thresholds = swan_thresholds
+    }
+    if (swan_initialRatio) {
+      wx_object.initialRatio = swan_initialRatio
+    }
+    if (swan_selectAll) {
+      wx_object.observeAll = swan_selectAll
+    }
+    if (swan_success) {
+      wx_object.success = swan_success
+    }
+    if (swan_complete) {
+      wx_object.complete = swan_complete
+    }
+    if (swan_fail) {
+      wx_object.fail = swan_fail
+    }
+    wx_object.success = function (wx_res) {
+      const swan_res = wx_res
+      if (swan_success) {
+        swan_success(swan_res)
+      }
+      if (swan_complete) {
+        swan_complete(swan_res)
+      }
+    }
+    wx_object.fail = function (wx_res) {
+      const swan_res = wx_res
+      if (swan_fail) {
+        swan_fail(swan_res)
+      }
+      if (swan_complete) {
+        swan_complete(swan_res)
+      }
+    }
+
+    wx.createIntersectionObserver(wx_object)
   }
 
   // ///////////////////////////////////
