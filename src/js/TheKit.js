@@ -55,7 +55,7 @@ TheKit.array2str = function (array) {
   const str = '#' + f(array[0]) + f(array[1]) + f(array[2]) + f(array[3])
   return str
 }
-TheKit.fixurl = function (currentUrl, url) {
+TheKit.rel2abs = function (currentUrl, url) {
   if (url.startsWith('/')) {
     return url.substring(1)
   }
@@ -80,5 +80,22 @@ TheKit.fixurl = function (currentUrl, url) {
   }
 
   return folder + url
+}
+TheKit.abs2rel = function (currentUrl, url) {
+  url = TheKit.rel2abs(currentUrl, url)
+  if (currentUrl.startsWith('/')) {
+    currentUrl = currentUrl.substring(1)
+  }
+  const array = currentUrl.split('/')
+  let result = ''
+  if (array.length > 1) {
+    for (let i = 0; i < array.length; i++) {
+      result += '../'
+    }
+  } else {
+    result += './'
+  }
+  result += url
+  return result.toString()
 }
 module.exports = TheKit

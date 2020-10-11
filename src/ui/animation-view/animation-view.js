@@ -5,7 +5,6 @@ import lottie from 'lottie-miniprogram'
 import onekit_behavior from '../../behavior/onekit_behavior'
 import baidu_behavior from '../../behavior/baidu_behavior'
 import TheKit from '../../js/TheKit'
-import onekit from '../../js/onekit'
 
 Component({
   behaviors: [onekit_behavior, baidu_behavior],
@@ -61,8 +60,7 @@ Component({
           canvas.height = res[0].height * dpr
           lottie.setup(canvas)
           //
-          // console.log(onekit.currentUrl(), that.properties.path)
-          const path = TheKit.fixurl(onekit.currentUrl(), that.properties.path)
+          const path = TheKit.abs2rel('baidu2weixin/ui/animation-view/animation-view.js', that.properties.path)
           that.ani = lottie.loadAnimation({
             loop: that.properties.loop,
             animationData: require(`${path}.js`),

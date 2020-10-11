@@ -189,12 +189,11 @@ var _TheKit = __webpack_require__(11);
 
 var _TheKit2 = _interopRequireDefault(_TheKit);
 
-var _onekit = __webpack_require__(12);
-
-var _onekit2 = _interopRequireDefault(_onekit);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+/* eslint-disable no-console */
+/* eslint-disable camelcase */
+/* eslint-disable import/no-dynamic-require */
 Component({
   behaviors: [_onekit_behavior2.default, _baidu_behavior2.default],
   options: {
@@ -243,11 +242,10 @@ Component({
         canvas.height = res[0].height * dpr;
         _lottieMiniprogram2.default.setup(canvas);
         //
-        // console.log(onekit.currentUrl(), that.properties.path)
-        var path = _TheKit2.default.fixurl(_onekit2.default.currentUrl(), that.properties.path);
+        var path = _TheKit2.default.abs2rel('baidu2weixin/ui/animation-view/animation-view.js', that.properties.path);
         that.ani = _lottieMiniprogram2.default.loadAnimation({
           loop: that.properties.loop,
-          animationData: __webpack_require__(13)(path + ".js"),
+          animationData: __webpack_require__(12)(path + ".js"),
           autoplay: that.properties.autoplay,
           rendererSettings: {
             context: context
@@ -261,9 +259,7 @@ Component({
     }
   }
 
-}); /* eslint-disable no-console */
-/* eslint-disable camelcase */
-/* eslint-disable import/no-dynamic-require */
+});
 
 /***/ }),
 /* 8 */,
@@ -336,7 +332,7 @@ TheKit.array2str = function (array) {
   var str = '#' + f(array[0]) + f(array[1]) + f(array[2]) + f(array[3]);
   return str;
 };
-TheKit.fixurl = function (currentUrl, url) {
+TheKit.rel2abs = function (currentUrl, url) {
   if (url.startsWith('/')) {
     return url.substring(1);
   }
@@ -362,26 +358,27 @@ TheKit.fixurl = function (currentUrl, url) {
 
   return folder + url;
 };
+TheKit.abs2rel = function (currentUrl, url) {
+  url = TheKit.rel2abs(currentUrl, url);
+  if (currentUrl.startsWith('/')) {
+    currentUrl = currentUrl.substring(1);
+  }
+  var array = currentUrl.split('/');
+  var result = '';
+  if (array.length > 1) {
+    for (var i = 0; i < array.length; i++) {
+      result += '../';
+    }
+  } else {
+    result += './';
+  }
+  result += url;
+  return result.toString();
+};
 module.exports = TheKit;
 
 /***/ }),
 /* 12 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-
-var onekit = {};
-onekit.currentUrl = function () {
-  var pages = getCurrentPages();
-  return pages[pages.length - 1].route;
-};
-exports.default = onekit;
-
-/***/ }),
-/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
@@ -406,7 +403,7 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = 13;
+webpackContext.id = 12;
 
 /***/ })
 /******/ ]);
