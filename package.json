@@ -67,6 +67,6 @@
     "webpack-node-externals": "^1.7.2"
   },
   "dependencies": {
-    "lottie-miniprogram":"latest"
+    "lottie-miniprogram": "latest"
   }
 }

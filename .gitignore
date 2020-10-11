@@ -40,3 +40,9 @@ miniprogram_dev/yang/yang.wxml
 miniprogram_dev/li/lottie_example_one.json.js
 miniprogram_dev/miniprogram_npm/lottie-miniprogram/index.d.ts
 miniprogram_dev/miniprogram_npm/lottie-miniprogram/index.js
+miniprogram_dev/app.json
+miniprogram_dev/baidu2weixin/OnekitApp.js
+miniprogram_dev/baidu2weixin/OnekitBehavior.js
+miniprogram_dev/baidu2weixin/OnekitComponent.js
+miniprogram_dev/baidu2weixin/OnekitPage.js
+miniprogram_dev/baidu2weixin/ui/navigator/navigator.js
