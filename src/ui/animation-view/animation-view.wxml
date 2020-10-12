@@ -3,7 +3,5 @@
   style="{{onekitStyle}}"
   id="{{onekitId}}"
   type="2d"
-
-  bindtap="view_ended"
 >
 </canvas>

@@ -1,7 +1,154 @@
-<onekit-view onekit-class="wrap">
+<!--<animation-view>-->
+<!--<onekit-view onekit-class="wrap">
     <onekit-view onekit-class="card-area">
         <onekit-animation-view onekit-class="controls" path="{{ path }}" loop="{{loop}}" autoplay="{{autoplay}}" action="{{action}}" hidden="{{hidden}}" bindEnded="lottieEnd">
         </onekit-animation-view>
         <onekit-button bindTap="playLottie" type="primary">{{status}}lottie动画</onekit-button>
     </onekit-view>
+</onekit-view>-->
+
+<!--<button>-->
+<onekit-view onekit-class="wrap">
+    <onekit-view onekit-class="card-area">
+        <onekit-view onekit-class="top-description border-bottom">
+            <onekit-view>主要按钮</onekit-view>
+            <onekit-view>primary</onekit-view>
+        </onekit-view>
+        <onekit-button type="primary" plain="false">
+            主按钮 normal
+        </onekit-button>
+        <onekit-button type="primary" loading>
+            主按钮 loading
+        </onekit-button>
+        <onekit-button type="primary" disabled>
+            主按钮 disabled
+        </onekit-button>
+    </onekit-view>
+
+    <onekit-view onekit-class="card-area">
+        <onekit-view onekit-class="top-description border-bottom">
+            <onekit-view>次要按钮</onekit-view>
+            <onekit-view>default</onekit-view>
+        </onekit-view>
+        <onekit-button type="default" plain="false">
+            次按钮 normal
+        </onekit-button>
+        <onekit-button type="default" loading>
+            次按钮 loading
+        </onekit-button>
+        <onekit-button type="default" disabled>
+            次按钮 disabled
+        </onekit-button>
+    </onekit-view>
+
+    <onekit-view onekit-class="card-area">
+        <onekit-view onekit-class="top-description border-bottom">
+            <onekit-view>警示按钮</onekit-view>
+            <onekit-view>warn</onekit-view>
+        </onekit-view>
+        <onekit-button type="warn">
+            警示按钮 normal
+        </onekit-button>
+        <onekit-button type="warn" loading>
+            警示按钮 loading
+        </onekit-button>
+        <onekit-button type="warn" disabled>
+            警示按钮 disabled
+        </onekit-button>
+    </onekit-view>
+
+    <onekit-view onekit-class="card-area">
+        <onekit-view onekit-class="top-description border-bottom">
+            <onekit-view>小尺寸按钮</onekit-view>
+            <onekit-view>size='mini'</onekit-view>
+        </onekit-view>
+        <onekit-button type="primary" size="mini">
+            按钮
+        </onekit-button>
+        <onekit-button type="default" size="mini">
+            按钮
+        </onekit-button>
+        <onekit-button type="warn" size="mini">
+            按钮
+        </onekit-button>
+    </onekit-view>
+
+    <onekit-view onekit-class="card-area">
+        <onekit-view onekit-class="top-description border-bottom">
+            自定义点击态
+        </onekit-view>
+        <onekit-button type="primary" hover-class="none" bind:tap="tap">
+            无点击态
+        </onekit-button>
+        <onekit-button type="primary" hover-start-time="1000">
+            点击态延迟出现
+        </onekit-button>
+        <onekit-button type="primary" hover-stay-time="2000">
+            点击态延迟消失
+        </onekit-button>
+    </onekit-view>
+
+    <onekit-view onekit-class="card-area" wx:if="{{!isWeb}}">
+        <onekit-view onekit-class="top-description border-bottom">
+            绑定开放能力
+        </onekit-view>
+        <onekit-button type="primary" onekit-class="middle-btn" open-type="share">触发用户分享</onekit-button>
+        <onekit-button type="primary" onekit-class="middle-btn" open-type="getUserInfo" bindGetuserinfo="getUserInfo">获取用户信息</onekit-button>
+        <onekit-button type="primary" onekit-class="middle-btn" open-type="getPhoneNumber" bindGetphonenumber="getPhoneNumber">获取用户手机号</onekit-button>
+        <onekit-button type="primary" onekit-class="middle-btn" open-type="openSetting" bindOpensetting="openSetting">打开授权设置页</onekit-button>
+        <onekit-button type="primary" onekit-class="middle-btn" contact open-type="contact" bindContact="contact">打开客服对话</onekit-button>
+        <onekit-button type="primary" onekit-class="middle-btn" open-type="chooseInvoiceTitle" bindChooseInvoiceTitle="chooseInvoiceTitle">选择用户发票抬头</onekit-button>
+        <onekit-button type="primary" onekit-class="middle-btn" open-type="chooseAddress" bindChooseAddress="chooseAddress">选择用户收货地址</onekit-button>
+    </onekit-view>
+
+    <onekit-view onekit-class="mode-title mode-title-first">
+        <onekit-view onekit-class="mode-title-line-left"></onekit-view>
+        <onekit-view onekit-class="mode-title-text">业务示例</onekit-view>
+        <onekit-view onekit-class="mode-title-line-right"></onekit-view>
+    </onekit-view>
+
+    <onekit-view onekit-class="card-area">
+        <onekit-view onekit-class="top-description border-bottom">
+            <onekit-view>绑定表单操作</onekit-view>
+            <onekit-view>form-type="submit/reset"</onekit-view>
+        </onekit-view>
+        <form bindsubmit="submit" bindreset="reset">
+            <onekit-button form-type="submit" type="primary">
+                提交
+            </onekit-button>
+            <onekit-button form-type="reset">
+                重置
+            </onekit-button>
+        </form>
+    </onekit-view>
+
+    <onekit-view onekit-class="card-area" hover-class="hover">
+        <onekit-view onekit-class="top-description border-bottom">
+            <onekit-view>按钮父级同步出现点击态</onekit-view>
+            <onekit-view>hover-stop-propagation</onekit-view>
+        </onekit-view>
+        <onekit-button type="primary" hover-stop-propagation="true" bind:tap="tap">
+            点击卡片空白区域体验效果
+        </onekit-button>
+    </onekit-view>
+
+    <onekit-view onekit-class="card-area">
+        <onekit-view onekit-class="top-description border-bottom">
+            自定义 button 样式
+        </onekit-view>
+        <onekit-button onekit-class="{{isFavor ? 'Favor' : 'noFavor' }}" bindTap="tapChange">
+            {{isFavor ? '已' : '' }}关注
+        </onekit-button>
+    </onekit-view>
+
+    <onekit-view onekit-class="card-area">
+        <onekit-view onekit-class="top-description border-bottom">
+            同时绑定开放能力、普通点击事件
+        </onekit-view>
+        <onekit-button type="primary" open-type="getPhoneNumber" bindGetuserinfo="getPhoneNumber" bindTap="tap">获取用户手机号</onekit-button>
+    </onekit-view>
+
 </onekit-view>
+
+                                
+

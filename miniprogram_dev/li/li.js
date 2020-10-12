@@ -1,41 +1,77 @@
 import OnekitPage from '../baidu2weixin/OnekitPage';
 import swan from '../baidu2weixin/swan';
-import TheKit from '../baidu2weixin/js/TheKit';
-import onekit from '../baidu2weixin/js/onekit';
-var app = getApp();
 OnekitPage({
-    data:{
-        path:require(TheKit.abs2rel(`li/li`,'/li/lottie_example_one.json')),
-        loop:true,
-        autoplay:true,
-        action:'play',
-        hidden:false,
-        status:'暂停'
+    data: {
+        appData: getApp().globalData.openParams,
+        isWeb: false,
+        isFavor: false
     },
-    onShow:function(){
-        console.log(' 百度 App版本11.3以上才可使用');
-        const openParams = app.globalData.openParams;
-        if(openParams){
-        swan.reportAnalytics('pageshow',{
-            fr:openParams,
-            type:'component',
-            name:'animation-view'
-        });
-    }
-    },
-    onHide:function(){
-        app.globalData.openParams = '';
-    },
-    playLottie:function(){
-        var action = this.data.action;
-        action = (action === 'pause')?'play':'pause';
-        var status = (action === 'pause')?'播放':'暂停';
+    tapChange: function () {
         this.setData({
-        action:action,
-        status:status
-    });
+            isFavor: !this.data.isFavor
+        });
     },
-    lottieEnd:function(){
-        console.log('自然播放结束会触发回调，循环播放结束及手动停止动画不会触发。');
+    onShow: function () {
+        const openParams = this.data.appData;
+        if (openParams) {
+            swan.reportAnalytics('pageshow', {
+                fr: openParams,
+                type: 'component',
+                name: 'button'
+            });
+        }
+        if ((openParams === 'docWeb')) {
+            this.setData('isWeb', true);
+        }
+        swan.getSystemInfo({
+            success: (res) => {
+                this.setData('isWeb', (res.platform === 'web'))
+            }
+        });
+    },
+    onHide: function () {
+        this.data.appData = '';
+    },
+    submit: function () {
+        swan.showToast({
+            title: '用户点击了submit',
+            icon: 'none'
+        });
+    },
+    reset: function () {
+        swan.showToast({
+            title: '用户点击了reset',
+            icon: 'none'
+        });
+    },
+    tap: function () {
+        swan.showToast({
+            title: '已点击',
+            icon: 'none'
+        });
+    },
+    getUserInfo: function (e) {
+        console.log('用户信息:', e);
+        if (e.detail.encryptedData) {
+            swan.showToast({
+                title: '已成功授权',
+                icon: 'none'
+            });
+        }
+    },
+    openSetting: function (e) {
+        console.log('用户设置:', e);
+    },
+    getPhoneNumber: function (e) {
+        console.log('用户手机号:', e);
+    },
+    contact: function (e) {
+        console.log('用户面板:', e);
+    },
+    chooseInvoiceTitle: function (e) {
+        console.log('发票抬头:', e);
+    },
+    chooseAddress: function (e) {
+        console.log('收货地址:', e);
     }
 });

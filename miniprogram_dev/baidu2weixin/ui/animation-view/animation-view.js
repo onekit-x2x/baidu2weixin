@@ -219,12 +219,6 @@ Component({
   /**
    * 组件的方法列表
    */
-  methods: {
-    view_ended: function view_ended(e) {
-      console.log('ended');
-      this.triggerEvent('ended', e.details);
-    }
-  },
   lifetimes: {
     attached: function attached() {
       var that = this;

@@ -43,12 +43,6 @@ Component({
   /**
    * 组件的方法列表
    */
-  methods: {
-    view_ended(e) {
-      console.log('ended')
-      this.triggerEvent('ended', e.details)
-    }
-  },
   lifetimes: {
     attached() {
       const that = this
