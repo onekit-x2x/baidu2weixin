@@ -1,9 +1,11 @@
 import OnekitPage from '../baidu2weixin/OnekitPage';
 import swan from '../baidu2weixin/swan';
+import TheKit from '../baidu2weixin/js/TheKit';
+import onekit from '../baidu2weixin/js/onekit';
 var app = getApp();
 OnekitPage({
     data:{
-        path:'/li/lottie_example_one.json',
+        path:require(TheKit.abs2rel(`li/li`,'/li/lottie_example_one.json')),
         loop:true,
         autoplay:true,
         action:'play',

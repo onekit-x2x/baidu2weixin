@@ -89,7 +89,7 @@ TheKit.abs2rel = function (currentUrl, url) {
   const array = currentUrl.split('/')
   let result = ''
   if (array.length > 1) {
-    for (let i = 0; i < array.length; i++) {
+    for (let i = 0; i < array.length - 1; i++) {
       result += '../'
     }
   } else {

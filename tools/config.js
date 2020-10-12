@@ -28,7 +28,9 @@ module.exports = {
     'OnekitBehavior',
     'OnekitComponent',
     'OnekitPage',
-    'swan'
+    'swan',
+    'js/TheKit',
+    'js/onekit'
   ],
 
   isDev,

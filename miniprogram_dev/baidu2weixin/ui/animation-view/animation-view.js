@@ -82,7 +82,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 7);
+/******/ 	return __webpack_require__(__webpack_require__.s = 9);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -167,7 +167,9 @@ module.exports = Behavior({
 /* 4 */,
 /* 5 */,
 /* 6 */,
-/* 7 */
+/* 7 */,
+/* 8 */,
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -185,15 +187,10 @@ var _baidu_behavior = __webpack_require__(1);
 
 var _baidu_behavior2 = _interopRequireDefault(_baidu_behavior);
 
-var _TheKit = __webpack_require__(11);
-
-var _TheKit2 = _interopRequireDefault(_TheKit);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/* eslint-disable no-console */
-/* eslint-disable camelcase */
-/* eslint-disable import/no-dynamic-require */
+// import TheKit from '../../js/TheKit'
+
 Component({
   behaviors: [_onekit_behavior2.default, _baidu_behavior2.default],
   options: {
@@ -201,7 +198,7 @@ Component({
   },
   properties: {
     path: {
-      type: String
+      type: Object
     },
     loop: {
       type: Boolean,
@@ -242,10 +239,10 @@ Component({
         canvas.height = res[0].height * dpr;
         _lottieMiniprogram2.default.setup(canvas);
         //
-        var path = _TheKit2.default.abs2rel('baidu2weixin/ui/animation-view/animation-view.js', that.properties.path);
+        var path = that.properties.path; // TheKit.abs2rel('baidu2weixin/ui/animation-view/animation-view.js', that.properties.path)
         that.ani = _lottieMiniprogram2.default.loadAnimation({
           loop: that.properties.loop,
-          animationData: __webpack_require__(12)(path + ".js"),
+          animationData: path, // require(`${path}.js`),
           autoplay: that.properties.autoplay,
           rendererSettings: {
             context: context
@@ -259,151 +256,16 @@ Component({
     }
   }
 
-});
+}); /* eslint-disable no-use-before-define */
+/* eslint-disable max-len */
+/* eslint-disable no-console */
+/* eslint-disable camelcase */
 
 /***/ }),
-/* 8 */,
-/* 9 */,
 /* 10 */
 /***/ (function(module, exports) {
 
 module.exports = require("lottie-miniprogram");
-
-/***/ }),
-/* 11 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var TheKit = {};
-TheKit.firstUpper = function (str) {
-  return str.substr(0, 1).toUpperCase() + str.substr(1);
-};
-TheKit.trim = function (str) {
-  return str.replace(/^\s+|\s+$/gm, '');
-};
-TheKit.color = function (string) {
-  var str = string;
-  if (!str) {
-    return null;
-  }
-  switch (str) {
-    case 'transparent':
-      return '#00000000';
-    case 'black':
-      return '#000000FF';
-    default:
-      break;
-  }
-  if (str.indexOf('rgb') < 0) {
-    if (str.length === 7) {
-      str += 'FF';
-    }
-    return str;
-  }
-  str = str.substring(str.indexOf('(') + 1, str.indexOf(')'));
-  var array = str.split(',');
-  if (array.length === 3) {
-    array.push(1);
-  }
-  var color = TheKit.color.rgba2str(array[0], array[1], array[2], array[3] * 255 + '');
-  return color;
-};
-TheKit.rgba2str = function (r, g, b, a) {
-  function componentToHex(c) {
-    c = TheKit.trim(c);
-    var hex = parseInt(c, 10).toString(16);
-    return hex.length === 1 ? '0' + hex : hex;
-  }
-  return '#' + componentToHex(r) + componentToHex(g) + componentToHex(b) + componentToHex(a);
-};
-TheKit.str2array = function (str) {
-  return [parseInt(str.substr(1, 2), 16), parseInt(str.substr(3, 2), 16), parseInt(str.substr(5, 2), 16), parseInt(str.substr(7, 2), 16)];
-};
-TheKit.array2str = function (array) {
-  function f(v) {
-    var s = v.toString(16);
-    if (s.length === 1) {
-      s = '0' + s;
-    }
-    return s;
-  }
-  var str = '#' + f(array[0]) + f(array[1]) + f(array[2]) + f(array[3]);
-  return str;
-};
-TheKit.rel2abs = function (currentUrl, url) {
-  if (url.startsWith('/')) {
-    return url.substring(1);
-  }
-  // //////////////////
-  var folder = void 0;
-  if (currentUrl.indexOf('/') >= 0) {
-    folder = currentUrl.substring(0, currentUrl.lastIndexOf('/') + 1);
-    if (folder.startsWith('/')) {
-      folder = folder.substring(1);
-    }
-  } else {
-    folder = '';
-  }
-  url = url.trim();
-  if (url.startsWith('./')) {
-    url = url.substring('./'.length);
-  }
-  while (url.startsWith('../')) {
-    folder = folder.substring(0, folder.length - 1);
-    folder = folder.substring(0, folder.lastIndexOf('/') + 1);
-    url = url.substring('../'.length);
-  }
-
-  return folder + url;
-};
-TheKit.abs2rel = function (currentUrl, url) {
-  url = TheKit.rel2abs(currentUrl, url);
-  if (currentUrl.startsWith('/')) {
-    currentUrl = currentUrl.substring(1);
-  }
-  var array = currentUrl.split('/');
-  var result = '';
-  if (array.length > 1) {
-    for (var i = 0; i < array.length; i++) {
-      result += '../';
-    }
-  } else {
-    result += './';
-  }
-  result += url;
-  return result.toString();
-};
-module.exports = TheKit;
-
-/***/ }),
-/* 12 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var map = {
-	"./animation-view.js": 7
-};
-
-
-function webpackContext(req) {
-	var id = webpackContextResolve(req);
-	return __webpack_require__(id);
-}
-function webpackContextResolve(req) {
-	if(!__webpack_require__.o(map, req)) {
-		var e = new Error("Cannot find module '" + req + "'");
-		e.code = 'MODULE_NOT_FOUND';
-		throw e;
-	}
-	return map[req];
-}
-webpackContext.keys = function webpackContextKeys() {
-	return Object.keys(map);
-};
-webpackContext.resolve = webpackContextResolve;
-module.exports = webpackContext;
-webpackContext.id = 12;
 
 /***/ })
 /******/ ]);

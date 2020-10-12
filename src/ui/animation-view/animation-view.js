@@ -1,10 +1,11 @@
+/* eslint-disable no-use-before-define */
+/* eslint-disable max-len */
 /* eslint-disable no-console */
 /* eslint-disable camelcase */
-/* eslint-disable import/no-dynamic-require */
 import lottie from 'lottie-miniprogram'
 import onekit_behavior from '../../behavior/onekit_behavior'
 import baidu_behavior from '../../behavior/baidu_behavior'
-import TheKit from '../../js/TheKit'
+// import TheKit from '../../js/TheKit'
 
 Component({
   behaviors: [onekit_behavior, baidu_behavior],
@@ -13,7 +14,7 @@ Component({
   },
   properties: {
     path: {
-      type: String
+      type: Object
     },
     loop: {
       type: Boolean,
@@ -60,10 +61,10 @@ Component({
           canvas.height = res[0].height * dpr
           lottie.setup(canvas)
           //
-          const path = TheKit.abs2rel('baidu2weixin/ui/animation-view/animation-view.js', that.properties.path)
+          const path = that.properties.path // TheKit.abs2rel('baidu2weixin/ui/animation-view/animation-view.js', that.properties.path)
           that.ani = lottie.loadAnimation({
             loop: that.properties.loop,
-            animationData: require(`${path}.js`),
+            animationData: path, // require(`${path}.js`),
             autoplay: that.properties.autoplay,
             rendererSettings: {
               context
