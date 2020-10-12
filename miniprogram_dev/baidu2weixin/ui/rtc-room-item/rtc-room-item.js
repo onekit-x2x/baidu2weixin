@@ -82,41 +82,113 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 14);
+/******/ 	return __webpack_require__(__webpack_require__.s = 10);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 14:
+/***/ 0:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-// onekit/ui/web-view/web-view.js
-Component({
-  options: {
-    virtualHost: true
+module.exports = Behavior({
 
-  },
-  /**
-   * 组件的属性列表
-   */
   properties: {
-    onekitClass: {
-      type: String,
-      value: ''
+    onekitId: {
+      type: String, value: 'id' + Math.random()
     },
     onekitStyle: {
-      type: String,
-      value: ''
+      type: String, value: ''
     },
-    onekitId: {
-      type: String,
-      value: ''
+    onekitClass: {
+      type: String, value: ''
     }
+  }
+});
 
+/***/ }),
+
+/***/ 1:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/* eslint-disable no-console */
+/* eslint-disable camelcase */
+module.exports = Behavior({
+
+  properties: {
+    animation: { type: Object }
   },
+  methods: {
+    ui_tap: function ui_tap() {
+      this.triggerEvent('Tap');
+    },
+    ui_touchstart: function ui_touchstart() {
+      this.triggerEvent('Touchstart');
+    },
+    ui_touchmove: function ui_touchmove() {
+      this.triggerEvent('Touchmove');
+    },
+    ui_touchcancel: function ui_touchcancel() {
+      this.triggerEvent('Touchcancel');
+    },
+    ui_touchend: function ui_touchend() {
+      this.triggerEvent('Touchend');
+    },
+    ui_longpress: function ui_longpress() {
+      this.triggerEvent('Longpress');
+    },
+    ui_longtap: function ui_longtap() {
+      this.triggerEvent('Longtap');
+    },
+    ui_transitionend: function ui_transitionend() {
+      this.triggerEvent('Transitionend');
+    },
+    ui_animationstart: function ui_animationstart() {
+      this.triggerEvent('Animationstart');
+    },
+    ui_animationiteration: function ui_animationiteration() {
+      this.triggerEvent('Animationiteration');
+    },
+    ui_animationend: function ui_animationend() {
+      this.triggerEvent('Animationend');
+    },
+    ui_touchforcechange: function ui_touchforcechange() {
+      this.triggerEvent('Touchforcechange');
+    }
+  }
+});
+
+/***/ }),
+
+/***/ 10:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _onekit_behavior = __webpack_require__(0);
+
+var _onekit_behavior2 = _interopRequireDefault(_onekit_behavior);
+
+var _baidu_behavior = __webpack_require__(1);
+
+var _baidu_behavior2 = _interopRequireDefault(_baidu_behavior);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/* eslint-disable camelcase */
+
+Component({
+  behaviors: [_onekit_behavior2.default, _baidu_behavior2.default],
+  options: {
+    virtualHost: true
+  },
+  properties: {},
 
   /**
    * 组件的初始数据

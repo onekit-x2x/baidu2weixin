@@ -1,21 +1,14 @@
 /* eslint-disable no-console */
-import swan from '../../swan'
+/* eslint-disable camelcase */
+import onekit_behavior from '../../behavior/onekit_behavior'
+import baidu_behavior from '../../behavior/baidu_behavior'
 
 Component({
-  options: {virtualHost: true},
+  behaviors: [onekit_behavior, baidu_behavior],
+  options: {
+    virtualHost: true
+  },
   properties: {
-    onekitClass: {
-      type: String,
-      value: ''
-    },
-    onekitStyle: {
-      type: String,
-      value: ''
-    },
-    onekitId: {
-      type: String,
-      value: ''
-    },
     // 在哪个目标上发生跳转，默认当前小程序
     target: {
       type: String,
@@ -100,7 +93,6 @@ Component({
     // 自定义方法
     view_tap() {
       console.log('dddddd', this.properties.openType)
-      // eslint-disable-next-line camelcase
       const app_id = this.properties.appId
       const version = this.properties.version
 
@@ -122,21 +114,25 @@ Component({
       const url = this.properties.url
       switch (this.properties.openType) {
         case 'redirectTo':
+          // eslint-disable-next-line no-undef
           swan.redirectTo({
             url
           })
           break
         case 'navigateBack':
+          // eslint-disable-next-line no-undef
           swan.navigateBack()
           break
         case 'navigate':
           if (this.properties.redirect) {
             console.log('sss')
+            // eslint-disable-next-line no-undef
             swan.redirectTo({
               url,
 
             })
           } else {
+            // eslint-disable-next-line no-undef
             swan.navigateTo({
               url
             })
@@ -151,6 +147,7 @@ Component({
       const appId = this.properties.appId
       console.log('xxxxx:', appId)
       //  "tta6cdd07039e72db5"
+      // eslint-disable-next-line no-undef
       swan.navigateToMiniProgram({
         appId: 'tta6cdd07039e72db5',
         success(e) {

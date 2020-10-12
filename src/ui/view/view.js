@@ -1,22 +1,14 @@
-// onekit/ui/view/view.js
+/* eslint-disable camelcase */
+
+import onekit_behavior from '../../behavior/onekit_behavior'
+import baidu_behavior from '../../behavior/baidu_behavior'
+
 Component({
-  options: {virtualHost: true},
-  /**
-   * 组件的属性列表
-   */
+  behaviors: [onekit_behavior, baidu_behavior],
+  options: {
+    virtualHost: true
+  },
   properties: {
-    onekitClass: {
-      type: String,
-      value: ''
-    },
-    onekitStyle: {
-      type: String,
-      value: ''
-    },
-    onekitId: {
-      type: String,
-      value: ''
-    },
     hoverClass: {
       type: String,
       value: ''

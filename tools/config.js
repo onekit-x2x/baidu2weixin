@@ -17,6 +17,7 @@ module.exports = {
     'ui/ad/ad',
     'ui/animation-video/animation-video',
     'ui/animation-view/animation-view',
+    'ui/button/button',
     'ui/icon/icon',
     'ui/navigator/navigator',
     'ui/rtc-room/rtc-room',

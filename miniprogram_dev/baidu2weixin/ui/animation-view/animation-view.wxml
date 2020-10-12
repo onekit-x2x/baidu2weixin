@@ -1,7 +1,9 @@
 <canvas 
   class="onekit-animation-view {{onekitClass}}"
   style="{{onekitStyle}}"
-    type="2d"
   id="{{onekitId}}"
+  type="2d"
+
+  bindtap="view_ended"
 >
 </canvas>

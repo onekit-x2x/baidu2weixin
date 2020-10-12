@@ -1,25 +1,15 @@
-// onekit/ui/web-view/web-view.js
+/* eslint-disable camelcase */
+
+import onekit_behavior from '../../behavior/onekit_behavior'
+import baidu_behavior from '../../behavior/baidu_behavior'
+
 Component({
+  behaviors: [onekit_behavior, baidu_behavior],
   options: {
     virtualHost: true
-
   },
-  /**
-   * 组件的属性列表
-   */
   properties: {
-    onekitClass: {
-      type: String,
-      value: ''
-    },
-    onekitStyle: {
-      type: String,
-      value: ''
-    },
-    onekitId: {
-      type: String,
-      value: ''
-    },
+
 
   },
 

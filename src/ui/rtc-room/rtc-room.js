@@ -1,25 +1,14 @@
+/* eslint-disable camelcase */
+
+import onekit_behavior from '../../behavior/onekit_behavior'
+import baidu_behavior from '../../behavior/baidu_behavior'
 
 Component({
-  /**
-   * 组件的属性列表
-   */
-  behaviors: ['wx://form-field'],
+  behaviors: [onekit_behavior, baidu_behavior],
   options: {
     virtualHost: true
   },
   properties: {
-    onekitClass: {
-      type: String,
-      value: ' '
-    },
-    onekitStyle: {
-      type: String,
-      value: ''
-    },
-    onekitId: {
-      type: String,
-      value: ''
-    },
   },
 
   /**

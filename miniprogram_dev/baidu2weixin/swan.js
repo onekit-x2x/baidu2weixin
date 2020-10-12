@@ -82,13 +82,12 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 2);
+/******/ 	return __webpack_require__(__webpack_require__.s = 18);
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */,
-/* 1 */,
-/* 2 */
+/******/ ({
+
+/***/ 18:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -96,19 +95,19 @@ module.exports =
 
 exports.__esModule = true;
 
-var _CameraContext = __webpack_require__(3);
+var _CameraContext = __webpack_require__(19);
 
 var _CameraContext2 = _interopRequireDefault(_CameraContext);
 
-var _InnerAudioContext = __webpack_require__(4);
+var _InnerAudioContext = __webpack_require__(20);
 
 var _InnerAudioContext2 = _interopRequireDefault(_InnerAudioContext);
 
-var _VideoContext = __webpack_require__(5);
+var _VideoContext = __webpack_require__(21);
 
 var _VideoContext2 = _interopRequireDefault(_VideoContext);
 
-var _LivePlayerContext = __webpack_require__(6);
+var _LivePlayerContext = __webpack_require__(22);
 
 var _LivePlayerContext2 = _interopRequireDefault(_LivePlayerContext);
 
@@ -1550,7 +1549,8 @@ function ai_init(api) {
 exports.default = swan;
 
 /***/ }),
-/* 3 */
+
+/***/ 19:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1585,7 +1585,8 @@ var VideoContext = function () {
 exports.default = VideoContext;
 
 /***/ }),
-/* 4 */
+
+/***/ 20:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1708,7 +1709,8 @@ var InnerAudioContext = function () {
 exports.default = InnerAudioContext;
 
 /***/ }),
-/* 5 */
+
+/***/ 21:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1771,7 +1773,8 @@ var VideoContext = function () {
 exports.default = VideoContext;
 
 /***/ }),
-/* 6 */
+
+/***/ 22:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1822,4 +1825,5 @@ var LivePlayerContext = function () {
 exports.default = LivePlayerContext;
 
 /***/ })
-/******/ ]);
+
+/******/ });

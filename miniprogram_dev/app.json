@@ -16,6 +16,7 @@
     "onekit-ad":"/baidu2weixin/ui/ad/ad",
     "onekit-animation-video":"/baidu2weixin/ui/animation-video/animation-video",
     "onekit-animation-view":"/baidu2weixin/ui/animation-view/animation-view",
+    "onekit-button":"/baidu2weixin/ui/button/button",
     "onekit-icon":"/baidu2weixin/ui/icon/icon",
     "onekit-navigator":"/baidu2weixin/ui/navigator/navigator",
     "onekit-rtc-room":"/baidu2weixin/ui/rtc-room/rtc-room",

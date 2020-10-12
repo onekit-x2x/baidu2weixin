@@ -5,7 +5,6 @@
 import lottie from 'lottie-miniprogram'
 import onekit_behavior from '../../behavior/onekit_behavior'
 import baidu_behavior from '../../behavior/baidu_behavior'
-// import TheKit from '../../js/TheKit'
 
 Component({
   behaviors: [onekit_behavior, baidu_behavior],
@@ -45,10 +44,13 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    view_ended(e) {
+      console.log('ended')
+      this.triggerEvent('ended', e.details)
+    }
   },
   lifetimes: {
-    ready() {
+    attached() {
       const that = this
       // 在组件实例进入页面节点树时执行
       wx.createSelectorQuery().in(this).select('.onekit-animation-view')
@@ -61,21 +63,28 @@ Component({
           canvas.height = res[0].height * dpr
           lottie.setup(canvas)
           //
-          const path = that.properties.path // TheKit.abs2rel('baidu2weixin/ui/animation-view/animation-view.js', that.properties.path)
+          const path = that.properties.path
           that.ani = lottie.loadAnimation({
             loop: that.properties.loop,
-            animationData: path, // require(`${path}.js`),
+            animationData: path,
             autoplay: that.properties.autoplay,
             rendererSettings: {
               context
             }
           })
-          that.ani.play()
         })
     },
-    detached() {
-      // 在组件实例被从页面节点树移除时执行
-    },
   },
-
+  observers: {
+    action(action) {
+      if (this.ani) {
+        switch (action) {
+          case 'play': this.ani.play(); break
+          case 'pause': this.ani.pause(); break
+          case 'stop': this.ani.stop(); break
+          default: break
+        }
+      }
+    },
+  }
 })

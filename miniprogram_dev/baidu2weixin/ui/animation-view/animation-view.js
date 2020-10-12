@@ -82,7 +82,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 9);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -164,18 +164,13 @@ module.exports = Behavior({
 /***/ }),
 /* 2 */,
 /* 3 */,
-/* 4 */,
-/* 5 */,
-/* 6 */,
-/* 7 */,
-/* 8 */,
-/* 9 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _lottieMiniprogram = __webpack_require__(10);
+var _lottieMiniprogram = __webpack_require__(5);
 
 var _lottieMiniprogram2 = _interopRequireDefault(_lottieMiniprogram);
 
@@ -188,8 +183,6 @@ var _baidu_behavior = __webpack_require__(1);
 var _baidu_behavior2 = _interopRequireDefault(_baidu_behavior);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-// import TheKit from '../../js/TheKit'
 
 Component({
   behaviors: [_onekit_behavior2.default, _baidu_behavior2.default],
@@ -226,9 +219,14 @@ Component({
   /**
    * 组件的方法列表
    */
-  methods: {},
+  methods: {
+    view_ended: function view_ended(e) {
+      console.log('ended');
+      this.triggerEvent('ended', e.details);
+    }
+  },
   lifetimes: {
-    ready: function ready() {
+    attached: function attached() {
       var that = this;
       // 在组件实例进入页面节点树时执行
       wx.createSelectorQuery().in(this).select('.onekit-animation-view').fields({ node: true, size: true }).exec(function (res) {
@@ -239,30 +237,41 @@ Component({
         canvas.height = res[0].height * dpr;
         _lottieMiniprogram2.default.setup(canvas);
         //
-        var path = that.properties.path; // TheKit.abs2rel('baidu2weixin/ui/animation-view/animation-view.js', that.properties.path)
+        var path = that.properties.path;
         that.ani = _lottieMiniprogram2.default.loadAnimation({
           loop: that.properties.loop,
-          animationData: path, // require(`${path}.js`),
+          animationData: path,
           autoplay: that.properties.autoplay,
           rendererSettings: {
             context: context
           }
         });
-        that.ani.play();
       });
-    },
-    detached: function detached() {
-      // 在组件实例被从页面节点树移除时执行
+    }
+  },
+  observers: {
+    action: function action(_action) {
+      if (this.ani) {
+        switch (_action) {
+          case 'play':
+            this.ani.play();break;
+          case 'pause':
+            this.ani.pause();break;
+          case 'stop':
+            this.ani.stop();break;
+          default:
+            break;
+        }
+      }
     }
   }
-
 }); /* eslint-disable no-use-before-define */
 /* eslint-disable max-len */
 /* eslint-disable no-console */
 /* eslint-disable camelcase */
 
 /***/ }),
-/* 10 */
+/* 5 */
 /***/ (function(module, exports) {
 
 module.exports = require("lottie-miniprogram");
