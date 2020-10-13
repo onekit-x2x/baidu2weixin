@@ -97,7 +97,7 @@ module.exports = Behavior({
 
   properties: {
     onekitId: {
-      type: String, value: 'id' + Math.random()
+      type: String, value: '' // `id${Math.random()}`
     },
     onekitStyle: {
       type: String, value: ''
@@ -121,7 +121,7 @@ module.exports = Behavior({
 module.exports = Behavior({
 
   properties: {
-    animation: { type: Object }
+    // animation: {type: Object},
   },
   methods: {
     ui_tap: function ui_tap() {

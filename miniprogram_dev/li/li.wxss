@@ -1,30 +1,19 @@
-.hover {
-  opacity: .2;
-  background-color: #888;
+/* .icon-area {
+  margin-top: .15rem;
 }
 
-.Favor,
-.noFavor:after {
-  position: static;
-  content: none;
+.icon-item {
+  display: inline-block;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  width: .8rem;
+  height: .95rem;
+  margin: .07rem;
 }
 
-.Favor {
-  border: 1px solid #E6E6E6;
-  border-radius: 119.565rpx;
-  background-image: url(https://b.bdstatic.com/searchbox/icms/searchbox/img/demo_followed.png);
-  background-size: 43.48rpx 43.48rpx;
-  background-repeat: no-repeat;
-  background-position: 33% 50%;
-}
-
-.noFavor {
-  background-color: #3388ff;
-  color: #FFF;
-  background-image: url(https://b.bdstatic.com/searchbox/icms/searchbox/img/demo_follow.png);
-  background-size: 43.48rpx 43.48rpx;
-  background-repeat: no-repeat;
-  background-position: 35% 50%;
-  border: 1px solid #E6E6E6;
-  border-radius: 119.565rpx;
-}
+.icon-text {
+  margin-top: .15rem;
+  width: .8rem;
+  word-break: break-all;
+} */

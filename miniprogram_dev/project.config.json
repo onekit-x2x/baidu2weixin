@@ -6,7 +6,7 @@
   "setting": {
     "urlCheck": false,
     "es6": true,
-    "enhance": true,
+    "enhance": false,
     "postcss": true,
     "preloadBackgroundData": false,
     "minified": true,
@@ -35,7 +35,7 @@
     "packNpmRelationList": []
   },
   "compileType": "miniprogram",
-  "libVersion": "2.13.0",
+  "libVersion": "2.10.4",
   "appid": "wxecb5d25a4a5c222f",
   "projectname": "miniprogram-demo",
   "isGameTourist": false,

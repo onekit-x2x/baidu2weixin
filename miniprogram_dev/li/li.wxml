@@ -8,7 +8,7 @@
 </onekit-view>-->
 
 <!--<button>-->
-<onekit-view onekit-class="wrap">
+<!-- <onekit-view onekit-class="wrap">
     <onekit-view onekit-class="card-area">
         <onekit-view onekit-class="top-description border-bottom">
             <onekit-view>主要按钮</onekit-view>
@@ -148,7 +148,40 @@
         <onekit-button type="primary" open-type="getPhoneNumber" bindGetuserinfo="getPhoneNumber" bindTap="tap">获取用户手机号</onekit-button>
     </onekit-view>
 
-</onekit-view>
+</onekit-view> -->
 
-                                
+<!-- <icon>-->
+<!-- <onekit-view onekit-class="wrap">
+    <onekit-view onekit-class="card-area">
+        <onekit-view onekit-class="top-description border-bottom">自定义icon类型</onekit-view>
+        <onekit-view onekit-class="icon-area">
+            <onekit-view wx:for="{{types.smallDefault}}" wx:for-item="type" onekit-class="icon-item">
+                <onekit-icon type="{{type}}"></onekit-icon>
+                <onekit-view onekit-class="icon-text"> {{type}}</onekit-view>
+            </onekit-view>
+        </onekit-view>
+    </onekit-view>
+    <onekit-view onekit-class="card-area">
+        <onekit-view onekit-class="top-description border-bottom">自定义icon大小</onekit-view>
+        <onekit-view onekit-class="icon-area">
+            <onekit-view wx:for="{{sizes}}" wx:for-item="size" onekit-class="icon-item">
+                <onekit-icon type="success" size="{{size}}"></onekit-icon>
+                <onekit-view onekit-class="icon-text">{{size}}px</onekit-view>
+            </onekit-view>
+        </onekit-view>
+    </onekit-view>
+    <onekit-view onekit-class="card-area">
+        <onekit-view onekit-class="top-description border-bottom">自定义icon颜色</onekit-view>
+        <onekit-view onekit-class="icon-area">
+            <onekit-view wx:for="{{colors}}" wx:for-item="color" onekit-class="icon-item">
+                <onekit-icon type="success" size="25" color="{{color}}" onekit-class="icon-color"></onekit-icon>
+                <onekit-view onekit-class="icon-text">{{color}}</onekit-view>
+            </onekit-view>
+        </onekit-view>
+    </onekit-view>
+</onekit-view>-->
 
+<form bindsubmit="submit" bindreset="reset">
+    <onekit-button form-type="submit" type="primary">提交</onekit-button>
+    <onekit-button form-type="reset">重置</onekit-button>
+</form>

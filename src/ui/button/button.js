@@ -1,16 +1,17 @@
 /* eslint-disable no-console */
 /* eslint-disable camelcase */
-// import onekit_behavior from '../../behavior/onekit_behavior'
-// import baidu_behavior from '../../behavior/baidu_behavior'
+import onekit_behavior from '../../behavior/onekit_behavior'
+import baidu_behavior from '../../behavior/baidu_behavior'
 
 Component({
-  behaviors: ['wx://form-field-button'/* , onekit_behavior, baidu_behavior */],
+  behaviors: [onekit_behavior, baidu_behavior, 'wx://form-field-button'],
   // behaviors: [onekit_behavior, baidu_behavior],
   options: {
     virtualHost: true
   },
   properties: {
-    size: {type: String, value: 'default'},
+    // eslint-disable-next-line no-bitwise
+    size: {type: Number | String, value: 'default'},
     type: {type: String, value: 'default'},
     plain: {type: Boolean, value: false},
     formType: {type: String, value: 'buttonclick'},
@@ -24,8 +25,21 @@ Component({
 
   },
   methods: {
+    button_getphonenumber() {
+      // this.triggerEvent('Getphonenumber')
+    },
+    button_getuserinfo() {
+      // this.triggerEvent('Getphonenumber')
+    },
+    button_opensetting() {
+      // this.triggerEvent('Getphonenumber')
+    },
+    button_contact() {
+      // this.triggerEvent('Getphonenumber')
+    },
     // eslint-disable-next-line no-unused-vars
-    button_bindtap(e) {
+    /*
+    ui_tap(e) {
       const that = this
       if (that.properties.openType) {
         switch (that.properties.openType) {
@@ -76,6 +90,6 @@ Component({
       if (!this.properties.formType) {
         that.triggerEvent('Tap', {})
       }
-    },
+    }, */
   },
 })

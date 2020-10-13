@@ -3,7 +3,7 @@
 module.exports = Behavior({
 
   properties: {
-    animation: {type: Object},
+
   },
   methods: {
     ui_tap() {
