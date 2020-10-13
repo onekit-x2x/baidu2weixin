@@ -1,19 +1,17 @@
-/* .icon-area {
-  margin-top: .15rem;
+.icon-area {
+  margin-top: calc(.15*val(--onekit-REM)) ;
 }
-
 .icon-item {
-  display: inline-block;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  width: .8rem;
-  height: .95rem;
-  margin: .07rem;
+  display: inline-block ;
+  flex-direction: column ;
+  justify-content: center ;
+  text-align: center ;
+  width: calc(.8*val(--onekit-REM)) ;
+  height: calc(.95*val(--onekit-REM)) ;
+  margin: calc(.07*val(--onekit-REM)) ;
 }
-
 .icon-text {
-  margin-top: .15rem;
-  width: .8rem;
-  word-break: break-all;
-} */
+  margin-top: calc(.15*val(--onekit-REM)) ;
+  width: calc(.8*val(--onekit-REM)) ;
+  word-break: break-all ;
+}

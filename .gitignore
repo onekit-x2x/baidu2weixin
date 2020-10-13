@@ -128,3 +128,6 @@ miniprogram_dev/baidu2weixin/ui/view/view.js
 miniprogram_dev/li/li.js
 miniprogram_dev/li/li.wxml
 miniprogram_dev/project.config.json
+miniprogram_dev/li/li.js
+miniprogram_dev/li/li.wxml
+miniprogram_dev/li/li.wxss

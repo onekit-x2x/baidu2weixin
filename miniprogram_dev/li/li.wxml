@@ -8,7 +8,7 @@
 </onekit-view>-->
 
 <!--<button>-->
-<onekit-view onekit-class="wrap">
+<!-- <onekit-view onekit-class="wrap">
     <onekit-view onekit-class="card-area">
         <onekit-view onekit-class="top-description border-bottom">
             <onekit-view>主要按钮</onekit-view>
@@ -148,10 +148,10 @@
         <onekit-button type="primary" open-type="getPhoneNumber" bindGetuserinfo="getPhoneNumber" bindTap="tap">获取用户手机号</onekit-button>
     </onekit-view>
 
-</onekit-view>
+</onekit-view> -->
 
 <!-- <icon>-->
-<!-- <onekit-view onekit-class="wrap">
+<onekit-view onekit-class="wrap">
     <onekit-view onekit-class="card-area">
         <onekit-view onekit-class="top-description border-bottom">自定义icon类型</onekit-view>
         <onekit-view onekit-class="icon-area">
@@ -179,4 +179,4 @@
             </onekit-view>
         </onekit-view>
     </onekit-view>
-</onekit-view> -->
+</onekit-view>
