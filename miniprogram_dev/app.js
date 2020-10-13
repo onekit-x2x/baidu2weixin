@@ -1,3 +1,10 @@
+/* globals App swan*/
+/* eslint-disable */
 App({
-  globalData:{}
-})
+  onLaunch: function () {
+      this.globalData.openParams = 'docWeb';
+  },
+  globalData: {
+      openParams: ''
+  }
+});

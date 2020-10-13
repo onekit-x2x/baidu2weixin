@@ -1,17 +1,7 @@
-.icon-area {
-  margin-top: calc(.15*val(--onekit-REM)) ;
+.nav {
+  display: block ;
 }
-.icon-item {
-  display: inline-block ;
-  flex-direction: column ;
-  justify-content: center ;
-  text-align: center ;
-  width: calc(.8*val(--onekit-REM)) ;
-  height: calc(.95*val(--onekit-REM)) ;
-  margin: calc(.07*val(--onekit-REM)) ;
-}
-.icon-text {
-  margin-top: calc(.15*val(--onekit-REM)) ;
-  width: calc(.8*val(--onekit-REM)) ;
-  word-break: break-all ;
+.navigator-hover {
+  background-color: rgba(0, 0, 0, 0.1) ;
+  opacity: .7 ;
 }

@@ -1,56 +1,36 @@
 import OnekitPage from '../baidu2weixin/OnekitPage';
 import swan from '../baidu2weixin/swan';
-var app = getApp();
 OnekitPage({
     data:{
-        types:{
-            smallDefault:[
-                'success',
-                'info',
-                'warn',
-                'waiting',
-                'setting',
-                'top',
-                'search',
-                'personal',
-                'download',
-                'clear',
-                'close',
-                'cancel',
-                'success_no_circle',
-                'checkboxSelected',
-                'radioSelected',
-                'radioUnselect',
-                'loadingGrey'
-            ]
-        },
-        colors:[
-            '#3388FF',
-            '#F7534F',
-            '#FF6600',
-            '#000000'
-        ],
-        sizes:[
-            40,
-            34,
-            30,
-            24,
-            22,
-            18,
-            16
-        ]
+        isWeb:false,
+        appData:getApp().globalData.openParams
     },
     onShow:function(){
-        var openParams = app.globalData.openParams;
+        const openParams = this.data.appData;
         if(openParams){
         swan.reportAnalytics('pageshow',{
             fr:openParams,
             type:'component',
-            name:'icon'
+            name:'navigator'
         });
     }
+        if((openParams === 'docWeb')){
+        this.setData('isWeb',true);
+    }
+        swan.getSystemInfo({
+        success:(res)=>{this.setData('isWeb',(res.platform === 'web'))}
+    });
     },
     onHide:function(){
-        app.globalData.openParams = '';
+        this.data.appData = '';
+    },
+    successHandler:function(e){
+        console.log('success',e.detail.errMsg);
+    },
+    failHandler:function(e){
+        console.log('fail',e.detail.errMsg);
+    },
+    completeHandler:function(e){
+        console.log('complete',e.detail.errMsg);
     }
 });

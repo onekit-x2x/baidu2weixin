@@ -208,8 +208,7 @@ Component({
     },
     // 当 open-type 为 'navigateBack' 时有效，表示回退的层数
     delta: {
-      type: Number,
-      value: 1
+      type: Number
     },
     // 当target="miniProgram"时有效，要打开的小程序 appId
     appId: {

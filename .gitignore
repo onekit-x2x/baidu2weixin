@@ -131,3 +131,9 @@ miniprogram_dev/project.config.json
 miniprogram_dev/li/li.js
 miniprogram_dev/li/li.wxml
 miniprogram_dev/li/li.wxss
+miniprogram_dev/app.js
+miniprogram_dev/app.json
+miniprogram_dev/baidu2weixin/ui/navigator/navigator.js
+miniprogram_dev/li/li.js
+miniprogram_dev/li/li.wxml
+miniprogram_dev/li/li.wxss

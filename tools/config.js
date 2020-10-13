@@ -19,7 +19,6 @@ module.exports = {
     'ui/animation-view/animation-view',
     'ui/button/button',
     'ui/icon/icon',
-    'ui/navigator/navigator',
     'ui/rtc-room/rtc-room',
     'ui/rtc-room-item/rtc-room-item',
     'ui/tabs/tabs',

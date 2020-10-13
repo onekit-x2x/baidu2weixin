@@ -151,7 +151,7 @@
 </onekit-view> -->
 
 <!-- <icon>-->
-<onekit-view onekit-class="wrap">
+<!-- <onekit-view onekit-class="wrap">
     <onekit-view onekit-class="card-area">
         <onekit-view onekit-class="top-description border-bottom">自定义icon类型</onekit-view>
         <onekit-view onekit-class="icon-area">
@@ -179,4 +179,52 @@
             </onekit-view>
         </onekit-view>
     </onekit-view>
-</onekit-view>
+</onekit-view> -->
+
+<!-- <navigator> -->
+<!-- <onekit-view onekit-class="wrap">
+    <onekit-view onekit-class="card-area">
+        <onekit-button type="primary">
+            <navigator target="self" open-type="navigate" url="../detail/detail?id=新页面,点击左上角返回回到之前页面" hover-class="navigator-hover" hover-stop-propagation="true">
+                跳转到新页面
+            </navigator>
+        </onekit-button>
+        <onekit-button type="primary">
+            <navigator wx:if="{{!isWeb}}" target="self" open-type="redirect" url="../detail/detail?id=当前页" hover-class="other-navigator-hover">
+                在当前页打开
+            </navigator>
+        </onekit-button>
+
+        <onekit-button type="primary">
+            <navigator wx:if="{{!isWeb}}" target="self" open-type="navigateBack" hover-class="other-navigator-hover" delta="1">
+                返回上一页面
+            </navigator>
+        </onekit-button>
+
+        <onekit-button type="primary">
+            <navigator wx:if="{{!isWeb}}" target="miniProgram" open-type="exit">
+                退出当前小程序
+            </navigator>
+        </onekit-button>
+        
+        <onekit-button type="primary">
+            <navigator target="self" open-type="switchTab" url="/entry/component/component">
+                打开一个有Tab的页面
+            </navigator>
+        </onekit-button>
+
+        <onekit-button type="primary">
+            <navigator target="self" open-type="reLaunch" url="../detail/detail?id=新页面">
+                关闭所有页面打开新页面
+            </navigator>
+        </onekit-button>
+
+        <onekit-button type="primary">
+            <navigator target="miniProgram" wx:if="{{!isWeb}}" open-type="navigate" extra-data="extra-data" app-id="wx91d27dbf599dff74" version="release" bindSuccess="successHandler" bindFail="failHandler" bindComplete="completeHandler">
+                打开绑定的小程序
+            </navigator>
+        </onekit-button>
+    </onekit-view>
+</onekit-view> -->
+
+<!-- <rtc-room> -->

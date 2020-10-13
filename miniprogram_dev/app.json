@@ -1,29 +1,27 @@
 {
   "pages": [
     "li/li",
+
     "yang/yang",
-    
     "wang/wang"
   ],
   "window": {
-    "usingComponents": {},
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black"
   },
   "usingComponents": {
-    "onekit-ad":"/baidu2weixin/ui/ad/ad",
-    "onekit-animation-video":"/baidu2weixin/ui/animation-video/animation-video",
-    "onekit-animation-view":"/baidu2weixin/ui/animation-view/animation-view",
-    "onekit-button":"/baidu2weixin/ui/button/button",
-    "onekit-icon":"/baidu2weixin/ui/icon/icon",
-    "onekit-navigator":"/baidu2weixin/ui/navigator/navigator",
-    "onekit-rtc-room":"/baidu2weixin/ui/rtc-room/rtc-room",
-    "onekit-rtc-room-item":"/baidu2weixin/ui/rtc-room-item/rtc-room-item",
-    "onekit-tabs":"/baidu2weixin/ui/tabs/tabs",
-    "onekit-tab-item":"/baidu2weixin/ui/tab-item/tab-item",
-    "onekit-view":"/baidu2weixin/ui/view/view"
+    "onekit-ad": "/baidu2weixin/ui/ad/ad",
+    "onekit-animation-video": "/baidu2weixin/ui/animation-video/animation-video",
+    "onekit-animation-view": "/baidu2weixin/ui/animation-view/animation-view",
+    "onekit-button": "/baidu2weixin/ui/button/button",
+    "onekit-icon": "/baidu2weixin/ui/icon/icon",
+    "onekit-rtc-room": "/baidu2weixin/ui/rtc-room/rtc-room",
+    "onekit-rtc-room-item": "/baidu2weixin/ui/rtc-room-item/rtc-room-item",
+    "onekit-tabs": "/baidu2weixin/ui/tabs/tabs",
+    "onekit-tab-item": "/baidu2weixin/ui/tab-item/tab-item",
+    "onekit-view": "/baidu2weixin/ui/view/view"
   },
   "sitemapLocation": "sitemap.json"
 }
