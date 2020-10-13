@@ -96,7 +96,7 @@ module.exports = Behavior({
 
   properties: {
     onekitId: {
-      type: String, value: '' // `id${Math.random()}`
+      type: String, value: ''
     },
     onekitStyle: {
       type: String, value: ''
@@ -118,9 +118,7 @@ module.exports = Behavior({
 /* eslint-disable camelcase */
 module.exports = Behavior({
 
-  properties: {
-    // animation: {type: Object},
-  },
+  properties: {},
   methods: {
     ui_tap: function ui_tap() {
       this.triggerEvent('Tap');

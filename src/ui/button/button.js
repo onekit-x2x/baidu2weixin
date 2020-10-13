@@ -26,20 +26,18 @@ Component({
   },
   methods: {
     button_getphonenumber() {
-      // this.triggerEvent('Getphonenumber')
+      this.triggerEvent('Getphonenumber')
     },
     button_getuserinfo() {
-      // this.triggerEvent('Getphonenumber')
+      this.triggerEvent('Getphonenumber')
     },
     button_opensetting() {
-      // this.triggerEvent('Getphonenumber')
+      this.triggerEvent('Getphonenumber')
     },
     button_contact() {
-      // this.triggerEvent('Getphonenumber')
+      this.triggerEvent('Getphonenumber')
     },
-    // eslint-disable-next-line no-unused-vars
-    /*
-    ui_tap(e) {
+    ui_tap() {
       const that = this
       if (that.properties.openType) {
         switch (that.properties.openType) {
@@ -78,18 +76,13 @@ Component({
                   bankAccount: res.bankAccount
                 })
               },
-              // fail(err) {
-              // console.error(err)
-              // }
             })
             break
           default:
             throw new Error(that.properties.openType)
         }
       }
-      if (!this.properties.formType) {
-        that.triggerEvent('Tap', {})
-      }
-    }, */
+      that.triggerEvent('Tap', {})
+    }
   },
 })

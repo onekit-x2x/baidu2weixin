@@ -2,7 +2,7 @@ module.exports = Behavior({
 
   properties: {
     onekitId: {
-      type: String, value: '' // `id${Math.random()}`
+      type: String, value: ''
     },
     onekitStyle: {
       type: String, value: ''
