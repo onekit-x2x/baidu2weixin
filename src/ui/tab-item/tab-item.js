@@ -9,7 +9,10 @@ Component({
     virtualHost: true
   },
   properties: {
-    label: {type: String}
+    label: {type: String, value: ''},
+    name: {type: String, value: ''},
+    badgeType: {type: String, value: ''},
+    badgeText: {type: String, value: ''},
   },
 
   /**
@@ -23,6 +26,10 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    handleTabClick(e) {
+      const name = this.properties.name
+      this.setData({activeName: name})
+      this.triggerEvent('change', e)
+    }
   }
 })
