@@ -3,7 +3,7 @@ const clean = require('gulp-clean')
 
 const config = require('./tools/config')
 const BuildTask = require('./tools/build')
-const id = require('./package.json').name || 'miniprogram-custom-component'
+const id = require('./package.json').name
 
 // 构建任务实例
 // eslint-disable-next-line no-new
@@ -24,3 +24,5 @@ gulp.task('watch', gulp.series(`${id}-watch`))
 gulp.task('dev', gulp.series(`${id}-dev`))
 // 生产模式构建
 gulp.task('default', gulp.series(`${id}-default`))
+// 构建demo
+gulp.task('demo', gulp.series(`${id}-demo`))

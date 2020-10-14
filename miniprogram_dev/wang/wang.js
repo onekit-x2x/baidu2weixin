@@ -1,4 +1,4 @@
-import swan from '../baidu2weixin/swan'
+import {swan} from '../baidu2weixin/index'
 
 Page({
 

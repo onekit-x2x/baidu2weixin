@@ -4,7 +4,6 @@ const _ = require('./utils')
 const config = require('./config')
 
 const srcPath = config.srcPath
-let hasCheckCompoenntMap = {}
 
 /**
  * 获取 json 路径相关信息
@@ -29,8 +28,6 @@ async function checkIncludedComponents(jsonPath, componentListMap) {
   if (!json) throw new Error(`json is not valid: "${jsonPath}"`)
 
   const {dirPath, fileName, fileBase} = getJsonPathInfo(jsonPath)
-  if (hasCheckCompoenntMap[fileBase]) return
-  hasCheckCompoenntMap[fileBase] = true
 
   for (let i = 0, len = checkProps.length; i < len; i++) {
     const checkProp = checkProps[i]
@@ -40,41 +37,53 @@ async function checkIncludedComponents(jsonPath, componentListMap) {
     for (let j = 0, jlen = keys.length; j < jlen; j++) {
       const key = keys[j]
       let value = typeof checkPropValue[key] === 'object' ? checkPropValue[key].default : checkPropValue[key]
-      if (!value || typeof value === 'boolean') continue
+      if (!value) continue
 
       value = _.transformPath(value, path.sep)
 
       // 检查相对路径
       const componentPath = `${path.join(dirPath, value)}.json`
+      // eslint-disable-next-line no-await-in-loop
       const isExists = await _.checkFileExists(componentPath)
       if (isExists) {
+        // eslint-disable-next-line no-await-in-loop
         await checkIncludedComponents(componentPath, componentListMap)
       }
     }
   }
 
-  const wholeFileBase = path.join(dirPath, fileName)
-  let jsExt = '.js'
-  const isJsFileExists = await _.checkFileExists(wholeFileBase + '.ts')
-  if (isJsFileExists) {
-    jsExt = '.ts'
+  // 进入存储
+  let exists = await _.checkFileExists(path.join(dirPath, `${fileName}.wxml`))
+  if (exists) {
+    componentListMap.wxmlFileList.push(`${fileBase}.wxml`)
+  }
+  exists = await _.checkFileExists(path.join(dirPath, `${fileName}.wxss`))
+  exists && componentListMap.wxssFileList.push(`${fileBase}.wxss`)
+  exists = await _.checkFileExists(path.join(dirPath, `${fileName}.less`))
+  exists && componentListMap.lessFileList.push(`${fileBase}.less`)
+  exists = await _.checkFileExists(path.join(dirPath, `${fileName}.json`))
+  exists && componentListMap.jsonFileList.push(`${fileBase}.json`)
+  exists = await _.checkFileExists(path.join(dirPath, `${fileName}.js`))
+  exists && componentListMap.jsFileList.push(`${fileBase}.js`)
+  exists = await _.checkFileExists(path.join(dirPath, `${fileName}.ts`))
+  if (exists && componentListMap.tsFileList.indexOf(`${fileBase}.ts`) < 0) {
+    componentListMap.tsFileList.push(`${fileBase}.ts`)
   }
 
-  // 进入存储
-  componentListMap.wxmlFileList.push(`${fileBase}.wxml`)
-  componentListMap.wxssFileList.push(`${fileBase}.wxss`)
-  componentListMap.jsonFileList.push(`${fileBase}.json`)
-  componentListMap.jsFileList.push(`${fileBase}${jsExt}`)
-
-  componentListMap.jsFileMap[fileBase] = `${wholeFileBase}${jsExt}`
+  exists = await _.checkFileExists(path.join(dirPath, `${fileName}.js`))
+  exists && (componentListMap.jsFileMap[fileBase] = `${path.join(dirPath, fileName)}.js`)
+  exists = await _.checkFileExists(path.join(dirPath, `${fileName}.ts`))
+  exists && (componentListMap.jsFileMap[fileBase] = `${path.join(dirPath, fileName)}.ts`)
 }
 
 module.exports = async function (entry) {
   const componentListMap = {
     wxmlFileList: [],
     wxssFileList: [],
+    lessFileList: [],
     jsonFileList: [],
     jsFileList: [],
+    tsFileList: [],
 
     jsFileMap: {}, // 为 webpack entry 所用
   }
@@ -83,19 +92,12 @@ module.exports = async function (entry) {
   if (!isExists) {
     const {dirPath, fileName, fileBase} = getJsonPathInfo(entry)
 
-    const wholeFileBase = path.join(dirPath, fileName)
-    let jsExt = '.js'
-    const isJsFileExists = await _.checkFileExists(wholeFileBase + '.ts')
-    if (isJsFileExists) {
-      jsExt = '.ts'
-    }
-    componentListMap.jsFileList.push(`${fileBase}${jsExt}`)
-    componentListMap.jsFileMap[fileBase] = `${wholeFileBase}${jsExt}`
+    componentListMap.jsFileList.push(`${fileBase}.js`)
+    componentListMap.jsFileMap[fileBase] = `${path.join(dirPath, fileName)}.js`
 
     return componentListMap
   }
 
-  hasCheckCompoenntMap = {}
   await checkIncludedComponents(entry, componentListMap)
 
   return componentListMap

@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 const path = require('path')
 
 const webpack = require('webpack')
@@ -13,25 +12,7 @@ const dev = path.join(demoDist, 'baidu2weixin')
 const dist = path.resolve(__dirname, '../miniprogram_dist')
 
 module.exports = {
-  entry: [
-    'ui/ad/ad',
-    'ui/animation-video/animation-video',
-    'ui/animation-view/animation-view',
-    'ui/button/button',
-    'ui/icon/icon',
-    'ui/rtc-room/rtc-room',
-    'ui/rtc-room-item/rtc-room-item',
-    'ui/tabs/tabs',
-    'ui/tab-item/tab-item',
-    'ui/view/view',
-    'OnekitApp',
-    'OnekitBehavior',
-    'OnekitComponent',
-    'OnekitPage',
-    'swan',
-    'js/TheKit',
-    'js/onekit'
-  ],
+  entry: ['index'],
 
   isDev,
   isWatch,
@@ -46,10 +27,6 @@ module.exports = {
     sourcemap: false, // 生成 less sourcemap
   },
 
-  js: {
-    webpack: true, // 使用 webpack 来构建 js
-  },
-
   webpack: {
     mode: 'production',
     output: {
@@ -61,41 +38,24 @@ module.exports = {
     module: {
       rules: [{
         test: /\.js$/i,
-        use: [{
-          loader: 'thread-loader',
-        }, {
-          loader: 'babel-loader',
-          options: {
-            cacheDirectory: true,
-          },
-        }, {
-          loader: 'eslint-loader',
-        }],
+        use: [
+          'babel-loader',
+          'eslint-loader'
+        ],
         exclude: /node_modules/
       }, {
-        test: /\.ts$/,
-        exclude: /node_modules/,
-        use: [{
-          loader: 'thread-loader',
-        }, {
-          loader: 'babel-loader',
-          options: {
-            cacheDirectory: true,
-          },
-        }, {
-          loader: 'ts-loader',
-          options: {
-            appendTsSuffixTo: [/\.vue$/],
-            happyPackMode: true,
-          },
-        }, {
-          loader: 'eslint-loader',
-        }],
+        test: /\.ts$/i,
+        use: [
+          'babel-loader',
+          'ts-loader',
+          // 'tslint-loader'
+        ],
+        exclude: /node_modules/
       }],
     },
     resolve: {
       modules: [src, 'node_modules'],
-      extensions: ['.js', '.json'],
+      extensions: ['.ts', '.js', '.json'],
     },
     plugins: [
       new webpack.DefinePlugin({}),
@@ -104,11 +64,15 @@ module.exports = {
     optimization: {
       minimize: false,
     },
+    // devtool: 'nosources-source-map', // 生成 js sourcemap
     performance: {
       hints: 'warning',
       assetFilter: assetFilename => assetFilename.endsWith('.js')
     }
   },
-
-  copy: ['onekit.wxss']// 将会复制到目标目录
+  ignore: ['!./weui-wxss/**/*'], // 要忽
+  copyIgnore: ['!./weui-wxss/node_modules/**/*', '!./weui-wxss/src/**/*', '!./weui-wxss/dist/example/**/*', '!./weui-wxss/dist/app.wxss', '!./weui-wxss/dist/style/base/**/*', '!./weui-wxss/dist/style/widget/**/*'], // 要忽略的目录/文件
+  copy: {
+    src: ['./**/*.png', './static/**/*', './**/*.wxss', './**/*.wxs', './weui-wxss/dist/style/weui.wxss']
+  }, // 将会复制到目标目录
 }

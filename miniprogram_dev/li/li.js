@@ -1,5 +1,5 @@
-import OnekitPage from '../baidu2weixin/OnekitPage';
-import swan from '../baidu2weixin/swan';
+import {OnekitPage} from '../baidu2weixin/index';
+import {swan} from '../baidu2weixin/index';
 var app = getApp();
 OnekitPage({
     data:{

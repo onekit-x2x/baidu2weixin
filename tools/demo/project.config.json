@@ -12,26 +12,30 @@
 		"nodeModules": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.10.4",
-	"appid": "",
-	"projectname": "miniprogram-demo",
+	"libVersion": "2.11.3",
+	"appid": "wxe0b5580bba739b69",
+	"projectname": "小程序拓展组件库",
 	"isGameTourist": false,
 	"condition": {
-		"search": {
-			"current": -1,
-			"list": []
-		},
-		"conversation": {
-			"current": -1,
-			"list": []
-		},
-		"game": {
-			"currentL": -1,
-			"list": []
-		},
 		"miniprogram": {
 			"current": -1,
-			"list": []
+			"list": [
+				{
+					"id": -1,
+					"name": "example/video-swiper/video-swiper",
+					"pathName": "example/video-swiper/video-swiper"
+				},
+				{
+					"id": -2,
+					"name": "example/emoji/emoji",
+					"pathName": "example/emoji/emoji"
+				},
+				{
+					"id": -3,
+					"name": "example/index-list/index-list",
+					"pathName": "example/index-list/index-list"
+				}
+			]
 		}
 	}
 }

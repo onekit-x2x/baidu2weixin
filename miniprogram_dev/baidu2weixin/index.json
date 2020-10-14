@@ -1,0 +1,14 @@
+{
+  "usingComponents": {
+    "ad": "./ui/ad/ad",
+    "animation-video": "./ui/animation-video/animation-video",
+    "animation-view": "./ui/animation-view/animation-view",
+    "button": "./ui/button/button",
+    "icon": "./ui/icon/icon",
+    "rtc-room": "./ui/rtc-room/rtc-room",
+    "rtc-room-item": "./ui/rtc-room-item/rtc-room-item",
+    "tab-item": "./ui/tab-item/tab-item",
+    "tabs": "./ui/tabs/tabs",
+    "view": "./ui/view/view"
+  }
+}
