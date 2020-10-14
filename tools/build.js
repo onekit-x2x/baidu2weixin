@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 const path = require('path')
 const fs = require('fs')
 
@@ -28,9 +29,29 @@ function wxss(wxssFileList) {
 
   return gulp.src(wxssFileList, {cwd: srcPath, base: srcPath})
     .pipe(checkWxss.start()) // 开始处理 import
-    .pipe(gulpif(wxssConfig.less && wxssConfig.sourcemap, sourcemaps.init()))
-    .pipe(gulpif(wxssConfig.less, less({paths: [srcPath]})))
+    // .pipe(gulpif(wxssConfig.less && wxssConfig.sourcemap, sourcemaps.init()))
+    // .pipe(gulpif(wxssConfig.less, less({paths: [srcPath]})))
     .pipe(checkWxss.end()) // 结束处理 import
+    .pipe(rename({extname: '.wxss'}))
+    .pipe(gulpif(wxssConfig.less && wxssConfig.sourcemap, sourcemaps.write('./')))
+    .pipe(_.logger(wxssConfig.less ? 'generate' : undefined))
+    .pipe(gulp.dest(distPath))
+}
+/**
+ * 获取 less 流
+ */
+function buildLess(lessFileList) {
+  if (!lessFileList.length) return false
+  // 加上要忽略的列表
+  // if (config.ignore) {
+  //   lessFileList = lessFileList.concat(config.ignore)
+  // }
+  // console.log('build less', lessFileList, srcPath)
+  return gulp.src(lessFileList, {cwd: srcPath, base: srcPath})
+    // .pipe(checkWxss.start()) // 开始处理 import
+    .pipe(gulpif(wxssConfig.less && wxssConfig.sourcemap, sourcemaps.init()))
+    .pipe(gulpif(wxssConfig.less, less({paths: [srcPath], compress: true})))
+    // .pipe(checkWxss.end()) // 结束处理 import
     .pipe(rename({extname: '.wxss'}))
     .pipe(gulpif(wxssConfig.less && wxssConfig.sourcemap, sourcemaps.write('./')))
     .pipe(_.logger(wxssConfig.less ? 'generate' : undefined))
@@ -155,7 +176,18 @@ class BuildTask {
      * 安装依赖包
      */
     gulp.task(`${id}-install`, install())
-
+    /**
+     * 生成package.json
+     */
+    gulp.task(`${id}-package-json`, (done) => {
+      const pkgJson = _.readJson(path.resolve(__dirname, '../package.json'))
+      const json = {};
+      ['name', 'version', 'description', 'author', 'license'].forEach((item) => {
+        json[item] = pkgJson[item]
+      })
+      _.writeFile(path.join(distPath, 'package.json'), JSON.stringify(json, null, 4))
+      return done()
+    })
     /**
      * 检查自定义组件
      */
@@ -199,7 +231,6 @@ class BuildTask {
 
       return done()
     })
-
     /**
      * 生成 wxss 文件到目标目录
      */
@@ -210,6 +241,21 @@ class BuildTask {
         wxssFileList.length &&
         !_.compareArray(this.cachedComponentListMap.wxssFileList, wxssFileList)) {
         return wxss(wxssFileList, srcPath, distPath)
+      }
+
+      return done()
+    })
+
+    /**
+     * 生成 less 文件到目标目录
+     */
+    gulp.task(`${id}-component-less`, done => {
+      const lessFileList = this.componentListMap.lessFileList
+
+      if (lessFileList &&
+        lessFileList.length &&
+        !_.compareArray(this.cachedComponentListMap.lessFileList, lessFileList)) {
+        return buildLess(lessFileList, srcPath, distPath)
       }
 
       return done()
@@ -312,6 +358,20 @@ class BuildTask {
     })
 
     /**
+     * 监听 less 变化
+     */
+    gulp.task(`${id}-watch-less`, () => {
+      this.cachedComponentListMap.lessFileList = null
+      return gulp.watch('**/*.less', {cwd: srcPath, base: srcPath}, gulp.series(`${id}-component-less`))
+    })
+    /**
+     * 监听 ts 变化
+     */
+    gulp.task(`${id}-watch-ts`, () => {
+      this.cachedComponentListMap.tsFileList = null
+      return gulp.watch('**/*.ts', {cwd: srcPath, base: srcPath}, gulp.series(`${id}-component-ts`))
+    })
+    /**
      * 监听相关资源变化
      */
     gulp.task(`${id}-watch-copy`, () => {
@@ -360,9 +420,9 @@ class BuildTask {
     /**
      * 构建相关任务
      */
-    gulp.task(`${id}-build`, gulp.series(`${id}-clean-dist`, `${id}-component-check`, gulp.parallel(`${id}-component-wxml`, `${id}-component-wxss`, `${id}-component-js`, `${id}-component-json`, `${id}-copy`)))
+    gulp.task(`${id}-build`, gulp.series(`${id}-clean-dist`, `${id}-component-check`, gulp.parallel(`${id}-component-wxml`, `${id}-component-js`, `${id}-component-less`, `${id}-component-wxss`, `${id}-component-json`, `${id}-copy`)))
 
-    gulp.task(`${id}-watch`, gulp.series(`${id}-build`, `${id}-demo`, `${id}-install`, gulp.parallel(`${id}-watch-wxml`, `${id}-watch-wxss`, `${id}-watch-js`, `${id}-watch-json`, `${id}-watch-copy`, `${id}-watch-install`, `${id}-watch-demo`)))
+    gulp.task(`${id}-watch`, gulp.series(`${id}-build`, `${id}-demo`, `${id}-install`, gulp.parallel(`${id}-watch-wxml`, `${id}-watch-json`, `${id}-watch-copy`, `${id}-watch-install`, `${id}-watch-demo`, `${id}-watch-less`, `${id}-watch-ts`)))
 
     gulp.task(`${id}-dev`, gulp.series(`${id}-build`, `${id}-demo`, `${id}-install`))
 

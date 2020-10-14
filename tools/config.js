@@ -42,7 +42,7 @@ module.exports = {
   demoDist, // demo 目标目录
 
   wxss: {
-    less: false, // 使用 less 来编写 wxss
+    less: true, // 使用 less 来编写 wxss
     sourcemap: false, // 生成 less sourcemap
   },
 
