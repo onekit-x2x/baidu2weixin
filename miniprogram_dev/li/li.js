@@ -1,36 +1,132 @@
 import OnekitPage from '../baidu2weixin/OnekitPage';
 import swan from '../baidu2weixin/swan';
+var app = getApp();
 OnekitPage({
     data:{
-        isWeb:false,
-        appData:getApp().globalData.openParams
+        tabs:[
+            {
+                name:'一',
+                label:'标签一'
+            },
+            {
+                name:'二',
+                label:'标签二'
+            },
+            {
+                name:'三',
+                label:'标签三'
+            }
+        ],
+        content:'一',
+        activeNameOne:'一',
+        tabsTwo:[
+            {
+                name:'一',
+                label:'标签一'
+            },
+            {
+                name:'二',
+                label:'标签二'
+            },
+            {
+                name:'三',
+                label:'标签三'
+            },
+            {
+                name:'四',
+                label:'标签四'
+            },
+            {
+                name:'五',
+                label:'标签五'
+            },
+            {
+                name:'六',
+                label:'标签六'
+            },
+            {
+                name:'七',
+                label:'标签七'
+            }
+        ],
+        contentTwo:'一',
+        activeNameTwo:'一',
+        tabsThree:[
+            {
+                name:'一',
+                label:'标签一'
+            },
+            {
+                name:'二',
+                label:'标签二'
+            },
+            {
+                name:'三',
+                label:'标签三'
+            }
+        ],
+        contentThree:'一',
+        activeNameThree:'一',
+        tabsFour:[
+            {
+                name:'一',
+                label:'标签一',
+                badgeType:'text',
+                badgeText:'99+'
+            },
+            {
+                name:'二',
+                label:'标签二',
+                badgeType:'dot'
+            },
+            {
+                name:'三',
+                label:'标签三'
+            }
+        ],
+        contentFour:'一',
+        activeNameFour:'一'
     },
     onShow:function(){
-        const openParams = this.data.appData;
+        var openParams = app.globalData.openParams;
         if(openParams){
         swan.reportAnalytics('pageshow',{
             fr:openParams,
             type:'component',
-            name:'navigator'
+            name:'tabs'
         });
     }
-        if((openParams === 'docWeb')){
-        this.setData('isWeb',true);
-    }
-        swan.getSystemInfo({
-        success:(res)=>{this.setData('isWeb',(res.platform === 'web'))}
-    });
     },
     onHide:function(){
-        this.data.appData = '';
+        app.globalData.openParams = '';
     },
-    successHandler:function(e){
-        console.log('success',e.detail.errMsg);
+    tabsOne:function(e){
+        this.setData({
+        content:e.detail.name,
+        activeNameOne:e.detail.name
+    });
     },
-    failHandler:function(e){
-        console.log('fail',e.detail.errMsg);
+    tabsTwo:function(e){
+        this.setData({
+        contentTwo:e.detail.name,
+        activeNameTwo:e.detail.name
+    });
     },
-    completeHandler:function(e){
-        console.log('complete',e.detail.errMsg);
+    tabsThree:function(e){
+        this.setData({
+        contentThree:e.detail.name,
+        activeNameThree:e.detail.name
+    });
+    },
+    tabsFour:function(e){
+        this.setData({
+        contentFour:e.detail.name,
+        activeNameFour:e.detail.name
+    });
+    },
+    enterNewTabsPage:function(){
+        swan.navigateTo({
+        url:'../new-tabs/new-tabs?position=二'
+    });
     }
 });

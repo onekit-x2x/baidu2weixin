@@ -1,7 +1,8 @@
 {
   "pages": [
     "li/li",
-
+    "new-tabs/new-tabs",
+    
     "yang/yang",
     "wang/wang"
   ],

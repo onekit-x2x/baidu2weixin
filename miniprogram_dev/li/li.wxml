@@ -227,4 +227,55 @@
     </onekit-view>
 </onekit-view> -->
 
-<!-- <rtc-room> -->
+<!-- <tabs> -->
+<onekit-view onekit-class="wrap">
+    <onekit-view onekit-class="card-area">
+        <onekit-view onekit-class="top-description border-bottom">默认样式</onekit-view>
+        <onekit-tabs onekit-class="border-bottom" active-name="{{activeNameOne}}" bindTabchange="tabsOne">
+            <onekit-tab-item wx:for="{{tabs}}" wx:for-item="tab" name="{{tab.name}}" label="{{tab.label}}"></onekit-tab-item>
+        </onekit-tabs>
+        <onekit-view onekit-class="intro">
+            <onekit-view>标签{{content}}内容展示区</onekit-view>
+        </onekit-view>
+    </onekit-view>
+    <onekit-view onekit-class="card-area">
+        <onekit-view onekit-class="top-description border-bottom">
+            <onekit-view>可横滑显示</onekit-view>
+            <onekit-view>max-tab-item-amount="5"</onekit-view>
+        </onekit-view>
+        <onekit-tabs onekit-class="border-bottom" active-name="{{activeNameTwo}}" max-tab-item-amount="5" bindTabchange="tabsTwo">
+            <onekit-tab-item wx:for="{{tabsTwo}}" wx:for-item="tab" name="{{tab.name}}" label="{{tab.label}}"></onekit-tab-item>
+        </onekit-tabs>
+        <onekit-view onekit-class="intro">
+            <onekit-view>标签{{contentTwo}}内容展示区</onekit-view>
+        </onekit-view>
+    </onekit-view>
+    <onekit-view onekit-class="card-area">
+        <onekit-view onekit-class="top-description border-bottom">
+            <onekit-view>自定义样式</onekit-view>
+        </onekit-view>
+        <onekit-tabs onekit-class="border-bottom" tabs-background-color="#3388ff" tabs-underline-color="#fff" tabs-inactive-text-color="#fff" tabs-active-text-color="#fff" bindTabchange="tabsThree" active-name="{{activeNameThree}}">
+            <onekit-tab-item wx:for="{{tabsThree}}" wx:for-item="tab" name="{{tab.name}}" label="{{tab.label}}"></onekit-tab-item>
+        </onekit-tabs>
+        <onekit-view onekit-class="intro">
+            <onekit-view>标签{{contentThree}}内容展示区</onekit-view>
+        </onekit-view>
+    </onekit-view>
+    <onekit-view onekit-class="card-area">
+        <onekit-view onekit-class="top-description border-bottom">
+            <onekit-view>显示徽标</onekit-view>
+        </onekit-view>
+        <onekit-tabs onekit-class="border-bottom" bindTabchange="tabsFour" active-name="{{activeNameFour}}">
+            <onekit-tab-item wx:for="{{tabsFour}}" wx:for-item="tab" badge-type="{{tab.badgeType}}" badge-text="{{tab.badgeText}}" name="{{tab.name}}" label="{{tab.label}}"></onekit-tab-item>
+        </onekit-tabs>
+        <onekit-view onekit-class="intro">
+            <onekit-view>标签{{contentFour}}内容展示区</onekit-view>
+        </onekit-view>
+    </onekit-view>
+    <onekit-view onekit-class="card-area">
+        <onekit-view onekit-class="top-description border-bottom">
+            <onekit-view>支持寻址</onekit-view>
+        </onekit-view>
+       <onekit-button type="primary" bind:tap="enterNewTabsPage">进入页面并定位到标签二</onekit-button>
+    </onekit-view>
+</onekit-view>     

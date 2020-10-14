@@ -1,7 +1,0 @@
-<canvas 
-  class="onekit-animation-view {{onekitClass}}"
-  style="{{onekitStyle}}"
-  id="{{onekitId}}"
-  type="2d"
->
-</canvas>

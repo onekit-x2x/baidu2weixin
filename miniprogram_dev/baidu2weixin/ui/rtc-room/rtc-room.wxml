@@ -1,5 +1,0 @@
-<view
-class="onekit-rtc-room {{onekitClass}}"
-style="{{onekitStyle}}"
-id="{{onekitId}}"
-></view>
