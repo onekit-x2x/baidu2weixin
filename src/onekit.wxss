@@ -467,8 +467,9 @@ display:block;
    display:inline-block;
    width:0;
 }
-@import "fix.wxss";
 
 /* web-view */
 
 /*sitemap*/
+
+@import "fix.wxss";

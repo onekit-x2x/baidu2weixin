@@ -228,7 +228,7 @@
 </onekit-view> -->
 
 <!-- <tabs> -->
-<onekit-view onekit-class="wrap">
+<!-- <onekit-view onekit-class="wrap">
     <onekit-view onekit-class="card-area">
         <onekit-view onekit-class="top-description border-bottom">默认样式</onekit-view>
         <onekit-tabs onekit-class="border-bottom" active-name="{{activeNameOne}}" bindTabchange="tabsOne">
@@ -278,4 +278,24 @@
         </onekit-view>
        <onekit-button type="primary" bind:tap="enterNewTabsPage">进入页面并定位到标签二</onekit-button>
     </onekit-view>
-</onekit-view>     
+</onekit-view> -->
+
+<!-- animation-video -->
+<!-- <onekit-view onekit-class="wrap">
+    <onekit-view onekit-class="card-area">
+        <onekit-view onekit-class="video-area">
+            <onekit-animation-video onekit-id="myAnimationVideo" path="{{path}}" loop="{{loop}}" resource-width="800"
+                resource-height="400" canvas-style="width:200px;height:200px" autoplay="{{autoplay}}"
+                bindStarted="started" bindEnded="ended"></onekit-animation-video>
+        </onekit-view>
+        <onekit-button onekit-class="btn" type="primary" bindTap="changeStatus">{{status}}动画</onekit-button>
+        <onekit-button onekit-class="btn" type="primary" bindTap="seek">跳转到动画2S处</onekit-button>
+    </onekit-view>
+</onekit-view> -->
+
+<onekit-tabs tabs="{{tabs}}" activeTab="{{activeTab}}" swiperClass="weui-tabs-swiper" bindtabclick="onTabCLick"
+  bindchange="onChange" activeClass="tab-bar-title__selected">
+  <block wx:for="{{tabs}}" wx:key="title">
+    <view class="tab-content" slot="tab-content-{{index}}"> {{item.title}} </view>
+  </block>
+</onekit-tabs>

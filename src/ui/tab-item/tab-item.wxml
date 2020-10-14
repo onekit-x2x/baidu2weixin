@@ -1,2 +1,8 @@
-<!--onekit/ui/tab-item/tab-item.wxml-->
-<text>onekit/ui/tab-item/tab-item.wxml</text>
+<view 
+style="{{onekitStyle}}"
+id="{{onekitId}}"
+ class="onekit-tab-item weui-tabs-bar__item {{onekitClass}}" style="background-color: {{tabBackgroundColor}}; color: {{activeTab === index ? tabActiveTextColor : tabInactiveTextColor}};" bindtap="handleTabClick" data-index="{{index}}">
+            <view class="weui-tabs-bar__title {{activeTab === index ? activeClass : ''}}" style="border-bottom-color: {{activeTab === index ? tabUnderlineColor : 'transparent'}}">
+              <text class="">{{label}}</text>
+            </view>
+          </view>

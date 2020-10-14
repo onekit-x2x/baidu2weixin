@@ -51,9 +51,5 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    // eslint-disable-next-line no-unused-vars
-    view_Tap(e) {
-      this.triggerEvent('Tap')
-    }
   }
 })

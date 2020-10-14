@@ -9,7 +9,7 @@ Component({
     virtualHost: true
   },
   properties: {
-
+    label: {type: String}
   },
 
   /**
