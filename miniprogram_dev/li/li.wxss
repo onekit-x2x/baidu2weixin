@@ -12,7 +12,7 @@
     color: #999 ;
 } */
 
-page{
+/* page{
     background-color: #FFFFFF;
     height: 100%;
 }
@@ -44,6 +44,44 @@ page{
 .tab-bar-title__selected {
     font-size: 20px;
     font-weight: bold;
-}
+} */
 
+.rowlike {
+    margin: calc(.2*val(--onekit-REM)) calc(.57*val(--onekit-REM)) ;
+    display: flex ;
+}
+.rowlike view {
+    flex: 1 ;
+    text-align: center ;
+    font-size: calc(.16*val(--onekit-REM)) ;
+    color: #FFF ;
+    width: calc(.91*val(--onekit-REM)) ;
+    height: calc(1.22*val(--onekit-REM)) ;
+    line-height: calc(1.22*val(--onekit-REM)) ;
+}
+.collike {
+    margin: calc(.2*val(--onekit-REM)) calc(.68*val(--onekit-REM)) ;
+    flex-direction: column ;
+}
+.collike view {
+    height: calc(1.07*val(--onekit-REM)) ;
+    width: calc(2.5*val(--onekit-REM)) ;
+    line-height: calc(1.07*val(--onekit-REM)) ;
+    flex: 1 ;
+    text-align: center ;
+    font-size: calc(.16*val(--onekit-REM)) ;
+    color: #FFF ;
+}
+.color-a {
+    background-color: #5B9FFF ;
+}
+.color-b {
+    background-color: #85B8FF ;
+}
+.color-c {
+    background-color: #ADCFFF ;
+}
+.hover {
+    opacity: .2 ;
+}
 

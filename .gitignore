@@ -245,3 +245,6 @@ miniprogram_dev/li/li.wxml
 miniprogram_dist/ui/tabs/tabs.wxss
 miniprogram_dist/package.json
 .DS_Store
+miniprogram_dev/li/li.js
+miniprogram_dev/li/li.wxml
+miniprogram_dev/li/li.wxss

@@ -1,5 +1,5 @@
-// import {OnekitPage} from '../baidu2weixin/index';
-// import {swan} from '../baidu2weixin/index';
+import {OnekitPage} from '../baidu2weixin/index';
+import {swan} from '../baidu2weixin/index';
 // var app = getApp();
 // OnekitPage({
 //     data:{
@@ -132,27 +132,45 @@
 // });
 
 
-Page({
-    data: {
-      tab: [],
-      activeTab: 0,
-    },
+// Page({
+//     data: {
+//       tab: [],
+//       activeTab: 0,
+//     },
   
-    onLoad() {
-      const titles = ['首页', '外卖', '商超生鲜', '购物', '美食饮品', '生活服务', '休闲娱乐', '出行']
-      const tabs = titles.map(item => ({title: item}))
-      this.setData({tabs})
-    },
+//     onLoad() {
+//       const titles = ['首页', '外卖', '商超生鲜', '购物', '美食饮品', '生活服务', '休闲娱乐', '出行']
+//       const tabs = titles.map(item => ({title: item}))
+//       this.setData({tabs})
+//     },
   
-    onTabCLick(e) {
-      const index = e.detail.index
-      this.setData({activeTab: index})
-    },
+//     onTabCLick(e) {
+//       const index = e.detail.index
+//       this.setData({activeTab: index})
+//     },
   
-    onChange(e) {
-      const index = e.detail.index
-      this.setData({activeTab: index})
+//     onChange(e) {
+//       const index = e.detail.index
+//       this.setData({activeTab: index})
+//     }
+  
+//   })
+
+
+var app = getApp();
+OnekitPage({
+    data:{},
+    onShow:function(){
+        var openParams = app.globalData.openParams;
+        if(openParams){
+        swan.reportAnalytics('pageshow',{
+            fr:openParams,
+            type:'component',
+            name:'view'
+        });
     }
-  
-  })
-  
+    },
+    onHide:function(){
+        app.globalData.openParams = '';
+    }
+});

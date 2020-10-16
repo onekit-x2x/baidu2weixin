@@ -1,7 +1,7 @@
 <view class="weui-tabs">
   <view class="weui-tabs-bar__wrp">
     <scroll-view scroll-x scroll-into-view="item_{{currentView}}">
-      <view class="weui-tabs-bar__content">
+      <view class="weui-tabs-bar__content" bindtap="ui_tap">
         <slot/>
       </view>
     </scroll-view>

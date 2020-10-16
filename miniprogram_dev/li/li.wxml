@@ -293,9 +293,43 @@
     </onekit-view>
 </onekit-view> -->
 
-<onekit-tabs tabs="{{tabs}}" activeTab="{{activeTab}}" swiperClass="weui-tabs-swiper" bindtabclick="onTabCLick"
+<!-- <onekit-tabs tabs="{{tabs}}" activeTab="{{activeTab}}" swiperClass="weui-tabs-swiper" bindtabclick="onTabCLick"
   bindchange="onChange" activeClass="tab-bar-title__selected">
   <block wx:for="{{tabs}}" wx:key="title">
     <onekit-tab-item label="{{item.title}}"/>
   </block>
-</onekit-tabs>
+</onekit-tabs> -->
+
+<!-- <view> -->
+    <onekit-view onekit-class="wrap">
+    <onekit-view onekit-class="card-area">
+        <onekit-view onekit-class="top-description border-bottom">横向布局</onekit-view>
+        <onekit-view onekit-class="rowlike">
+            <onekit-view onekit-class="color-a" hover-class="hover" hover-stop-propagation="false" hover-start-time="100" hover-stay-time="200">
+                <text>A</text>
+            </onekit-view>
+            <onekit-view onekit-class="color-b">
+                <text>B</text>
+            </onekit-view>
+            <onekit-view onekit-class="color-c">
+                <text>C</text>
+            </onekit-view>
+        </onekit-view>
+    </onekit-view>
+
+    <onekit-view onekit-class="card-area">
+        <onekit-view onekit-class="top-description border-bottom">纵向布局</onekit-view>
+        <onekit-view onekit-class="collike">
+            <onekit-view onekit-class="color-a">
+                <text>A</text>
+            </onekit-view>
+            <onekit-view onekit-class="color-b">
+                <text>B</text>
+            </onekit-view>
+            <onekit-view onekit-class="color-c">
+                <text>C</text>
+            </onekit-view>
+        </onekit-view>
+    </onekit-view>
+</onekit-view>
+  
