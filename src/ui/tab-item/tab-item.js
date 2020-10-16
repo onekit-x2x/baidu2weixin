@@ -9,6 +9,10 @@ Component({
     virtualHost: true
   },
   properties: {
+    tabBackgroundColor: {type: String, value: '#fff'}, // 选项卡背景颜色
+    tabActiveTextColor: {type: String, value: '#000'}, // 选中选项卡字体颜色
+    tabInactiveTextColor: {type: String, value: '#666'}, // 未选中选项卡字体颜色
+    tabUnderlineColor: {type: String, value: '#333'}, // 选中选项卡下划线颜色
     label: {type: String, value: ''},
     name: {type: String, value: ''},
     badgeType: {type: String, value: ''},
@@ -26,10 +30,22 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    handleTabClick(e) {
+    handleTabClick() {
       const name = this.properties.name
       this.setData({activeName: name})
-      this.triggerEvent('change', e)
+      this.triggerEvent('handleTabClick', name)
+    }
+  },
+  lifetimes: {
+    attached() {
+      // badgeType == this.properties.badgeType
+      // if (badgeType = 'dot') {
+      //   // this.setData({
+      //   //   // badgeType:
+      //   // })
+      // }else(badgeType = 'text'){
+
+      // }
     }
   }
 })

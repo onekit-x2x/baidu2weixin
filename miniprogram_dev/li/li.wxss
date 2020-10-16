@@ -1,4 +1,16 @@
-/* @import '../common.wxss'; */
+/* .onekit-ad,.onekit-animation-video,.onekit-animation-view,.onekit-button,.onekit-icon,.onekit-rtc-room,.onekit-rtc-room-item,.onekit-tab-item,.onekit-tabs,.onekit-view,camera,canvas,checkbox,checkbox-group,cover-image,cover-view,form,functional-page-navigator,image,input,label,live-player,live-pusher,map,match-media,movable-area,movable-view,native-componentnavigator,official-account,open-data,picker,picker-view,picker-view-column,progressradio,radio-group,rich-text,scroll-view,slider,swiper,swiper-item,switch,text,textarea,editor,audio,video,voip-room,web-view,ad-custom {
+    box-sizing: content-box ;
+}
+.intro {
+    width: calc(3.54*val(--onekit-REM)) ;
+    height: calc(1.84*val(--onekit-REM)) ;
+    background-color: #F9F9F9 ;
+    margin: calc(.13*val(--onekit-REM)) ;
+    display: flex ;
+    justify-content: center ;
+    align-items: center ;
+    color: #999 ;
+} */
 
 page{
     background-color: #FFFFFF;
@@ -33,4 +45,5 @@ page{
     font-size: 20px;
     font-weight: bold;
 }
+
 

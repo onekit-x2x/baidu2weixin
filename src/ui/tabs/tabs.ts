@@ -6,14 +6,9 @@ Component({
     multipleSlots: true // 在组件定义时的选项中启用多slot支持
   },
   properties: {
-    tabBackgroundColor: {type: String, value: '#fff'}, // 选项卡背景颜色
-    tabActiveTextColor: {type: String, value: '#000'}, // 选中选项卡字体颜色
-    tabInactiveTextColor: {type: String, value: '#666'}, // 未选中选项卡字体颜色
-    tabUnderlineColor: {type: String, value: '#333'}, // 选中选项卡下划线颜色
-    activeName: {type: String, value: ''}, // 当前激活tab
-    //activeTab: {type: Number, value: 0}, // 当前激活tab
-    urlQueryName:{type: String, value: ''},
-    maxTabItemAmount:{type: Number, value: 5},
+    activeName: { type: String, value: '' }, // 当前激活tab
+    urlQueryName: { type: String, value: '' },
+    maxTabItemAmount: { type: Number, value: 5 },
 
     // tabs: {type: Array, value: []}, // 数据项格式为 `{title}`
     // tabClass: {type: String, value: ''}, // 选项卡样式
@@ -35,26 +30,49 @@ Component({
     //   if (currentView > len - 1) currentView = len - 1
     //   this.setData({currentView})
     // }
+    activeName(e) {
+      // console.log(e.detail)
+      // this.setData({
+      //   activeName: e.detail //这里是改变Page中data上的值
+      // })
+
+      // console.log(e.detail.index)
+
+      // const len = this.data.tabs.length
+      // if (len === 0) return
+
+      // let currentView = e.detail.index
+      // if (currentView < 0) currentView = 0
+      // if (currentView > len - 1) currentView = len - 1
+      // this.setData({ currentView })
+    }
   },
 
   lifetimes: {
-    created() {
-      
-    }
+    // attached() {
+
+    // }
   },
 
   methods: {
-    // handleTabClick(e) {
-    //   const index = e.currentTarget.dataset.index
-    //   this.setData({activeName: index})
-    //   this.triggerEvent('tabclick', {index})
-    // },
 
-    handleSwiperChange(e) {
-      const name = e.detail.current
-      this.setData({activeName: name})
-      this.triggerEvent('change', {name})
-    }
-  }
+  },
+
+  // relations: {
+  //   './tab-item': {
+  //     type: 'child', // 关联的目标节点应为子节点
+  //     linked: function(target) {
+  //       // 每次有custom-li被插入时执行，target是该节点实例对象，触发在该节点attached生命周期之后
+  //       this.properties.activeName=name
+  //       this.setData({activeName:this.properties.activeName})
+  //     },
+  //     linkChanged: function(target) {
+  //       // 每次有custom-li被移动后执行，target是该节点实例对象，触发在该节点moved生命周期之后
+  //     },
+  //     unlinked: function(target) {
+  //       // 每次有custom-li被移除时执行，target是该节点实例对象，触发在该节点detached生命周期之后
+  //     }
+  //   }
+  // },
 })
-  
+
