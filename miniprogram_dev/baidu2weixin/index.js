@@ -82,13 +82,32 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 13);
+/******/ 	return __webpack_require__(__webpack_require__.s = 14);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */,
 /* 1 */,
-/* 2 */,
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+var onekit = {};
+onekit.current = function () {
+  var pages = getCurrentPages();
+  return pages[pages.length - 1];
+};
+onekit.currentUrl = function () {
+  var pages = getCurrentPages();
+  return pages[pages.length - 1].route;
+};
+exports.default = onekit;
+
+/***/ }),
 /* 3 */,
 /* 4 */,
 /* 5 */,
@@ -99,7 +118,8 @@ module.exports =
 /* 10 */,
 /* 11 */,
 /* 12 */,
-/* 13 */
+/* 13 */,
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -107,19 +127,19 @@ module.exports =
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.swan = exports.OnekitPage = exports.OnekitComponent = exports.OnekitBehavior = exports.OnekitApp = void 0;
-var OnekitApp_1 = __webpack_require__(14);
+var OnekitApp_1 = __webpack_require__(15);
 exports.OnekitApp = OnekitApp_1.default;
-var OnekitBehavior_1 = __webpack_require__(15);
+var OnekitBehavior_1 = __webpack_require__(16);
 exports.OnekitBehavior = OnekitBehavior_1.default;
-var OnekitComponent_1 = __webpack_require__(16);
+var OnekitComponent_1 = __webpack_require__(17);
 exports.OnekitComponent = OnekitComponent_1.default;
-var OnekitPage_1 = __webpack_require__(17);
+var OnekitPage_1 = __webpack_require__(18);
 exports.OnekitPage = OnekitPage_1.default;
-var swan_1 = __webpack_require__(18);
+var swan_1 = __webpack_require__(19);
 exports.swan = swan_1.default;
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -135,7 +155,7 @@ function OnekitApp(swan_object) {
 }
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -150,7 +170,7 @@ function OnekitBehavior(swan_object) {
 }
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -165,26 +185,6 @@ function OnekitComponent(swan_object) {
 }
 
 /***/ }),
-/* 17 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-exports.default = OnekitPage;
-/* eslint-disable camelcase */
-function OnekitPage(swan_object) {
-  var wx_object = swan_object;
-  wx_object.animate = function () {};
-  wx_object.getData = function (key) {
-    return this.data[key];
-  };
-
-  return Page(wx_object);
-}
-
-/***/ }),
 /* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -192,22 +192,73 @@ function OnekitPage(swan_object) {
 
 
 exports.__esModule = true;
+exports.default = OnekitPage;
+/* eslint-disable no-console */
+/* eslint-disable camelcase */
+function OnekitPage(swan_object) {
+  var wx_object = {
+    getData: function getData(key) {
+      return this.data[key];
+    }
+  };
+  for (var _iterator = Object.keys(swan_object), _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _iterator[Symbol.iterator]();;) {
+    var _ref;
 
-var _CameraContext = __webpack_require__(19);
+    if (_isArray) {
+      if (_i >= _iterator.length) break;
+      _ref = _iterator[_i++];
+    } else {
+      _i = _iterator.next();
+      if (_i.done) break;
+      _ref = _i.value;
+    }
+
+    var key = _ref;
+
+    switch (key) {
+      case 'onLoad':
+        wx_object.onLoad = function (query) {
+          this.query = query;
+          swan_object.onLoad.call(this, query);
+        };
+        break;
+      default:
+        wx_object[key] = swan_object[key];
+        break;
+    }
+  }
+
+  return Page(wx_object);
+}
+
+/***/ }),
+/* 19 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+var _CameraContext = __webpack_require__(20);
 
 var _CameraContext2 = _interopRequireDefault(_CameraContext);
 
-var _InnerAudioContext = __webpack_require__(20);
+var _InnerAudioContext = __webpack_require__(21);
 
 var _InnerAudioContext2 = _interopRequireDefault(_InnerAudioContext);
 
-var _VideoContext = __webpack_require__(21);
+var _VideoContext = __webpack_require__(22);
 
 var _VideoContext2 = _interopRequireDefault(_VideoContext);
 
-var _LivePlayerContext = __webpack_require__(22);
+var _LivePlayerContext = __webpack_require__(23);
 
 var _LivePlayerContext2 = _interopRequireDefault(_LivePlayerContext);
+
+var _onekit = __webpack_require__(2);
+
+var _onekit2 = _interopRequireDefault(_onekit);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1631,6 +1682,35 @@ var swan = function () {
     throw new Error('createARCameraContext�ݲ�֧��!!');
   };
 
+  swan.setURLQuery = function setURLQuery(urlQuery) {
+    var page = _onekit2.default.current();
+    //
+    var oldURLQuery = page.query;
+    var newURLQuery = oldURLQuery;
+    for (var _iterator = Object.keys(urlQuery), _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _iterator[Symbol.iterator]();;) {
+      var _ref;
+
+      if (_isArray) {
+        if (_i >= _iterator.length) break;
+        _ref = _iterator[_i++];
+      } else {
+        _i = _iterator.next();
+        if (_i.done) break;
+        _ref = _i.value;
+      }
+
+      var key = _ref;
+
+      var value = urlQuery[key];
+      newURLQuery[key] = value;
+    }
+    page.query = newURLQuery;
+    //
+    if (page.onURLQueryChange) {
+      page.onURLQueryChange({ oldURLQuery: oldURLQuery, newURLQuery: newURLQuery });
+    }
+  };
+
   return swan;
 }();
 /*
@@ -1647,7 +1727,7 @@ function ai_init(api) {
 exports.default = swan;
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1682,7 +1762,7 @@ var VideoContext = function () {
 exports.default = VideoContext;
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1805,7 +1885,7 @@ var InnerAudioContext = function () {
 exports.default = InnerAudioContext;
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1868,7 +1948,7 @@ var VideoContext = function () {
 exports.default = VideoContext;
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

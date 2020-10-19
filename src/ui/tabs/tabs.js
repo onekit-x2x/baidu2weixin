@@ -1,21 +1,30 @@
 /* eslint-disable no-console */
+import onekit from '../../js/onekit'
+
 Component({
   properties: {
-    urlQueryName: {type: String, value: ''},
+    urlQueryName: {type: String},
     maxTabItemAmount: {type: Number, value: 5},
-    activeName: {type: String}
+    activeName: {type: String},
   },
   lifetimes: {
     created() {
       this.tabItems = {}
     },
     ready() {
-      console.log('xxxxxxxxxxx', this.properties)
+      let defaultName
       if (this.properties.activeName) {
-        console.log('yyyyyyyyyyyy', this.tabItems)
-        const tab = this.tabItems[this.properties.activeName]
-        tab._reset(true)
+        defaultName = this.properties.activeName
+      } else if (this.properties.urlQueryName) {
+        const page = onekit.current()
+        defaultName = page.query[this.properties.urlQueryName]
       }
+      if (!defaultName) {
+        defaultName = this.firstName
+      }
+
+      const tab = this.tabItems[defaultName]
+      tab._reset(true)
     },
   },
   relations: {
@@ -23,8 +32,23 @@ Component({
       type: 'child',
       linked(tab) {
         const name = tab._name()
+        if (Object.keys(this.tabItems).length <= 0) {
+          this.firstName = name
+        }
         this.tabItems[name] = tab
       },
+    }
+  },
+  observers: {
+    activeName(activeName) {
+      const that = this
+      // //////////
+      if (that.data.activeName) {
+        const tab = this.tabItems[that.data.activeName]
+        if (tab) { tab._reset(false) }
+      }
+      const tab2 = this.tabItems[activeName]
+      if (tab2) { tab2._reset(true) }
     }
   },
   methods: {

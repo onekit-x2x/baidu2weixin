@@ -8,6 +8,7 @@ import CameraContext from './api/CameraContext'
 import InnerAudioContext from './api/InnerAudioContext'
 import VideoContext from './api/VideoContext'
 import LivePlayerContext from './api/LivePlayerContext'
+import onekit from './js/onekit'
 
 // import Context from "./api/Context"
 export default class swan {
@@ -1343,6 +1344,22 @@ export default class swan {
 
   static createARCameraContext() {
     throw new Error('createARCameraContext�ݲ�֧��!!')
+  }
+
+  static setURLQuery(urlQuery) {
+    const page = onekit.current()
+    //
+    const oldURLQuery = page.query
+    const newURLQuery = oldURLQuery
+    for (const key of Object.keys(urlQuery)) {
+      const value = urlQuery[key]
+      newURLQuery[key] = value
+    }
+    page.query = newURLQuery
+    //
+    if (page.onURLQueryChange) {
+      page.onURLQueryChange({oldURLQuery, newURLQuery})
+    }
   }
 }
 /*

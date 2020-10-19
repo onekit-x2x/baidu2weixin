@@ -231,7 +231,7 @@
 <onekit-view onekit-class="wrap">
     <onekit-view onekit-class="card-area">
         <onekit-view onekit-class="top-description border-bottom">默认样式</onekit-view>
-        <onekit-tabs active-name="二" onekit-class="border-bottom" bindTabchange="tabsOne">
+        <onekit-tabs active-name="{{activeNameOne}}" onekit-class="border-bottom" bindTabchange="tabsOne">
             <onekit-tab-item wx:for="{{tabs}}" wx:for-item="tab" name="{{tab.name}}" label="{{tab.label}}"></onekit-tab-item>
         </onekit-tabs>
         <onekit-view onekit-class="intro">
