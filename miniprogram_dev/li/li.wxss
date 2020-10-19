@@ -1,4 +1,4 @@
-/* .onekit-ad,.onekit-animation-video,.onekit-animation-view,.onekit-button,.onekit-icon,.onekit-rtc-room,.onekit-rtc-room-item,.onekit-tab-item,.onekit-tabs,.onekit-view,camera,canvas,checkbox,checkbox-group,cover-image,cover-view,form,functional-page-navigator,image,input,label,live-player,live-pusher,map,match-media,movable-area,movable-view,native-componentnavigator,official-account,open-data,picker,picker-view,picker-view-column,progressradio,radio-group,rich-text,scroll-view,slider,swiper,swiper-item,switch,text,textarea,editor,audio,video,voip-room,web-view,ad-custom {
+.onekit-ad,.onekit-animation-video,.onekit-animation-view,.onekit-button,.onekit-icon,.onekit-rtc-room,.onekit-rtc-room-item,.onekit-tab-item,.onekit-tabs,.onekit-view,camera,canvas,checkbox,checkbox-group,cover-image,cover-view,form,functional-page-navigator,image,input,label,live-player,live-pusher,map,match-media,movable-area,movable-view,native-componentnavigator,official-account,open-data,picker,picker-view,picker-view-column,progressradio,radio-group,rich-text,scroll-view,slider,swiper,swiper-item,switch,text,textarea,editor,audio,video,voip-room,web-view,ad-custom {
     box-sizing: content-box ;
 }
 .intro {
@@ -10,7 +10,7 @@
     justify-content: center ;
     align-items: center ;
     color: #999 ;
-} */
+}
 
 /* page{
     background-color: #FFFFFF;
@@ -45,43 +45,4 @@
     font-size: 20px;
     font-weight: bold;
 } */
-
-.rowlike {
-    margin: calc(.2*val(--onekit-REM)) calc(.57*val(--onekit-REM)) ;
-    display: flex ;
-}
-.rowlike view {
-    flex: 1 ;
-    text-align: center ;
-    font-size: calc(.16*val(--onekit-REM)) ;
-    color: #FFF ;
-    width: calc(.91*val(--onekit-REM)) ;
-    height: calc(1.22*val(--onekit-REM)) ;
-    line-height: calc(1.22*val(--onekit-REM)) ;
-}
-.collike {
-    margin: calc(.2*val(--onekit-REM)) calc(.68*val(--onekit-REM)) ;
-    flex-direction: column ;
-}
-.collike view {
-    height: calc(1.07*val(--onekit-REM)) ;
-    width: calc(2.5*val(--onekit-REM)) ;
-    line-height: calc(1.07*val(--onekit-REM)) ;
-    flex: 1 ;
-    text-align: center ;
-    font-size: calc(.16*val(--onekit-REM)) ;
-    color: #FFF ;
-}
-.color-a {
-    background-color: #5B9FFF ;
-}
-.color-b {
-    background-color: #85B8FF ;
-}
-.color-c {
-    background-color: #ADCFFF ;
-}
-.hover {
-    opacity: .2 ;
-}
 

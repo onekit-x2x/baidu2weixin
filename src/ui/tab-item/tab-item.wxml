@@ -1,5 +1,5 @@
- <view class="weui-tabs-bar__item" style="background-color: {{tabBackgroundColor}}; color: {{activeName === index ? tabActiveTextColor : tabInactiveTextColor}};" bindtap="handleTabClick" data-name="{{name}}">
-            <view class="weui-tabs-bar__title {{tabClass}} {{activeName === index ? activeClass : ''}}" style="border-bottom-color: {{activeName === index ? tabUnderlineColor : 'transparent'}}">
+ <view class="weui-tabs-bar__item" style="background-color: {{tabBackgroundColor}}; color: {{isCurrent ? tabActiveTextColor : tabInactiveTextColor}};" bindtap="tab_tap">
+            <view class="weui-tabs-bar__title" style="border-bottom-color: {{isCurrent ? tabUnderlineColor : 'transparent'}}">
               <text class="">{{label}}</text>
             </view>
           </view>
