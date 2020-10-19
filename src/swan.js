@@ -1361,6 +1361,12 @@ export default class swan {
       page.onURLQueryChange({oldURLQuery, newURLQuery})
     }
   }
+
+  static getURLQuery() {
+    const page = onekit.current()
+    //
+    return page.query
+  }
 }
 /*
 swan.ai = {}

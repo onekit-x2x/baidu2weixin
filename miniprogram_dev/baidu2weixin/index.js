@@ -82,7 +82,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 14);
+/******/ 	return __webpack_require__(__webpack_require__.s = 19);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -108,131 +108,7 @@ onekit.currentUrl = function () {
 exports.default = onekit;
 
 /***/ }),
-/* 3 */,
-/* 4 */,
-/* 5 */,
-/* 6 */,
-/* 7 */,
-/* 8 */,
-/* 9 */,
-/* 10 */,
-/* 11 */,
-/* 12 */,
-/* 13 */,
-/* 14 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.swan = exports.OnekitPage = exports.OnekitComponent = exports.OnekitBehavior = exports.OnekitApp = void 0;
-var OnekitApp_1 = __webpack_require__(15);
-exports.OnekitApp = OnekitApp_1.default;
-var OnekitBehavior_1 = __webpack_require__(16);
-exports.OnekitBehavior = OnekitBehavior_1.default;
-var OnekitComponent_1 = __webpack_require__(17);
-exports.OnekitComponent = OnekitComponent_1.default;
-var OnekitPage_1 = __webpack_require__(18);
-exports.OnekitPage = OnekitPage_1.default;
-var swan_1 = __webpack_require__(19);
-exports.swan = swan_1.default;
-
-/***/ }),
-/* 15 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-exports.default = OnekitApp;
-/* eslint-disable camelcase */
-
-function OnekitApp(swan_object) {
-  var wx_object = swan_object;
-  return App(wx_object);
-}
-
-/***/ }),
-/* 16 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-exports.default = OnekitBehavior;
-/* eslint-disable camelcase */
-function OnekitBehavior(swan_object) {
-  var wx_object = swan_object;
-  return wx_object;
-}
-
-/***/ }),
-/* 17 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-exports.default = OnekitComponent;
-/* eslint-disable camelcase */
-function OnekitComponent(swan_object) {
-  var wx_object = swan_object;
-  return Component(wx_object);
-}
-
-/***/ }),
-/* 18 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-exports.default = OnekitPage;
-/* eslint-disable no-console */
-/* eslint-disable camelcase */
-function OnekitPage(swan_object) {
-  var wx_object = {
-    getData: function getData(key) {
-      return this.data[key];
-    }
-  };
-  for (var _iterator = Object.keys(swan_object), _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _iterator[Symbol.iterator]();;) {
-    var _ref;
-
-    if (_isArray) {
-      if (_i >= _iterator.length) break;
-      _ref = _iterator[_i++];
-    } else {
-      _i = _iterator.next();
-      if (_i.done) break;
-      _ref = _i.value;
-    }
-
-    var key = _ref;
-
-    switch (key) {
-      case 'onLoad':
-        wx_object.onLoad = function (query) {
-          this.query = query;
-          swan_object.onLoad.call(this, query);
-        };
-        break;
-      default:
-        wx_object[key] = swan_object[key];
-        break;
-    }
-  }
-
-  return Page(wx_object);
-}
-
-/***/ }),
-/* 19 */
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -240,19 +116,19 @@ function OnekitPage(swan_object) {
 
 exports.__esModule = true;
 
-var _CameraContext = __webpack_require__(20);
+var _CameraContext = __webpack_require__(4);
 
 var _CameraContext2 = _interopRequireDefault(_CameraContext);
 
-var _InnerAudioContext = __webpack_require__(21);
+var _InnerAudioContext = __webpack_require__(5);
 
 var _InnerAudioContext2 = _interopRequireDefault(_InnerAudioContext);
 
-var _VideoContext = __webpack_require__(22);
+var _VideoContext = __webpack_require__(6);
 
 var _VideoContext2 = _interopRequireDefault(_VideoContext);
 
-var _LivePlayerContext = __webpack_require__(23);
+var _LivePlayerContext = __webpack_require__(7);
 
 var _LivePlayerContext2 = _interopRequireDefault(_LivePlayerContext);
 
@@ -1711,6 +1587,12 @@ var swan = function () {
     }
   };
 
+  swan.getURLQuery = function getURLQuery() {
+    var page = _onekit2.default.current();
+    //
+    return page.query;
+  };
+
   return swan;
 }();
 /*
@@ -1727,7 +1609,7 @@ function ai_init(api) {
 exports.default = swan;
 
 /***/ }),
-/* 20 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1762,7 +1644,7 @@ var VideoContext = function () {
 exports.default = VideoContext;
 
 /***/ }),
-/* 21 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1885,7 +1767,7 @@ var InnerAudioContext = function () {
 exports.default = InnerAudioContext;
 
 /***/ }),
-/* 22 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1948,7 +1830,7 @@ var VideoContext = function () {
 exports.default = VideoContext;
 
 /***/ }),
-/* 23 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1997,6 +1879,130 @@ var LivePlayerContext = function () {
 }();
 
 exports.default = LivePlayerContext;
+
+/***/ }),
+/* 8 */,
+/* 9 */,
+/* 10 */,
+/* 11 */,
+/* 12 */,
+/* 13 */,
+/* 14 */,
+/* 15 */,
+/* 16 */,
+/* 17 */,
+/* 18 */,
+/* 19 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.swan = exports.OnekitPage = exports.OnekitComponent = exports.OnekitBehavior = exports.OnekitApp = void 0;
+var OnekitApp_1 = __webpack_require__(20);
+exports.OnekitApp = OnekitApp_1.default;
+var OnekitBehavior_1 = __webpack_require__(21);
+exports.OnekitBehavior = OnekitBehavior_1.default;
+var OnekitComponent_1 = __webpack_require__(22);
+exports.OnekitComponent = OnekitComponent_1.default;
+var OnekitPage_1 = __webpack_require__(23);
+exports.OnekitPage = OnekitPage_1.default;
+var swan_1 = __webpack_require__(3);
+exports.swan = swan_1.default;
+
+/***/ }),
+/* 20 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+exports.default = OnekitApp;
+/* eslint-disable camelcase */
+
+function OnekitApp(swan_object) {
+  var wx_object = swan_object;
+  return App(wx_object);
+}
+
+/***/ }),
+/* 21 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+exports.default = OnekitBehavior;
+/* eslint-disable camelcase */
+function OnekitBehavior(swan_object) {
+  var wx_object = swan_object;
+  return wx_object;
+}
+
+/***/ }),
+/* 22 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+exports.default = OnekitComponent;
+/* eslint-disable camelcase */
+function OnekitComponent(swan_object) {
+  var wx_object = swan_object;
+  return Component(wx_object);
+}
+
+/***/ }),
+/* 23 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+exports.default = OnekitPage;
+/* eslint-disable no-console */
+/* eslint-disable camelcase */
+function OnekitPage(swan_object) {
+  var wx_object = {
+    getData: function getData(key) {
+      return this.data[key];
+    }
+  };
+  for (var _iterator = Object.keys(swan_object), _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _iterator[Symbol.iterator]();;) {
+    var _ref;
+
+    if (_isArray) {
+      if (_i >= _iterator.length) break;
+      _ref = _iterator[_i++];
+    } else {
+      _i = _iterator.next();
+      if (_i.done) break;
+      _ref = _i.value;
+    }
+
+    var key = _ref;
+
+    switch (key) {
+      case 'onLoad':
+        wx_object.onLoad = function (query) {
+          this.query = query;
+          swan_object.onLoad.call(this, query);
+        };
+        break;
+      default:
+        wx_object[key] = swan_object[key];
+        break;
+    }
+  }
+
+  return Page(wx_object);
+}
 
 /***/ })
 /******/ ]);

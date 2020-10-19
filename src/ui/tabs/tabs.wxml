@@ -1,4 +1,4 @@
-<view class="weui-tabs" bindTabClick="tab_TabClick">
+<view class="weui-tabs" bindclick="tab_click">
   <view class="weui-tabs-bar__wrp">
     <scroll-view scroll-x scroll-into-view="item_{{currentView}}">
       <view class="weui-tabs-bar__content">

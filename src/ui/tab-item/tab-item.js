@@ -8,14 +8,10 @@ Component({
     virtualHost: true
   },
   properties: {
-    tabBackgroundColor: {type: String, value: '#fff'}, // 选项卡背景颜色
-    tabActiveTextColor: {type: String, value: '#000'}, // 选中选项卡字体颜色
-    tabInactiveTextColor: {type: String, value: '#666'}, // 未选中选项卡字体颜色
-    tabUnderlineColor: {type: String, value: '#333'}, // 选中选项卡下划线颜色
-    label: {type: String, value: ''},
-    name: {type: String, value: ''},
-    badgeType: {type: String, value: ''},
-    badgeText: {type: String, value: ''},
+    label: {type: String},
+    name: {type: String},
+    badgeType: {type: String},
+    badgeText: {type: String},
   },
   data: {
     current: false
@@ -32,11 +28,14 @@ Component({
     _reset(isCurrent) {
       this.setData({isCurrent})
     },
+    _init(data) {
+      this.setData(data)
+    },
     tab_tap() {
       this.setData({isCurrent: true})
       //
       const name = this.properties.name
-      this.triggerEvent('TabClick', {name}, {bubbles: true, composed: true})
+      this.triggerEvent('click', {name}, {bubbles: true, composed: true})
     }
   }
 })
