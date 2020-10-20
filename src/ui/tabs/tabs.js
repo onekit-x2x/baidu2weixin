@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable no-console */
 /* eslint-disable camelcase */
 import onekit_behavior from '../../behavior/onekit_behavior'
@@ -11,14 +12,28 @@ Component({
     urlQueryName: {type: String},
     maxTabItemAmount: {type: Number, value: 5},
     activeName: {type: String},
-    tabBackgroundColor: {type: String, value: '#fff'}, // 选项卡背景颜色
-    tabActiveTextColor: {type: String, value: '#000'}, // 选中选项卡字体颜色
-    tabInactiveTextColor: {type: String, value: '#666'}, // 未选中选项卡字体颜色
-    tabUnderlineColor: {type: String, value: '#333'}, // 选中选项卡下划线颜色
+    tabsBackgroundColor: {type: String, value: '#fff'}, // 选项卡背景颜色
+    tabsActiveTextColor: {type: String, value: '#000'}, // 选中选项卡字体颜色
+    tabsInactiveTextColor: {type: String, value: '#666'}, // 未选中选项卡字体颜色
+    tabsUnderlineColor: {type: String, value: '#333'}, // 选中选项卡下划线颜色
   },
   lifetimes: {
     created() {
       this.tabItems = {}
+    },
+    attached() {
+      wx.createSelectorQuery().in(this).select('.weui-tabs')
+        .fields({size: true})
+        .exec((res) => {
+          const WIDTH = res[0].width
+          const count = Math.min(Object.keys(this.tabItems).length, this.properties.maxTabItemAmount)
+          const width = WIDTH / count
+          // console.log(WIDTH, count, width)
+          for (const key of Object.keys(this.tabItems)) {
+            const tabItem = this.tabItems[key]
+            tabItem._setWidth(width)
+          }
+        })
     },
     ready() {
       let activeName
@@ -32,26 +47,26 @@ Component({
         activeName = this.firstName
       }
 
-      const tab = this.tabItems[activeName]
-      tab._reset(true)
+      const tabItem = this.tabItems[activeName]
+      tabItem._reset(true)
     },
   },
   relations: {
     '../tab-item/tab-item': {
       type: 'child',
-      linked(tab) {
-        const name = tab._name()
+      linked(tabItem) {
+        const name = tabItem._name()
         if (Object.keys(this.tabItems).length <= 0) {
           this.firstName = name
         }
-        this.tabItems[name] = tab
+        this.tabItems[name] = tabItem
         //
-        const tabBackgroundColor = this.properties.tabBackgroundColor
-        const tabActiveTextColor = this.properties.tabActiveTextColor
-        const tabInactiveTextColor = this.properties.tabInactiveTextColor
-        const tabUnderlineColor = this.properties.tabUnderlineColor
-        tab._init({
-          tabBackgroundColor, tabActiveTextColor, tabInactiveTextColor, tabUnderlineColor
+        const tabsBackgroundColor = this.properties.tabsBackgroundColor
+        const tabsActiveTextColor = this.properties.tabsActiveTextColor
+        const tabsInactiveTextColor = this.properties.tabsInactiveTextColor
+        const tabsUnderlineColor = this.properties.tabsUnderlineColor
+        tabItem._init({
+          tabsBackgroundColor, tabsActiveTextColor, tabsInactiveTextColor, tabsUnderlineColor
         })
       },
     }
@@ -62,11 +77,11 @@ Component({
       const that = this
       // //////////
       if (that.data.activeName) {
-        const tab = this.tabItems[that.data.activeName]
-        if (tab) { tab._reset(false) }
+        const tabItem = this.tabItems[that.data.activeName]
+        if (tabItem) { tabItem._reset(false) }
       }
-      const tab2 = this.tabItems[activeName]
-      if (tab2) { tab2._reset(true) }
+      const tabItem2 = this.tabItems[activeName]
+      if (tabItem2) { tabItem2._reset(true) }
     }
   },
   */
@@ -77,8 +92,8 @@ Component({
       const name = e.detail.name
       //
       if (that.data.activeName) {
-        const tab = this.tabItems[that.data.activeName]
-        tab._reset(false)
+        const tabItem = this.tabItems[that.data.activeName]
+        tabItem._reset(false)
       }
       //
       that.data.activeName = name

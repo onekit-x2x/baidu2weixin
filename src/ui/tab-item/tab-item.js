@@ -15,7 +15,8 @@ Component({
     badgeText: {type: String},
   },
   data: {
-    current: false
+    current: false,
+    width: 'auto'
   },
   relations: {
     '../tabs/tabs': {
@@ -32,11 +33,16 @@ Component({
     _init(data) {
       this.setData(data)
     },
+    _setWidth(width) {
+      this.setData({
+        width: `${width}px`
+      })
+    },
     tab_tap() {
       this.setData({isCurrent: true})
       //
       const name = this.properties.name
-      this.triggerEvent('click', {name}, {bubbles: true, composed: true})
+      this.triggerEvent('tabclick', {name}, {bubbles: true, composed: true})
     }
   }
 })
