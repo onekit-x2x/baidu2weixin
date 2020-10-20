@@ -1,5 +1,7 @@
  <view class="weui-tabs-bar__item" style="background-color: {{tabBackgroundColor}}; color: {{isCurrent ? tabActiveTextColor : tabInactiveTextColor}};" bindtap="tab_tap">
             <view class="weui-tabs-bar__title" style="border-bottom-color: {{isCurrent ? tabUnderlineColor : 'transparent'}}">
-              <text class="">{{label}}</text>
+              <text>{{label}}</text>
+              <text style="display:inline-block;width:10rpx;height:10rpx;background:red;border-radius:5rpx" wx:if="{{badgeType=='dot'}}"></text>
+              <text style="color:#fff;font-size:20rpx;padding:4rpx 6rpx;background:red;border-radius:20rpx;" wx:if="{{badgeType=='text'}}">{{badgeText}}</text>
             </view>
           </view>

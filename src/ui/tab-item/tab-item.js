@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable camelcase */
 import onekit_behavior from '../../behavior/onekit_behavior'
 import baidu_behavior from '../../behavior/baidu_behavior'
