@@ -258,3 +258,7 @@ miniprogram_dev/li/li.wxml
 miniprogram_dev/baidu2weixin/index.js
 miniprogram_dev/project.config.json
 miniprogram_dev/li/li.wxml
+miniprogram_dist/index.js
+miniprogram_dist/index.json
+miniprogram_dist/page/share/share.wxss
+miniprogram_dist/weui-wxss/dist/style/weui.wxss
