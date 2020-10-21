@@ -6,6 +6,7 @@ const { exec } = require('child_process');
 const cwd = process.cwd()
 const root = 'miniprogram_npm'
 const dist = 'miniprogram_dist'
+/*
 const list = fs.readdirSync(path.join(cwd, dist))
 fs.removeSync(root)
 list.forEach(file => {
@@ -16,4 +17,4 @@ list.forEach(file => {
         exec(`cp -a ${dist}/${file}/* ${root}/${file}/${dist}`)
         exec(`cp -a src/${file}/package.json ${root}/${file}/package.json`)
     }
-})
+})*/
