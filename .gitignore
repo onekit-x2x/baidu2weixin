@@ -303,3 +303,4 @@ miniprogram_npm/ui/miniprogram_dist/ad/ad.wxml
 miniprogram_npm/ui/miniprogram_dist/ad/ad.json
 miniprogram_npm/ui/miniprogram_dist/ad/ad.js
 miniprogram_npm/page/miniprogram_dist/share/share.wxss
+miniprogram_dev/project.config.json
