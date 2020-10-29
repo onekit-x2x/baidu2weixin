@@ -95,7 +95,8 @@ module.exports =
 
 
 exports.__esModule = true;
-
+/* eslint-disable max-len */
+/* eslint-disable camelcase */
 var onekit = {};
 onekit.current = function () {
   var pages = getCurrentPages();
@@ -106,6 +107,54 @@ onekit.currentUrl = function () {
   return pages[pages.length - 1].route;
 };
 exports.default = onekit;
+//
+
+var bd_USER_FOLDER = 'bdfile://store/';
+var WX_USER_FOLDER = wx.env.USER_DATA_PATH + '/';
+
+function new_bd_filePath(ext) {
+  var randomString = Math.floor(Math.random() * (1 - 10000000) + 10000000);
+  var bd_filePath = '' + bd_USER_FOLDER + randomString + ext;
+  return bd_filePath;
+}
+
+function bd_filePath2wx_filePath(bd_filePath) {
+  // eslint-disable-next-line no-undef
+  if (!getApp().bdSavePath2wxStorePath) {
+    return bd_filePath;
+  }
+  // eslint-disable-next-line no-undef
+  var wx_storePath = getApp().bdSavePath2wxStorePath[bd_filePath];
+  if (wx_storePath) {
+    return wx_storePath;
+  } else {
+    var wx_filePath = bd_filePath.replace(bd_USER_FOLDER, WX_USER_FOLDER);
+    return wx_filePath;
+  }
+}
+
+function save_wx_storePath(bd_filePath, wx_storePath) {
+  // eslint-disable-next-line no-undef
+  if (!getApp().bdSavePath2wxStorePath) {
+    // eslint-disable-next-line no-undef
+    getApp().bdSavePath2wxStorePath = {};
+  }
+  // eslint-disable-next-line no-undef
+  getApp().bdSavePath2wxStorePath[bd_filePath] = wx_storePath;
+  // ///////////////////////
+  // eslint-disable-next-line no-undef
+  if (!getApp().wxStorePath2bdSavePath) {
+    // eslint-disable-next-line no-undef
+    getApp().wxStorePath2bdSavePath = {};
+  }
+  // eslint-disable-next-line no-undef
+  getApp().wxStorePath2bdSavePath[wx_storePath] = bd_filePath;
+}
+module.exports = {
+  save_wx_storePath: save_wx_storePath,
+  new_bd_filePath: new_bd_filePath,
+  bd_filePath2wx_filePath: bd_filePath2wx_filePath
+};
 
 /***/ }),
 /* 3 */
@@ -186,6 +235,10 @@ var swan = function () {
 
   swan.getSystemInfoSync = function getSystemInfoSync() {
     return wx.getSystemInfoSync();
+  };
+
+  swan.getEnvInfoSync = function getEnvInfoSync() {
+    return wx.getEnvInfoSync();
   };
 
   swan.base64ToArrayBuffer = function base64ToArrayBuffer(base64) {
@@ -609,8 +662,41 @@ var swan = function () {
     return wx.openDocument(object);
   };
 
-  swan.saveFile = function saveFile(object) {
-    return wx.saveFile(object);
+  swan.saveFile = function saveFile(bd_object) {
+    var bd_tempFilePath = bd_object.tempFilePath;
+    var ext = bd_tempFilePath.substring(bd_tempFilePath.lastIndexOf('.'));
+    var bd_filePath = bd_object.filePath || _onekit2.default.new_bd_filePath(ext);
+    var bd_success = bd_object.success;
+    var bd_fail = bd_object.fail;
+    var bd_complete = bd_object.complete;
+    bd_object = null;
+    //
+    var wx_tempFilePath = bd_tempFilePath;
+    var wx_object = {
+      tempFilePath: wx_tempFilePath,
+      success: function success(wx_res) {
+        _onekit2.default.save_wx_storePath(bd_filePath, wx_res.savedFilePath);
+        var bd_res = {
+          savedFilePath: bd_filePath
+        };
+        if (bd_success) {
+          bd_success(bd_res);
+        }
+        if (bd_complete) {
+          bd_complete(bd_res);
+        }
+      },
+      fail: function fail(wx_res) {
+        var bd_res = wx_res;
+        if (bd_fail) {
+          bd_fail(bd_res);
+        }
+        if (bd_complete) {
+          bd_complete(bd_res);
+        }
+      }
+    };
+    wx.saveFile(wx_object);
   };
 
   // ////////// Location ///////////////
@@ -756,8 +842,8 @@ var swan = function () {
     return wx.downloadFile(object);
   };
 
-  swan.uploadFile = function uploadFile(object) {
-    return wx.uploadFile(object);
+  swan.uploadFile = function uploadFile(bd_object) {
+    return wx.uploadFile(bd_object);
   };
 
   //

@@ -44,6 +44,9 @@ export default class swan {
     return wx.getSystemInfoSync()
   }
 
+  static getEnvInfoSync() {
+    return wx.getEnvInfoSync()
+  }
 
   static base64ToArrayBuffer(base64) {
     return wx.base64ToArrayBuffer(base64)
@@ -446,8 +449,41 @@ export default class swan {
     return wx.openDocument(object)
   }
 
-  static saveFile(object) {
-    return wx.saveFile(object)
+  static saveFile(bd_object) {
+    const bd_tempFilePath = bd_object.tempFilePath
+    const ext = bd_tempFilePath.substring(bd_tempFilePath.lastIndexOf('.'))
+    const bd_filePath = bd_object.filePath || onekit.new_bd_filePath(ext)
+    const bd_success = bd_object.success
+    const bd_fail = bd_object.fail
+    const bd_complete = bd_object.complete
+    bd_object = null
+    //
+    const wx_tempFilePath = bd_tempFilePath
+    const wx_object = {
+      tempFilePath: wx_tempFilePath,
+      success(wx_res) {
+        onekit.save_wx_storePath(bd_filePath, wx_res.savedFilePath)
+        const bd_res = {
+          savedFilePath: bd_filePath,
+        }
+        if (bd_success) {
+          bd_success(bd_res)
+        }
+        if (bd_complete) {
+          bd_complete(bd_res)
+        }
+      },
+      fail(wx_res) {
+        const bd_res = wx_res
+        if (bd_fail) {
+          bd_fail(bd_res)
+        }
+        if (bd_complete) {
+          bd_complete(bd_res)
+        }
+      }
+    }
+    wx.saveFile(wx_object)
   }
 
   // ////////// Location ///////////////
@@ -583,8 +619,8 @@ export default class swan {
     return wx.downloadFile(object)
   }
 
-  static uploadFile(object) {
-    return wx.uploadFile(object)
+  static uploadFile(bd_object) {
+    return wx.uploadFile(bd_object)
   }
 
   //

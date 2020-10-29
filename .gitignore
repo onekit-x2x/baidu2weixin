@@ -304,3 +304,13 @@ miniprogram_npm/ui/miniprogram_dist/ad/ad.json
 miniprogram_npm/ui/miniprogram_dist/ad/ad.js
 miniprogram_npm/page/miniprogram_dist/share/share.wxss
 miniprogram_dev/project.config.json
+package-lock.json
+miniprogram_dev/sitemap.json
+miniprogram_dev/project.config.json
+miniprogram_dev/package.json
+miniprogram_dev/example/index.js
+miniprogram_dev/baidu2weixin/package.json
+miniprogram_dev/baidu2weixin/index.js
+miniprogram_dev/app.json
+miniprogram_dev/app.js
+tools/demo/example/index.js

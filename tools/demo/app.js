@@ -10,5 +10,6 @@ App({
     },
     globalData: {
         hasLogin: false
-    }
+    },
+    ttSavePath2wxStorePath: {}
 });
