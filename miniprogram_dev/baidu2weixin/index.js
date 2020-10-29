@@ -82,7 +82,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 19);
+/******/ 	return __webpack_require__(__webpack_require__.s = 20);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -184,6 +184,10 @@ var _LivePlayerContext2 = _interopRequireDefault(_LivePlayerContext);
 var _onekit = __webpack_require__(2);
 
 var _onekit2 = _interopRequireDefault(_onekit);
+
+var _FileSystemManager = __webpack_require__(8);
+
+var _FileSystemManager2 = _interopRequireDefault(_FileSystemManager);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -639,7 +643,7 @@ var swan = function () {
 
 
   swan.getFileSystemManager = function getFileSystemManager(object) {
-    return wx.getFileSystemManager(object);
+    return new _FileSystemManager2.default(object);
   };
 
   swan.getFileInfo = function getFileInfo(bd_object) {
@@ -2066,7 +2070,608 @@ var LivePlayerContext = function () {
 exports.default = LivePlayerContext;
 
 /***/ }),
-/* 8 */,
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+var _onekit = __webpack_require__(2);
+
+var _onekit2 = _interopRequireDefault(_onekit);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } } /* eslint-disable no-console */
+/* eslint-disable max-len */
+/* eslint-disable camelcase */
+
+
+var FileSystemManager = function () {
+  function FileSystemManager(weixinFileSystemManager) {
+    _classCallCheck(this, FileSystemManager);
+
+    this.weixinFileSystemManager = weixinFileSystemManager;
+  }
+
+  FileSystemManager.prototype.accessSync = function accessSync(bd_path) {
+    try {
+      var wx_path = _onekit2.default.bd_filePath2wx_filePath(bd_path);
+      this.weixinFileSystemManager.accessSync(wx_path);
+    } catch (ex) {
+      throw new Error('accessSync:fail no such file or directory, accessSync');
+    }
+  };
+
+  FileSystemManager.prototype.access = function access(bd_object) {
+    var bd_path = bd_object.path;
+    var bd_success = bd_object.success;
+    var bd_fail = bd_object.fail;
+    var bd_complete = bd_object.complete;
+    bd_object = null;
+    //
+    var wx_path = _onekit2.default.bd_filePath2wx_filePath(bd_path);
+    var wx_object = {
+      path: wx_path,
+      success: function success(wx_res) {
+        var bd_res = {
+          errMsg: wx_res.errMsg
+        };
+        if (bd_success) {
+          bd_success(bd_res);
+        }
+        if (bd_complete) {
+          bd_complete(bd_res);
+        }
+      },
+      fail: function fail(wx_res) {
+        var bd_res = wx_res;
+        if (bd_fail) {
+          bd_fail(bd_res);
+        }
+        if (bd_complete) {
+          bd_complete(bd_res);
+        }
+      }
+    };
+    return this.weixinFileSystemManager.access(wx_object);
+  };
+
+  FileSystemManager.prototype.saveFileSync = function saveFileSync(bd_tempFilePath, bd_filePath) {
+    if (!bd_filePath) {
+      var ext = bd_tempFilePath.substring(bd_tempFilePath.lastIndexOf('.'));
+      bd_filePath = _onekit2.default.new_bd_filePath(ext);
+    }
+    var wx_tempFilePath = bd_tempFilePath;
+    var wx_filePath = _onekit2.default.bd_filePath2wx_filePath(bd_filePath);
+    this.weixinFileSystemManager.saveFileSync(wx_tempFilePath, wx_filePath);
+    return bd_filePath;
+  };
+
+  FileSystemManager.prototype.saveFile = function saveFile(bd_object) {
+    var bd_tempFilePath = bd_object.tempFilePath;
+    var ext = bd_tempFilePath.substring(bd_tempFilePath.lastIndexOf('.'));
+    var bd_filePath = bd_object.filePath || _onekit2.default.new_bd_filePath(ext);
+    var bd_success = bd_object.success;
+    var bd_fail = bd_object.fail;
+    var bd_complete = bd_object.complete;
+    bd_object = null;
+    //
+    var wx_tempFilePath = bd_tempFilePath;
+    var wx_filePath = _onekit2.default.bd_filePath2wx_filePath(bd_filePath);
+    var wx_object = {
+      tempFilePath: wx_tempFilePath,
+      filePath: wx_filePath,
+      success: function success(wx_res) {
+        var bd_res = {
+          errMsg: wx_res.errMsg,
+          savedFilePath: bd_filePath
+        };
+        if (bd_success) {
+          bd_success(bd_res);
+        }
+        if (bd_complete) {
+          bd_complete(bd_res);
+        }
+      },
+      fail: function fail(wx_res) {
+        var bd_res = wx_res;
+        if (bd_fail) {
+          bd_fail(bd_res);
+        }
+        if (bd_complete) {
+          bd_complete(bd_res);
+        }
+      }
+    };
+    return this.weixinFileSystemManager.saveFile(wx_object);
+  };
+
+  FileSystemManager.prototype.getSavedFileList = function getSavedFileList(bd_object) {
+    return this.weixinFileSystemManager.getSavedFileList(bd_object);
+  };
+
+  FileSystemManager.prototype.removeSavedFile = function removeSavedFile(bd_object) {
+    var bd_filePath = bd_object.filePath;
+    var bd_success = bd_object.success;
+    var bd_fail = bd_object.fail;
+    var bd_complete = bd_object.complete;
+    bd_object = null;
+    //
+    var wx_filePath = _onekit2.default.bd_filePath2wx_filePath(bd_filePath);
+    var wx_object = {
+      filePath: wx_filePath,
+      success: function success(wx_res) {
+        var bd_res = {
+          errMsg: wx_res.errMsg
+        };
+        if (bd_success) {
+          bd_success(bd_res);
+        }
+        if (bd_complete) {
+          bd_complete(bd_res);
+        }
+      },
+      fail: function fail(wx_res) {
+        var bd_res = wx_res;
+        if (bd_fail) {
+          bd_fail(bd_res);
+        }
+        if (bd_complete) {
+          bd_complete(bd_res);
+        }
+      }
+    };
+    return this.weixinFileSystemManager.removeSavedFile(wx_object);
+  };
+
+  FileSystemManager.prototype.copyFileSync = function copyFileSync(bd_srcPath, bd_destPath) {
+    var wx_srcPath = _onekit2.default.bd_filePath2wx_filePath(bd_srcPath);
+    var wx_destPath = _onekit2.default.bd_filePath2wx_filePath(bd_destPath);
+    return this.weixinFileSystemManager.saveFileSync(wx_srcPath, wx_destPath);
+  };
+
+  FileSystemManager.prototype.copyFile = function copyFile(bd_object) {
+    var bd_srcPath = bd_object.srcPath;
+    var bd_destPath = bd_object.destPath;
+    var bd_success = bd_object.success;
+    var bd_fail = bd_object.fail;
+    var bd_complete = bd_object.complete;
+    bd_object = null;
+    //
+    var wx_srcPath = _onekit2.default.bd_filePath2wx_filePath(bd_srcPath);
+    var wx_destPath = _onekit2.default.bd_filePath2wx_filePath(bd_destPath);
+    var wx_object = {
+      srcPath: wx_srcPath,
+      destPath: wx_destPath,
+      success: function success(wx_res) {
+        var bd_res = {
+          errMsg: wx_res.errMsg
+        };
+        if (bd_success) {
+          bd_success(bd_res);
+        }
+        if (bd_complete) {
+          bd_complete(bd_res);
+        }
+      },
+      fail: function fail(wx_res) {
+        var bd_res = wx_res;
+        if (bd_fail) {
+          bd_fail(bd_res);
+        }
+        if (bd_complete) {
+          bd_complete(bd_res);
+        }
+      }
+    };
+    return this.weixinFileSystemManager.copyFile(wx_object);
+  };
+
+  FileSystemManager.prototype.getFileInfo = function getFileInfo(bd_object) {
+    var bd_filePath = bd_object.filePath;
+    var bd_success = bd_object.success;
+    var bd_fail = bd_object.fail;
+    var bd_complete = bd_object.complete;
+    bd_object = null;
+    //
+    var wx_filePath = _onekit2.default.bd_filePath2wx_filePath(bd_filePath);
+    var wx_object = {
+      filePath: wx_filePath,
+      success: function success(wx_res) {
+        var bd_res = {
+          size: wx_res.size,
+          errMsg: wx_res.errMsg
+        };
+        if (bd_success) {
+          bd_success(bd_res);
+        }
+        if (bd_complete) {
+          bd_complete(bd_res);
+        }
+      },
+      fail: function fail(wx_res) {
+        var bd_res = wx_res;
+        if (bd_fail) {
+          bd_fail(bd_res);
+        }
+        if (bd_complete) {
+          bd_complete(bd_res);
+        }
+      }
+    };
+    return this.weixinFileSystemManager.getFileInfo(wx_object);
+  };
+
+  FileSystemManager.prototype.mkdirSync = function mkdirSync(bd_dirPath) {
+    var wx_dirPath = _onekit2.default.bd_filePath2wx_filePath(bd_dirPath);
+    return this.weixinFileSystemManager.mkdirSync(wx_dirPath);
+  };
+
+  FileSystemManager.prototype.mkdir = function mkdir(bd_object) {
+    var bd_dirPath = bd_object.dirPath;
+    var bd_success = bd_object.success;
+    var bd_fail = bd_object.fail;
+    var bd_complete = bd_object.complete;
+    bd_object = null;
+    //
+    var wx_dirPath = _onekit2.default.bd_filePath2wx_filePath(bd_dirPath);
+    var wx_object = {
+      dirPath: wx_dirPath,
+      success: function success(wx_res) {
+        var bd_res = {
+          errMsg: wx_res.errMsg
+        };
+        if (bd_success) {
+          bd_success(bd_res);
+        }
+        if (bd_complete) {
+          bd_complete(bd_res);
+        }
+      },
+      fail: function fail(wx_res) {
+        var bd_res = wx_res;
+        if (bd_fail) {
+          bd_fail(bd_res);
+        }
+        if (bd_complete) {
+          bd_complete(bd_res);
+        }
+      }
+    };
+    return this.weixinFileSystemManager.mkdir(wx_object);
+  };
+
+  FileSystemManager.prototype.readdirSync = function readdirSync(bd_dirPath) {
+    var wx_dirPath = _onekit2.default.bd_filePath2wx_filePath(bd_dirPath);
+    return this.weixinFileSystemManager.readdirSync(wx_dirPath);
+  };
+
+  FileSystemManager.prototype.readdir = function readdir(bd_object) {
+    var bd_dirPath = bd_object.dirPath;
+    var bd_success = bd_object.success;
+    var bd_fail = bd_object.fail;
+    var bd_complete = bd_object.complete;
+    bd_object = null;
+    //
+    var wx_dirPath = _onekit2.default.bd_filePath2wx_filePath(bd_dirPath);
+    var wx_object = {
+      dirPath: wx_dirPath,
+      success: function success(wx_res) {
+        var bd_res = {
+          files: wx_res.files,
+          errMsg: wx_res.errMsg
+        };
+        if (bd_success) {
+          bd_success(bd_res);
+        }
+        if (bd_complete) {
+          bd_complete(bd_res);
+        }
+      },
+      fail: function fail(wx_res) {
+        var bd_res = wx_res;
+        if (bd_fail) {
+          bd_fail(bd_res);
+        }
+        if (bd_complete) {
+          bd_complete(bd_res);
+        }
+      }
+    };
+    return this.weixinFileSystemManager.readdir(wx_object);
+  };
+
+  FileSystemManager.prototype.readFileSync = function readFileSync(bd_filePath, bd_encoding) {
+    var wx_filePath = _onekit2.default.bd_filePath2wx_filePath(bd_filePath);
+    var wx_encoding = bd_encoding;
+    return this.weixinFileSystemManager.readFileSync(wx_filePath, wx_encoding);
+  };
+
+  FileSystemManager.prototype.readFile = function readFile(bd_object) {
+    var bd_filePath = bd_object.filePath;
+    var bd_encoding = bd_object.encoding;
+    var bd_success = bd_object.success;
+    var bd_fail = bd_object.fail;
+    var bd_complete = bd_object.complete;
+    bd_object = null;
+    //
+    var wx_filePath = _onekit2.default.bd_filePath2wx_filePath(bd_filePath);
+    var wx_encoding = bd_encoding;
+    var wx_object = {
+      filePath: wx_filePath,
+      encoding: wx_encoding,
+      success: function success(wx_res) {
+        var bd_res = {
+          data: wx_res.data,
+          errMsg: wx_res.errMsg
+        };
+        if (bd_success) {
+          bd_success(bd_res);
+        }
+        if (bd_complete) {
+          bd_complete(bd_res);
+        }
+      },
+      fail: function fail(wx_res) {
+        var bd_res = wx_res;
+        if (bd_fail) {
+          bd_fail(bd_res);
+        }
+        if (bd_complete) {
+          bd_complete(bd_res);
+        }
+      }
+    };
+    return this.weixinFileSystemManager.readFile(wx_object);
+  };
+
+  FileSystemManager.prototype.renameSync = function renameSync(bd_oldPath, bd_newPath) {
+    var wx_oldPath = _onekit2.default.bd_filePath2wx_filePath(bd_oldPath);
+    var wx_newPath = _onekit2.default.bd_filePath2wx_filePath(bd_newPath);
+    return this.weixinFileSystemManager.renameSync(wx_oldPath, wx_newPath);
+  };
+
+  FileSystemManager.prototype.rename = function rename(bd_object) {
+    var bd_newPath = bd_object.newPath;
+    var bd_oldPath = bd_object.oldPath;
+    var bd_success = bd_object.success;
+    var bd_fail = bd_object.fail;
+    var bd_complete = bd_object.complete;
+    //
+    var wx_newPath = _onekit2.default.bd_filePath2wx_filePath(bd_newPath);
+    var wx_oldPath = _onekit2.default.bd_filePath2wx_filePath(bd_oldPath);
+    var wx_object = {
+      oldPath: wx_oldPath,
+      newPath: wx_newPath,
+      success: function success(wx_res) {
+        var bd_res = {
+          errMsg: wx_res.errMsg
+        };
+        if (bd_success) {
+          bd_success(bd_res);
+        }
+        if (bd_complete) {
+          bd_complete(bd_res);
+        }
+      },
+      fail: function fail(wx_res) {
+        var bd_res = wx_res;
+        if (bd_fail) {
+          bd_fail(bd_res);
+        }
+        if (bd_complete) {
+          bd_complete(bd_res);
+        }
+      }
+    };
+    return this.weixinFileSystemManager.rename(wx_object);
+  };
+
+  FileSystemManager.prototype.rmdirSync = function rmdirSync(bd_dirPath) {
+    var wx_dirPath = _onekit2.default.bd_filePath2wx_filePath(bd_dirPath);
+    return this.weixinFileSystemManager.rmdirSync(wx_dirPath);
+  };
+
+  FileSystemManager.prototype.rmdir = function rmdir(bd_object) {
+    var bd_dirPath = bd_object.dirPath;
+    var bd_success = bd_object.success;
+    var bd_fail = bd_object.fail;
+    var bd_complete = bd_object.complete;
+    bd_object = null;
+    //
+    var wx_dirPath = _onekit2.default.bd_filePath2wx_filePath(bd_dirPath);
+    var wx_object = {
+      dirPath: wx_dirPath,
+      success: function success(wx_res) {
+        var bd_res = {
+          errMsg: wx_res.errMsg
+        };
+        if (bd_success) {
+          bd_success(bd_res);
+        }
+        if (bd_complete) {
+          bd_complete(bd_res);
+        }
+      },
+      fail: function fail(wx_res) {
+        var bd_res = wx_res;
+        if (bd_fail) {
+          bd_fail(bd_res);
+        }
+        if (bd_complete) {
+          bd_complete(bd_res);
+        }
+      }
+    };
+    return this.weixinFileSystemManager.rmdir(wx_object);
+  };
+
+  FileSystemManager.prototype.statSync = function statSync(bd_path) {
+    var wx_path = _onekit2.default.bd_filePath2wx_filePath(bd_path);
+    return this.weixinFileSystemManager.statSync(wx_path);
+  };
+
+  FileSystemManager.prototype.stat = function stat(bd_object) {
+    var bd_path = bd_object.path;
+    var bd_success = bd_object.success;
+    var bd_fail = bd_object.fail;
+    var bd_complete = bd_object.complete;
+    bd_object = null;
+    //
+    var wx_path = _onekit2.default.bd_filePath2wx_filePath(bd_path);
+    var wx_object = {
+      path: wx_path,
+      success: function success(wx_res) {
+        var bd_res = {
+          errMsg: wx_res.errMsg,
+          stats: wx_res.stats
+        };
+        if (bd_success) {
+          bd_success(bd_res);
+        }
+        if (bd_complete) {
+          bd_complete(bd_res);
+        }
+      },
+      fail: function fail(wx_res) {
+        var bd_res = wx_res;
+        if (bd_fail) {
+          bd_fail(bd_res);
+        }
+        if (bd_complete) {
+          bd_complete(bd_res);
+        }
+      }
+    };
+    return this.weixinFileSystemManager.stat(wx_object);
+  };
+
+  FileSystemManager.prototype.unlinkSync = function unlinkSync(bd_filePath) {
+    var wx_filePath = _onekit2.default.bd_filePath2wx_filePath(bd_filePath);
+    return this.weixinFileSystemManager.unlinkSync(wx_filePath);
+  };
+
+  FileSystemManager.prototype.unlink = function unlink(bd_object) {
+    var bd_filePath = bd_object.filePath;
+    var bd_success = bd_object.success;
+    var bd_fail = bd_object.fail;
+    var bd_complete = bd_object.complete;
+    bd_object = null;
+    //
+    var wx_filePath = _onekit2.default.bd_filePath2wx_filePath(bd_filePath);
+    var wx_object = {
+      filePath: wx_filePath,
+      success: function success(wx_res) {
+        var bd_res = {
+          errMsg: wx_res.errMsg
+        };
+        if (bd_success) {
+          bd_success(bd_res);
+        }
+        if (bd_complete) {
+          bd_complete(bd_res);
+        }
+      },
+      fail: function fail(wx_res) {
+        var bd_res = wx_res;
+        if (bd_fail) {
+          bd_fail(bd_res);
+        }
+        if (bd_complete) {
+          bd_complete(bd_res);
+        }
+      }
+    };
+    return this.weixinFileSystemManager.unlink(wx_object);
+  };
+
+  FileSystemManager.prototype.unzip = function unzip(bd_object) {
+    var bd_zipFilePath = bd_object.zipFilePath;
+    var bd_targetPath = bd_object.targetPath;
+    var bd_success = bd_object.success;
+    var bd_fail = bd_object.fail;
+    var bd_complete = bd_object.complete;
+    //
+    var wx_targetPath = _onekit2.default.bd_filePath2wx_filePath(bd_targetPath);
+    var wx_object = {
+      zipFilePath: bd_zipFilePath,
+      targetPath: wx_targetPath,
+      success: function success(wx_res) {
+        var bd_res = {
+          errMsg: wx_res.errMsg
+        };
+        if (bd_success) {
+          bd_success(bd_res);
+        }
+        if (bd_complete) {
+          bd_complete(bd_res);
+        }
+      },
+      fail: function fail(wx_res) {
+        var bd_res = wx_res;
+        if (bd_fail) {
+          bd_fail(bd_res);
+        }
+        if (bd_complete) {
+          bd_complete(bd_res);
+        }
+      }
+    };
+    return this.weixinFileSystemManager.unzip(wx_object);
+  };
+
+  FileSystemManager.prototype.writeFileSync = function writeFileSync(bd_filePath, data, encoding) {
+    var wx_filePath = _onekit2.default.bd_filePath2wx_filePath(bd_filePath);
+    return this.weixinFileSystemManager.writeFileSync(wx_filePath, data, encoding);
+  };
+
+  FileSystemManager.prototype.writeFile = function writeFile(bd_object) {
+    var bd_filePath = bd_object.filePath;
+    var bd_data = bd_object.data;
+    var bd_encoding = bd_object.encoding;
+    var bd_success = bd_object.success;
+    var bd_fail = bd_object.fail;
+    var bd_complete = bd_object.complete;
+    bd_object = null;
+    //
+    var wx_filePath = _onekit2.default.bd_filePath2wx_filePath(bd_filePath);
+    var wx_object = {
+      filePath: wx_filePath,
+      data: bd_data,
+      encoding: bd_encoding,
+      success: function success(wx_res) {
+        var bd_res = {
+          errMsg: wx_res.errMsg
+        };
+        if (bd_success) {
+          bd_success(bd_res);
+        }
+        if (bd_complete) {
+          bd_complete(bd_res);
+        }
+      },
+      fail: function fail(wx_res) {
+        var bd_res = wx_res;
+        if (bd_fail) {
+          bd_fail(bd_res);
+        }
+        if (bd_complete) {
+          bd_complete(bd_res);
+        }
+      }
+    };
+    return this.weixinFileSystemManager.writeFile(wx_object);
+  };
+
+  return FileSystemManager;
+}();
+
+exports.default = FileSystemManager;
+
+/***/ }),
 /* 9 */,
 /* 10 */,
 /* 11 */,
@@ -2077,7 +2682,8 @@ exports.default = LivePlayerContext;
 /* 16 */,
 /* 17 */,
 /* 18 */,
-/* 19 */
+/* 19 */,
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2085,19 +2691,19 @@ exports.default = LivePlayerContext;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.swan = exports.OnekitPage = exports.OnekitComponent = exports.OnekitBehavior = exports.OnekitApp = void 0;
-var OnekitApp_1 = __webpack_require__(20);
+var OnekitApp_1 = __webpack_require__(21);
 exports.OnekitApp = OnekitApp_1.default;
-var OnekitBehavior_1 = __webpack_require__(21);
+var OnekitBehavior_1 = __webpack_require__(22);
 exports.OnekitBehavior = OnekitBehavior_1.default;
-var OnekitComponent_1 = __webpack_require__(22);
+var OnekitComponent_1 = __webpack_require__(23);
 exports.OnekitComponent = OnekitComponent_1.default;
-var OnekitPage_1 = __webpack_require__(23);
+var OnekitPage_1 = __webpack_require__(24);
 exports.OnekitPage = OnekitPage_1.default;
 var swan_1 = __webpack_require__(3);
 exports.swan = swan_1.default;
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2113,7 +2719,7 @@ function OnekitApp(swan_object) {
 }
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2128,7 +2734,7 @@ function OnekitBehavior(swan_object) {
 }
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2143,7 +2749,7 @@ function OnekitComponent(swan_object) {
 }
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

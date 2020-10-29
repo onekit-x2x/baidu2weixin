@@ -9,6 +9,7 @@ import InnerAudioContext from './api/InnerAudioContext'
 import VideoContext from './api/VideoContext'
 import LivePlayerContext from './api/LivePlayerContext'
 import onekit from './js/onekit'
+import FileSystemManager from './api/FileSystemManager'
 
 // import Context from "./api/Context"
 export default class swan {
@@ -426,7 +427,7 @@ export default class swan {
 
   // ////////////////// File //////////
   static getFileSystemManager(object) {
-    return wx.getFileSystemManager(object)
+    return new FileSystemManager(object)
   }
 
   static getFileInfo(bd_object) {
