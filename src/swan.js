@@ -467,8 +467,38 @@ export default class swan {
     return wx.getFileInfo(wx_object)
   }
 
-  static removeSavedFile(object) {
-    return wx.removeSavedFile(object)
+  static removeSavedFile(bd_object) {
+    const bd_filePath = bd_object.filePath
+    const bd_success = bd_object.success
+    const bd_fail = bd_object.fail
+    const bd_complete = bd_object.complete
+    bd_object = null
+    //
+    const wx_filePath = onekit.bd_filePath2wx_filePath(bd_filePath)
+    const wx_object = {
+      filePath: wx_filePath,
+      success(wx_res) {
+        const bd_res = {
+          errMsg: wx_res.errMsg
+        }
+        if (bd_success) {
+          bd_success(bd_res)
+        }
+        if (bd_complete) {
+          bd_complete(bd_res)
+        }
+      },
+      fail(wx_res) {
+        const bd_res = wx_res
+        if (bd_fail) {
+          bd_fail(bd_res)
+        }
+        if (bd_complete) {
+          bd_complete(bd_res)
+        }
+      }
+    }
+    return wx.removeSavedFile(wx_object)
   }
 
   static getSavedFileInfo(object) {

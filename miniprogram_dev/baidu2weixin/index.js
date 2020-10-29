@@ -680,8 +680,38 @@ var swan = function () {
     return wx.getFileInfo(wx_object);
   };
 
-  swan.removeSavedFile = function removeSavedFile(object) {
-    return wx.removeSavedFile(object);
+  swan.removeSavedFile = function removeSavedFile(bd_object) {
+    var bd_filePath = bd_object.filePath;
+    var bd_success = bd_object.success;
+    var bd_fail = bd_object.fail;
+    var bd_complete = bd_object.complete;
+    bd_object = null;
+    //
+    var wx_filePath = _onekit2.default.bd_filePath2wx_filePath(bd_filePath);
+    var wx_object = {
+      filePath: wx_filePath,
+      success: function success(wx_res) {
+        var bd_res = {
+          errMsg: wx_res.errMsg
+        };
+        if (bd_success) {
+          bd_success(bd_res);
+        }
+        if (bd_complete) {
+          bd_complete(bd_res);
+        }
+      },
+      fail: function fail(wx_res) {
+        var bd_res = wx_res;
+        if (bd_fail) {
+          bd_fail(bd_res);
+        }
+        if (bd_complete) {
+          bd_complete(bd_res);
+        }
+      }
+    };
+    return wx.removeSavedFile(wx_object);
   };
 
   swan.getSavedFileInfo = function getSavedFileInfo(object) {
