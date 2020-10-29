@@ -642,8 +642,42 @@ var swan = function () {
     return wx.getFileSystemManager(object);
   };
 
-  swan.getFileInfo = function getFileInfo(object) {
-    return wx.getFileInfo(object);
+  swan.getFileInfo = function getFileInfo(bd_object) {
+    var bd_filePath = bd_object.filePath;
+    var bd_digestAlgorithm = bd_object.digestAlgorithm;
+    var bd_success = bd_object.success;
+    var bd_fail = bd_object.fail;
+    var bd_complete = bd_object.complete;
+    bd_object = null;
+    //
+    var wx_filePath = _onekit2.default.bd_filePath2wx_filePath(bd_filePath);
+    var wx_digestAlgorithm = bd_digestAlgorithm;
+    var wx_object = {
+      filePath: wx_filePath,
+      digestAlgorithm: wx_digestAlgorithm,
+      success: function success(wx_res) {
+        var bd_res = {
+          size: wx_res.size,
+          digest: wx_res.digest
+        };
+        if (bd_success) {
+          bd_success(bd_res);
+        }
+        if (bd_complete) {
+          bd_complete(bd_res);
+        }
+      },
+      fail: function fail(wx_res) {
+        var bd_res = wx_res;
+        if (bd_fail) {
+          bd_fail(bd_res);
+        }
+        if (bd_complete) {
+          bd_complete(bd_res);
+        }
+      }
+    };
+    return wx.getFileInfo(wx_object);
   };
 
   swan.removeSavedFile = function removeSavedFile(object) {
@@ -654,8 +688,43 @@ var swan = function () {
     return wx.getSavedFileInfo(object);
   };
 
-  swan.getSavedFileList = function getSavedFileList(object) {
-    return wx.getSavedFileList(object);
+  swan.getSavedFileList = function getSavedFileList(bd_object) {
+    var bd_success = bd_object.success;
+    var bd_fail = bd_object.fail;
+    var bd_complete = bd_object.complete;
+    bd_object = null;
+    //
+    var wx_object = {
+      success: function success(wx_res) {
+        var bd_res = {
+          fileList: wx_res.fileList.map(function (wx_file) {
+            var bd_file = {
+              // eslint-disable-next-line no-undef
+              filePath: getApp().wxStorePath2bdSavePath[wx_file.filePath],
+              createTime: wx_file.createTime,
+              size: wx_file.size
+            };
+            return bd_file;
+          })
+        };
+        if (bd_success) {
+          bd_success(bd_res);
+        }
+        if (bd_complete) {
+          bd_complete(bd_res);
+        }
+      },
+      fail: function fail(wx_res) {
+        var bd_res = wx_res;
+        if (bd_fail) {
+          bd_fail(bd_res);
+        }
+        if (bd_complete) {
+          bd_complete(bd_res);
+        }
+      }
+    };
+    return wx.getSavedFileList(wx_object);
   };
 
   swan.openDocument = function openDocument(object) {
@@ -2025,7 +2094,7 @@ exports.default = OnekitBehavior;
 /* eslint-disable camelcase */
 function OnekitBehavior(swan_object) {
   var wx_object = swan_object;
-  return wx_object;
+  return Behavior(wx_object);
 }
 
 /***/ }),

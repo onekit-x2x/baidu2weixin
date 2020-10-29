@@ -1,24 +1,48 @@
 import{swan} from '../baidu2weixin/index'
 import{OnekitPage} from '../baidu2weixin/index'
 OnekitPage({
-  onLoad: function () {
-    swan.chooseImage({
-        success: res => {
-            console.log('临时文件路径:', res);
-            swan.saveFile({
-                tempFilePath: res.tempFilePaths[0],
-                success: res => {
-                    console.log('保存到的路径是：', res);
-                    
-                },
-                fail: err => {
-                    console.log('保存失败：', err);
-                }
-            });
-        },
-        fail: err => {
-            console.log(err);
-        }
-    })
-},
+  
+  onLoad: function (options) {
+
+   swan.chooseImage({
+  success(res) {
+    // 获取图片, chooseImage 获取的文件在临时文件目录内
+    const tempFilePaths = res.tempFilePaths;
+    if (tempFilePaths[0]) {
+      // 保存到用户目录
+      saveFile(tempFilePaths[0]);
+
+swan.getSavedFileList({
+  success(res) {
+    res.fileList.forEach((item) => {
+      console.log(item.filePath, item.createTime, item.size);
+    });
+  },
+});
+
+
+    }
+  },
+});
+
+function saveFile(tempFilePath) {
+  swan.saveFile({
+    tempFilePath,
+    success(res) {
+      // console.log(res);
+    },
+    fail(res) {
+      // console.log(res);
+    },
+  });
+}
+
+
+
+
+
+
+  }
+
+
 });

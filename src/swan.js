@@ -429,8 +429,42 @@ export default class swan {
     return wx.getFileSystemManager(object)
   }
 
-  static getFileInfo(object) {
-    return wx.getFileInfo(object)
+  static getFileInfo(bd_object) {
+    const bd_filePath = bd_object.filePath
+    const bd_digestAlgorithm = bd_object.digestAlgorithm
+    const bd_success = bd_object.success
+    const bd_fail = bd_object.fail
+    const bd_complete = bd_object.complete
+    bd_object = null
+    //
+    const wx_filePath = onekit.bd_filePath2wx_filePath(bd_filePath)
+    const wx_digestAlgorithm = bd_digestAlgorithm
+    const wx_object = {
+      filePath: wx_filePath,
+      digestAlgorithm: wx_digestAlgorithm,
+      success(wx_res) {
+        const bd_res = {
+          size: wx_res.size,
+          digest: wx_res.digest
+        }
+        if (bd_success) {
+          bd_success(bd_res)
+        }
+        if (bd_complete) {
+          bd_complete(bd_res)
+        }
+      },
+      fail(wx_res) {
+        const bd_res = wx_res
+        if (bd_fail) {
+          bd_fail(bd_res)
+        }
+        if (bd_complete) {
+          bd_complete(bd_res)
+        }
+      }
+    }
+    return wx.getFileInfo(wx_object)
   }
 
   static removeSavedFile(object) {
@@ -441,8 +475,43 @@ export default class swan {
     return wx.getSavedFileInfo(object)
   }
 
-  static getSavedFileList(object) {
-    return wx.getSavedFileList(object)
+  static getSavedFileList(bd_object) {
+    const bd_success = bd_object.success
+    const bd_fail = bd_object.fail
+    const bd_complete = bd_object.complete
+    bd_object = null
+    //
+    const wx_object = {
+      success(wx_res) {
+        const bd_res = {
+          fileList: wx_res.fileList.map(function (wx_file) {
+            const bd_file = {
+              // eslint-disable-next-line no-undef
+              filePath: getApp().wxStorePath2bdSavePath[wx_file.filePath],
+              createTime: wx_file.createTime,
+              size: wx_file.size
+            }
+            return bd_file
+          })
+        }
+        if (bd_success) {
+          bd_success(bd_res)
+        }
+        if (bd_complete) {
+          bd_complete(bd_res)
+        }
+      },
+      fail(wx_res) {
+        const bd_res = wx_res
+        if (bd_fail) {
+          bd_fail(bd_res)
+        }
+        if (bd_complete) {
+          bd_complete(bd_res)
+        }
+      }
+    }
+    return wx.getSavedFileList(wx_object)
   }
 
   static openDocument(object) {
