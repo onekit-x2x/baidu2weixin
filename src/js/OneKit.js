@@ -1,18 +1,20 @@
 /* eslint-disable max-len */
 /* eslint-disable camelcase */
-const onekit = {}
-onekit.current = function () {
-  const pages = getCurrentPages()
-  return pages[pages.length - 1]
-}
-onekit.currentUrl = function () {
-  const pages = getCurrentPages()
-  return pages[pages.length - 1].route
-}
-export default onekit
-//
+
 const bd_USER_FOLDER = 'bdfile://store/'
 const WX_USER_FOLDER = `${wx.env.USER_DATA_PATH}/`
+
+function current() {
+  const pages = getCurrentPages()
+  if (pages.length === 0) {
+    return {}
+  }
+  return pages[pages.length - 1]
+}
+
+function currentUrl() {
+  return current().route
+}
 
 function new_bd_filePath(ext) {
   const randomString = Math.floor(Math.random() * (1 - 10000000) + 10000000)
@@ -53,6 +55,8 @@ function save_wx_storePath(bd_filePath, wx_storePath) {
   getApp().wxStorePath2bdSavePath[wx_storePath] = bd_filePath
 }
 module.exports = {
+  current,
+  currentUrl,
   save_wx_storePath,
   new_bd_filePath,
   bd_filePath2wx_filePath

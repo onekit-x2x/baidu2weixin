@@ -8,7 +8,7 @@ import CameraContext from './api/CameraContext'
 import InnerAudioContext from './api/InnerAudioContext'
 import VideoContext from './api/VideoContext'
 import LivePlayerContext from './api/LivePlayerContext'
-import onekit from './js/onekit'
+import OneKit from './js/OneKit'
 import FileSystemManager from './api/FileSystemManager'
 
 // import Context from "./api/Context"
@@ -438,7 +438,7 @@ export default class swan {
     const bd_complete = bd_object.complete
     bd_object = null
     //
-    const wx_filePath = onekit.bd_filePath2wx_filePath(bd_filePath)
+    const wx_filePath = OneKit.bd_filePath2wx_filePath(bd_filePath)
     const wx_digestAlgorithm = bd_digestAlgorithm
     const wx_object = {
       filePath: wx_filePath,
@@ -475,7 +475,7 @@ export default class swan {
     const bd_complete = bd_object.complete
     bd_object = null
     //
-    const wx_filePath = onekit.bd_filePath2wx_filePath(bd_filePath)
+    const wx_filePath = OneKit.bd_filePath2wx_filePath(bd_filePath)
     const wx_object = {
       filePath: wx_filePath,
       success(wx_res) {
@@ -552,7 +552,7 @@ export default class swan {
   static saveFile(bd_object) {
     const bd_tempFilePath = bd_object.tempFilePath
     const ext = bd_tempFilePath.substring(bd_tempFilePath.lastIndexOf('.'))
-    const bd_filePath = bd_object.filePath || onekit.new_bd_filePath(ext)
+    const bd_filePath = bd_object.filePath || OneKit.new_bd_filePath(ext)
     const bd_success = bd_object.success
     const bd_fail = bd_object.fail
     const bd_complete = bd_object.complete
@@ -562,7 +562,7 @@ export default class swan {
     const wx_object = {
       tempFilePath: wx_tempFilePath,
       success(wx_res) {
-        onekit.save_wx_storePath(bd_filePath, wx_res.savedFilePath)
+        OneKit.save_wx_storePath(bd_filePath, wx_res.savedFilePath)
         const bd_res = {
           savedFilePath: bd_filePath,
         }
@@ -1181,7 +1181,7 @@ export default class swan {
   // eslint-disable-next-line no-dupe-class-members
   static reportMonitor(name, value) {
     // eslint-disable-next-line no-undef
-    const js_code = getApp().onekit.jscode
+    const js_code = getApp().OneKit.jscode
     wx.httpRequest({
       url: 'http://192.168.0.106:8080/onekit_adapter/reportMonitor',
       header: {
@@ -1483,7 +1483,7 @@ export default class swan {
   }
 
   static setURLQuery(urlQuery) {
-    const page = onekit.current()
+    const page = OneKit.current()
     //
     const oldURLQuery = page.query
     const newURLQuery = oldURLQuery
@@ -1499,7 +1499,7 @@ export default class swan {
   }
 
   static getURLQuery() {
-    const page = onekit.current()
+    const page = OneKit.current()
     //
     return page.query
   }

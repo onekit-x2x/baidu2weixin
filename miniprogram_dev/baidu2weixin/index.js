@@ -94,23 +94,23 @@ module.exports =
 "use strict";
 
 
-exports.__esModule = true;
 /* eslint-disable max-len */
 /* eslint-disable camelcase */
-var onekit = {};
-onekit.current = function () {
-  var pages = getCurrentPages();
-  return pages[pages.length - 1];
-};
-onekit.currentUrl = function () {
-  var pages = getCurrentPages();
-  return pages[pages.length - 1].route;
-};
-exports.default = onekit;
-//
 
 var bd_USER_FOLDER = 'bdfile://store/';
 var WX_USER_FOLDER = wx.env.USER_DATA_PATH + '/';
+
+function current() {
+  var pages = getCurrentPages();
+  if (pages.length === 0) {
+    return {};
+  }
+  return pages[pages.length - 1];
+}
+
+function currentUrl() {
+  return current().route;
+}
 
 function new_bd_filePath(ext) {
   var randomString = Math.floor(Math.random() * (1 - 10000000) + 10000000);
@@ -151,6 +151,8 @@ function save_wx_storePath(bd_filePath, wx_storePath) {
   getApp().wxStorePath2bdSavePath[wx_storePath] = bd_filePath;
 }
 module.exports = {
+  current: current,
+  currentUrl: currentUrl,
   save_wx_storePath: save_wx_storePath,
   new_bd_filePath: new_bd_filePath,
   bd_filePath2wx_filePath: bd_filePath2wx_filePath
@@ -181,9 +183,9 @@ var _LivePlayerContext = __webpack_require__(7);
 
 var _LivePlayerContext2 = _interopRequireDefault(_LivePlayerContext);
 
-var _onekit = __webpack_require__(2);
+var _OneKit = __webpack_require__(2);
 
-var _onekit2 = _interopRequireDefault(_onekit);
+var _OneKit2 = _interopRequireDefault(_OneKit);
 
 var _FileSystemManager = __webpack_require__(8);
 
@@ -654,7 +656,7 @@ var swan = function () {
     var bd_complete = bd_object.complete;
     bd_object = null;
     //
-    var wx_filePath = _onekit2.default.bd_filePath2wx_filePath(bd_filePath);
+    var wx_filePath = _OneKit2.default.bd_filePath2wx_filePath(bd_filePath);
     var wx_digestAlgorithm = bd_digestAlgorithm;
     var wx_object = {
       filePath: wx_filePath,
@@ -691,7 +693,7 @@ var swan = function () {
     var bd_complete = bd_object.complete;
     bd_object = null;
     //
-    var wx_filePath = _onekit2.default.bd_filePath2wx_filePath(bd_filePath);
+    var wx_filePath = _OneKit2.default.bd_filePath2wx_filePath(bd_filePath);
     var wx_object = {
       filePath: wx_filePath,
       success: function success(wx_res) {
@@ -768,7 +770,7 @@ var swan = function () {
   swan.saveFile = function saveFile(bd_object) {
     var bd_tempFilePath = bd_object.tempFilePath;
     var ext = bd_tempFilePath.substring(bd_tempFilePath.lastIndexOf('.'));
-    var bd_filePath = bd_object.filePath || _onekit2.default.new_bd_filePath(ext);
+    var bd_filePath = bd_object.filePath || _OneKit2.default.new_bd_filePath(ext);
     var bd_success = bd_object.success;
     var bd_fail = bd_object.fail;
     var bd_complete = bd_object.complete;
@@ -778,7 +780,7 @@ var swan = function () {
     var wx_object = {
       tempFilePath: wx_tempFilePath,
       success: function success(wx_res) {
-        _onekit2.default.save_wx_storePath(bd_filePath, wx_res.savedFilePath);
+        _OneKit2.default.save_wx_storePath(bd_filePath, wx_res.savedFilePath);
         var bd_res = {
           savedFilePath: bd_filePath
         };
@@ -1433,7 +1435,7 @@ var swan = function () {
 
   swan.reportMonitor = function reportMonitor(name, value) {
     // eslint-disable-next-line no-undef
-    var js_code = getApp().onekit.jscode;
+    var js_code = getApp().OneKit.jscode;
     wx.httpRequest({
       url: 'http://192.168.0.106:8080/onekit_adapter/reportMonitor',
       header: {
@@ -1748,7 +1750,7 @@ var swan = function () {
   };
 
   swan.setURLQuery = function setURLQuery(urlQuery) {
-    var page = _onekit2.default.current();
+    var page = _OneKit2.default.current();
     //
     var oldURLQuery = page.query;
     var newURLQuery = oldURLQuery;
@@ -1777,7 +1779,7 @@ var swan = function () {
   };
 
   swan.getURLQuery = function getURLQuery() {
-    var page = _onekit2.default.current();
+    var page = _OneKit2.default.current();
     //
     return page.query;
   };
@@ -2078,9 +2080,9 @@ exports.default = LivePlayerContext;
 
 exports.__esModule = true;
 
-var _onekit = __webpack_require__(2);
+var _OneKit = __webpack_require__(2);
 
-var _onekit2 = _interopRequireDefault(_onekit);
+var _OneKit2 = _interopRequireDefault(_OneKit);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -2098,7 +2100,7 @@ var FileSystemManager = function () {
 
   FileSystemManager.prototype.accessSync = function accessSync(bd_path) {
     try {
-      var wx_path = _onekit2.default.bd_filePath2wx_filePath(bd_path);
+      var wx_path = _OneKit2.default.bd_filePath2wx_filePath(bd_path);
       this.weixinFileSystemManager.accessSync(wx_path);
     } catch (ex) {
       throw new Error('accessSync:fail no such file or directory, accessSync');
@@ -2112,7 +2114,7 @@ var FileSystemManager = function () {
     var bd_complete = bd_object.complete;
     bd_object = null;
     //
-    var wx_path = _onekit2.default.bd_filePath2wx_filePath(bd_path);
+    var wx_path = _OneKit2.default.bd_filePath2wx_filePath(bd_path);
     var wx_object = {
       path: wx_path,
       success: function success(wx_res) {
@@ -2142,10 +2144,10 @@ var FileSystemManager = function () {
   FileSystemManager.prototype.saveFileSync = function saveFileSync(bd_tempFilePath, bd_filePath) {
     if (!bd_filePath) {
       var ext = bd_tempFilePath.substring(bd_tempFilePath.lastIndexOf('.'));
-      bd_filePath = _onekit2.default.new_bd_filePath(ext);
+      bd_filePath = _OneKit2.default.new_bd_filePath(ext);
     }
     var wx_tempFilePath = bd_tempFilePath;
-    var wx_filePath = _onekit2.default.bd_filePath2wx_filePath(bd_filePath);
+    var wx_filePath = _OneKit2.default.bd_filePath2wx_filePath(bd_filePath);
     this.weixinFileSystemManager.saveFileSync(wx_tempFilePath, wx_filePath);
     return bd_filePath;
   };
@@ -2153,14 +2155,14 @@ var FileSystemManager = function () {
   FileSystemManager.prototype.saveFile = function saveFile(bd_object) {
     var bd_tempFilePath = bd_object.tempFilePath;
     var ext = bd_tempFilePath.substring(bd_tempFilePath.lastIndexOf('.'));
-    var bd_filePath = bd_object.filePath || _onekit2.default.new_bd_filePath(ext);
+    var bd_filePath = bd_object.filePath || _OneKit2.default.new_bd_filePath(ext);
     var bd_success = bd_object.success;
     var bd_fail = bd_object.fail;
     var bd_complete = bd_object.complete;
     bd_object = null;
     //
     var wx_tempFilePath = bd_tempFilePath;
-    var wx_filePath = _onekit2.default.bd_filePath2wx_filePath(bd_filePath);
+    var wx_filePath = _OneKit2.default.bd_filePath2wx_filePath(bd_filePath);
     var wx_object = {
       tempFilePath: wx_tempFilePath,
       filePath: wx_filePath,
@@ -2200,7 +2202,7 @@ var FileSystemManager = function () {
     var bd_complete = bd_object.complete;
     bd_object = null;
     //
-    var wx_filePath = _onekit2.default.bd_filePath2wx_filePath(bd_filePath);
+    var wx_filePath = _OneKit2.default.bd_filePath2wx_filePath(bd_filePath);
     var wx_object = {
       filePath: wx_filePath,
       success: function success(wx_res) {
@@ -2228,8 +2230,8 @@ var FileSystemManager = function () {
   };
 
   FileSystemManager.prototype.copyFileSync = function copyFileSync(bd_srcPath, bd_destPath) {
-    var wx_srcPath = _onekit2.default.bd_filePath2wx_filePath(bd_srcPath);
-    var wx_destPath = _onekit2.default.bd_filePath2wx_filePath(bd_destPath);
+    var wx_srcPath = _OneKit2.default.bd_filePath2wx_filePath(bd_srcPath);
+    var wx_destPath = _OneKit2.default.bd_filePath2wx_filePath(bd_destPath);
     return this.weixinFileSystemManager.saveFileSync(wx_srcPath, wx_destPath);
   };
 
@@ -2241,8 +2243,8 @@ var FileSystemManager = function () {
     var bd_complete = bd_object.complete;
     bd_object = null;
     //
-    var wx_srcPath = _onekit2.default.bd_filePath2wx_filePath(bd_srcPath);
-    var wx_destPath = _onekit2.default.bd_filePath2wx_filePath(bd_destPath);
+    var wx_srcPath = _OneKit2.default.bd_filePath2wx_filePath(bd_srcPath);
+    var wx_destPath = _OneKit2.default.bd_filePath2wx_filePath(bd_destPath);
     var wx_object = {
       srcPath: wx_srcPath,
       destPath: wx_destPath,
@@ -2277,7 +2279,7 @@ var FileSystemManager = function () {
     var bd_complete = bd_object.complete;
     bd_object = null;
     //
-    var wx_filePath = _onekit2.default.bd_filePath2wx_filePath(bd_filePath);
+    var wx_filePath = _OneKit2.default.bd_filePath2wx_filePath(bd_filePath);
     var wx_object = {
       filePath: wx_filePath,
       success: function success(wx_res) {
@@ -2306,7 +2308,7 @@ var FileSystemManager = function () {
   };
 
   FileSystemManager.prototype.mkdirSync = function mkdirSync(bd_dirPath) {
-    var wx_dirPath = _onekit2.default.bd_filePath2wx_filePath(bd_dirPath);
+    var wx_dirPath = _OneKit2.default.bd_filePath2wx_filePath(bd_dirPath);
     return this.weixinFileSystemManager.mkdirSync(wx_dirPath);
   };
 
@@ -2317,7 +2319,7 @@ var FileSystemManager = function () {
     var bd_complete = bd_object.complete;
     bd_object = null;
     //
-    var wx_dirPath = _onekit2.default.bd_filePath2wx_filePath(bd_dirPath);
+    var wx_dirPath = _OneKit2.default.bd_filePath2wx_filePath(bd_dirPath);
     var wx_object = {
       dirPath: wx_dirPath,
       success: function success(wx_res) {
@@ -2345,7 +2347,7 @@ var FileSystemManager = function () {
   };
 
   FileSystemManager.prototype.readdirSync = function readdirSync(bd_dirPath) {
-    var wx_dirPath = _onekit2.default.bd_filePath2wx_filePath(bd_dirPath);
+    var wx_dirPath = _OneKit2.default.bd_filePath2wx_filePath(bd_dirPath);
     return this.weixinFileSystemManager.readdirSync(wx_dirPath);
   };
 
@@ -2356,7 +2358,7 @@ var FileSystemManager = function () {
     var bd_complete = bd_object.complete;
     bd_object = null;
     //
-    var wx_dirPath = _onekit2.default.bd_filePath2wx_filePath(bd_dirPath);
+    var wx_dirPath = _OneKit2.default.bd_filePath2wx_filePath(bd_dirPath);
     var wx_object = {
       dirPath: wx_dirPath,
       success: function success(wx_res) {
@@ -2385,7 +2387,7 @@ var FileSystemManager = function () {
   };
 
   FileSystemManager.prototype.readFileSync = function readFileSync(bd_filePath, bd_encoding) {
-    var wx_filePath = _onekit2.default.bd_filePath2wx_filePath(bd_filePath);
+    var wx_filePath = _OneKit2.default.bd_filePath2wx_filePath(bd_filePath);
     var wx_encoding = bd_encoding;
     return this.weixinFileSystemManager.readFileSync(wx_filePath, wx_encoding);
   };
@@ -2398,7 +2400,7 @@ var FileSystemManager = function () {
     var bd_complete = bd_object.complete;
     bd_object = null;
     //
-    var wx_filePath = _onekit2.default.bd_filePath2wx_filePath(bd_filePath);
+    var wx_filePath = _OneKit2.default.bd_filePath2wx_filePath(bd_filePath);
     var wx_encoding = bd_encoding;
     var wx_object = {
       filePath: wx_filePath,
@@ -2429,8 +2431,8 @@ var FileSystemManager = function () {
   };
 
   FileSystemManager.prototype.renameSync = function renameSync(bd_oldPath, bd_newPath) {
-    var wx_oldPath = _onekit2.default.bd_filePath2wx_filePath(bd_oldPath);
-    var wx_newPath = _onekit2.default.bd_filePath2wx_filePath(bd_newPath);
+    var wx_oldPath = _OneKit2.default.bd_filePath2wx_filePath(bd_oldPath);
+    var wx_newPath = _OneKit2.default.bd_filePath2wx_filePath(bd_newPath);
     return this.weixinFileSystemManager.renameSync(wx_oldPath, wx_newPath);
   };
 
@@ -2441,8 +2443,8 @@ var FileSystemManager = function () {
     var bd_fail = bd_object.fail;
     var bd_complete = bd_object.complete;
     //
-    var wx_newPath = _onekit2.default.bd_filePath2wx_filePath(bd_newPath);
-    var wx_oldPath = _onekit2.default.bd_filePath2wx_filePath(bd_oldPath);
+    var wx_newPath = _OneKit2.default.bd_filePath2wx_filePath(bd_newPath);
+    var wx_oldPath = _OneKit2.default.bd_filePath2wx_filePath(bd_oldPath);
     var wx_object = {
       oldPath: wx_oldPath,
       newPath: wx_newPath,
@@ -2471,7 +2473,7 @@ var FileSystemManager = function () {
   };
 
   FileSystemManager.prototype.rmdirSync = function rmdirSync(bd_dirPath) {
-    var wx_dirPath = _onekit2.default.bd_filePath2wx_filePath(bd_dirPath);
+    var wx_dirPath = _OneKit2.default.bd_filePath2wx_filePath(bd_dirPath);
     return this.weixinFileSystemManager.rmdirSync(wx_dirPath);
   };
 
@@ -2482,7 +2484,7 @@ var FileSystemManager = function () {
     var bd_complete = bd_object.complete;
     bd_object = null;
     //
-    var wx_dirPath = _onekit2.default.bd_filePath2wx_filePath(bd_dirPath);
+    var wx_dirPath = _OneKit2.default.bd_filePath2wx_filePath(bd_dirPath);
     var wx_object = {
       dirPath: wx_dirPath,
       success: function success(wx_res) {
@@ -2510,7 +2512,7 @@ var FileSystemManager = function () {
   };
 
   FileSystemManager.prototype.statSync = function statSync(bd_path) {
-    var wx_path = _onekit2.default.bd_filePath2wx_filePath(bd_path);
+    var wx_path = _OneKit2.default.bd_filePath2wx_filePath(bd_path);
     return this.weixinFileSystemManager.statSync(wx_path);
   };
 
@@ -2521,7 +2523,7 @@ var FileSystemManager = function () {
     var bd_complete = bd_object.complete;
     bd_object = null;
     //
-    var wx_path = _onekit2.default.bd_filePath2wx_filePath(bd_path);
+    var wx_path = _OneKit2.default.bd_filePath2wx_filePath(bd_path);
     var wx_object = {
       path: wx_path,
       success: function success(wx_res) {
@@ -2550,7 +2552,7 @@ var FileSystemManager = function () {
   };
 
   FileSystemManager.prototype.unlinkSync = function unlinkSync(bd_filePath) {
-    var wx_filePath = _onekit2.default.bd_filePath2wx_filePath(bd_filePath);
+    var wx_filePath = _OneKit2.default.bd_filePath2wx_filePath(bd_filePath);
     return this.weixinFileSystemManager.unlinkSync(wx_filePath);
   };
 
@@ -2561,7 +2563,7 @@ var FileSystemManager = function () {
     var bd_complete = bd_object.complete;
     bd_object = null;
     //
-    var wx_filePath = _onekit2.default.bd_filePath2wx_filePath(bd_filePath);
+    var wx_filePath = _OneKit2.default.bd_filePath2wx_filePath(bd_filePath);
     var wx_object = {
       filePath: wx_filePath,
       success: function success(wx_res) {
@@ -2595,7 +2597,7 @@ var FileSystemManager = function () {
     var bd_fail = bd_object.fail;
     var bd_complete = bd_object.complete;
     //
-    var wx_targetPath = _onekit2.default.bd_filePath2wx_filePath(bd_targetPath);
+    var wx_targetPath = _OneKit2.default.bd_filePath2wx_filePath(bd_targetPath);
     var wx_object = {
       zipFilePath: bd_zipFilePath,
       targetPath: wx_targetPath,
@@ -2624,7 +2626,7 @@ var FileSystemManager = function () {
   };
 
   FileSystemManager.prototype.writeFileSync = function writeFileSync(bd_filePath, data, encoding) {
-    var wx_filePath = _onekit2.default.bd_filePath2wx_filePath(bd_filePath);
+    var wx_filePath = _OneKit2.default.bd_filePath2wx_filePath(bd_filePath);
     return this.weixinFileSystemManager.writeFileSync(wx_filePath, data, encoding);
   };
 
@@ -2637,7 +2639,7 @@ var FileSystemManager = function () {
     var bd_complete = bd_object.complete;
     bd_object = null;
     //
-    var wx_filePath = _onekit2.default.bd_filePath2wx_filePath(bd_filePath);
+    var wx_filePath = _OneKit2.default.bd_filePath2wx_filePath(bd_filePath);
     var wx_object = {
       filePath: wx_filePath,
       data: bd_data,

@@ -3,7 +3,7 @@
 /* eslint-disable camelcase */
 import onekit_behavior from '../../behavior/onekit_behavior'
 import baidu_behavior from '../../behavior/baidu_behavior'
-import onekit from '../../js/onekit'
+import OneKit from '../../js/OneKit'
 import swan from '../../swan'
 
 Component({
@@ -40,7 +40,7 @@ Component({
       if (this.properties.activeName) {
         activeName = this.properties.activeName
       } else if (this.properties.urlQueryName) {
-        const page = onekit.current()
+        const page = OneKit.current()
         this.data.activeName = activeName = page.query[this.properties.urlQueryName]
       }
       if (!activeName) {
