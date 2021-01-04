@@ -1479,7 +1479,7 @@ export default class swan {
   // /////////////////////////////////
 
   static createARCameraContext() {
-    throw new Error('createARCameraContext�ݲ�֧��!!')
+    console.warn('createARCameraContext 不支持!!')
   }
 
   static setURLQuery(urlQuery) {
