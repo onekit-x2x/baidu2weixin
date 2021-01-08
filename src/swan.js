@@ -33,8 +33,8 @@ export default class swan {
   }
 
   // /////////////// basic ////////////////////////////////
-  static canIUse() {
-    return true
+  static canIUse(schema) {
+    return wx.canIUse(schema)
   }
 
   static getSystemInfo(object) {
@@ -1479,7 +1479,7 @@ export default class swan {
   // /////////////////////////////////
 
   static createARCameraContext() {
-    console.warn('createARCameraContext 不支持!!')
+    console.warn('createARCameraContext is not support')
   }
 
   static setURLQuery(urlQuery) {
