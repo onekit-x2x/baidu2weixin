@@ -3,7 +3,6 @@
 /* eslint-disable camelcase */
 
 // import swan_ai from 'swan.ai'
-// import CanvasContext from "./api/CanvasContext"
 import CameraContext from './api/CameraContext'
 import InnerAudioContext from './api/InnerAudioContext'
 import VideoContext from './api/VideoContext'
@@ -112,11 +111,9 @@ export default class swan {
     return wx.getLogManager(object)
   }
 
-  /*
-  static createCanvasContext(canvasId, ui) {
-    return new CanvasContext(wx.createCanvasContext(canvasId))
-  } */
-
+  static createCanvasContext(canvasId) {
+    return wx.createCanvasContext(canvasId)
+  }
 
   static createCameraContext(cameraId) {
     return new CameraContext(wx.createCameraContext(cameraId))
@@ -132,11 +129,18 @@ export default class swan {
     return new LivePlayerContext(wx.createLivePlayerContext(playerId))
   }
 
+  static createRtcRoomContext() {
+    return console.warn('createRtcRoomContext is not support')
+  }
+
 
   static createVideoContext(videoId) {
     return new VideoContext(wx.createVideoContext(videoId))
   }
 
+  static createAnimationVideo(videoId) {
+    return wx.createVideoContext(videoId)
+  }
 
   static canvasToTempFilePath(object) {
     return wx.canvasToTempFilePath(object)
@@ -345,14 +349,18 @@ export default class swan {
   }
 
 
-  static stopBluetoothDevicesDiscovery(object) { return wx.stopBluetoothDevicesDiscovery(object) }
+  static stopBluetoothDevicesDiscovery(object) {
+    return wx.stopBluetoothDevicesDiscovery(object)
+  }
 
   static startBluetoothDevicesDiscovery(object) {
     return wx.startBluetoothDevicesDiscovery(object)
   }
 
 
-  static openBluetoothAdapter(object) { return wx.openBluetoothAdapter(object) }
+  static openBluetoothAdapter(object) {
+    return wx.openBluetoothAdapter(object)
+  }
 
   static onBluetoothDeviceFound(callback) {
     return wx.onBluetoothDeviceFound(callback)
@@ -411,6 +419,22 @@ export default class swan {
   static onUserCaptureScreen(callback) {
     return wx.onUserCaptureScreen(callback)
   }
+
+  static addEventOnCalendar() {
+    return console.warn('addEventOnCalendar is not support')
+  }
+
+  static deleteEventOnCalendar() {
+    return console.warn('deleteEventOnCalendar is not support')
+  }
+
+  // static onKeyboardHeightChange(callback) {
+  //   return wx.onKeyboardHeightChange(callback)
+  // }
+
+  // static offKeyboardHeightChange(callback) {
+  //   return wx.offKeyboardHeightChange(callback)
+  // }
 
   static getScreenBrightness(object) {
     return wx.getScreenBrightness(object)
@@ -597,6 +621,22 @@ export default class swan {
 
   static chooseLocation(object) {
     return wx.chooseLocation(object)
+  }
+
+  static startLocationUpdate(object) {
+    return wx.chooseLocation(object)
+  }
+
+  static onLocationChange(callback) {
+    return wx.onLocationChange(callback)
+  }
+
+  static offLocationChange(callback) {
+    return wx.offLocationChange(callback)
+  }
+
+  static stopLocationUpdate(object) {
+    return wx.stopLocationUpdate(object)
   }
 
   // //////// Media ////////////////////
@@ -879,6 +919,28 @@ export default class swan {
     }
   }
 
+  static login(object) {
+    return wx.login(object)
+  }
+
+  static getLoginCode(object) {
+    return wx.login(object)
+  }
+
+  static isLoginSync() {
+    if (swan.login()) {
+      const swan_res1 = {
+        isLogin: true
+      }
+      return swan_res1
+    } else {
+      const swan_res2 = {
+        isLogin: false
+      }
+      return swan_res2
+    }
+  }
+
   // eslint-disable-next-line consistent-return
   // static login(object) {
   //   const that = this
@@ -962,6 +1024,26 @@ export default class swan {
         })
       }
     })
+  }
+
+  static setPageInfo() {
+    return console.warn('setPageInfo is not support')
+  }
+
+  static setMetaDescription() {
+    return console.warn('setMetaDescription is not support')
+  }
+
+  static setMetaKeywords() {
+    return console.warn('setMetaKeywords is not support')
+  }
+
+  static setDocumentTitle() {
+    return console.warn('setDocumentTitle is not support')
+  }
+
+  static loadSubPackage() {
+    return console.warn('loadSubPackage is not support')
   }
 
   static _getUserInfo(data, callback, isAPI) {
@@ -1126,6 +1208,58 @@ export default class swan {
     return wx.reportAnalytics(object, eventName)
   }
 
+  static getSystemRiskInfo() {
+    return console.warn('getSystemRiskInfo is not support')
+  }
+
+  static subscribeService() {
+    return console.warn('subscribeService is not support')
+  }
+
+  static insertBookshelf() {
+    return console.warn('insertBookshelf is not support')
+  }
+
+  static deleteBookshelf() {
+    return console.warn('deleteBookshelf is not support')
+  }
+
+  static queryBookshelf() {
+    return console.warn('queryBookshelf is not support')
+  }
+
+  static updateBookshelfReadTime() {
+    return console.warn('updateBookshelfReadTime is not support')
+  }
+
+  static navigateToBookshelf() {
+    return console.warn('navigateToBookshelf is not support')
+  }
+
+  static openBdboxWebview() {
+    return console.warn('openBdboxWebview is not support')
+  }
+
+  static getSwanId() {
+    return console.warn('getSwanId is not support')
+  }
+
+  static openShare() {
+    return console.warn('openShare is not support')
+  }
+
+  static shareFile() {
+    return console.warn('shareFile is not support')
+  }
+
+  static navigateToSmartProgram() {
+    return console.warn('navigateToSmartProgram is not support')
+  }
+
+  static navigateBackSmartProgram() {
+    return console.warn('navigateBackSmartProgram is not support')
+  }
+
   static requestPayment(object) {
     return wx.requestPayment(object)
   }
@@ -1156,6 +1290,26 @@ export default class swan {
 
   static chooseInvoiceTitle(object) {
     return wx.chooseInvoiceTitle(object)
+  }
+
+  static openCommunityEditor() {
+    return console.warn('openCommunityEditor is not support')
+  }
+
+  static closeCommunityEditor() {
+    return console.warn('closeCommunityEditor is not support')
+  }
+
+  static openReplyEditor() {
+    return console.warn('openReplyEditor is not support')
+  }
+
+  static closeReplyEditor() {
+    return console.warn('closeReplyEditor is not support')
+  }
+
+  static createRewardedVideoAd(object) {
+    return wx.createRewardedVideoAd(object)
   }
 
   static chooseInvoice(object) {
@@ -1370,6 +1524,10 @@ export default class swan {
     return wx.setTabBarBadge(object)
   }
 
+  static showFavoriteGuide() {
+    return console.warn('showFavoriteGuide is not support')
+  }
+
   static loadFontFace(object) {
     return wx.loadFontFace(object)
   }
@@ -1479,7 +1637,7 @@ export default class swan {
   // /////////////////////////////////
 
   static createARCameraContext() {
-    console.warn('createARCameraContext is not support')
+    return console.warn('createARCameraContext is not support')
   }
 
   static setURLQuery(urlQuery) {
@@ -1494,7 +1652,10 @@ export default class swan {
     page.query = newURLQuery
     //
     if (page.onURLQueryChange) {
-      page.onURLQueryChange({oldURLQuery, newURLQuery})
+      page.onURLQueryChange({
+        oldURLQuery,
+        newURLQuery
+      })
     }
   }
 
