@@ -2,6 +2,21 @@
 /* eslint-disable camelcase */
 export default function OnekitPage(swan_object) {
   const wx_object = {
+    onLoad() {
+      this._setData = this.setData
+      this.setData = function (keyOrData, value) {
+        if (typeof (keyOrData) === 'string') {
+          this._setData({
+            [keyOrData]: value
+          })
+        } else {
+          this._setData(keyOrData)
+        }
+      }
+      if (swan_object.onLoad) {
+        swan_object.onLoad.apply(this, this.argument)
+      }
+    },
     getData(key) {
       return this.data[key]
     }
@@ -9,10 +24,6 @@ export default function OnekitPage(swan_object) {
   for (const key of Object.keys(swan_object)) {
     switch (key) {
       case 'onLoad':
-        wx_object.onLoad = function (query) {
-          this.query = query
-          swan_object.onLoad.call(this, query)
-        }
         break
       default:
         wx_object[key] = swan_object[key]

@@ -198,7 +198,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 /* eslint-disable camelcase */
 
 // import swan_ai from 'swan.ai'
-// import CanvasContext from "./api/CanvasContext"
 
 
 // import Context from "./api/Context"
@@ -231,8 +230,8 @@ var swan = function () {
   // /////////////// basic ////////////////////////////////
 
 
-  swan.canIUse = function canIUse() {
-    return true;
+  swan.canIUse = function canIUse(schema) {
+    return wx.canIUse(schema);
   };
 
   swan.getSystemInfo = function getSystemInfo(object) {
@@ -311,10 +310,9 @@ var swan = function () {
     return wx.getLogManager(object);
   };
 
-  /*
-  static createCanvasContext(canvasId, ui) {
-    return new CanvasContext(wx.createCanvasContext(canvasId))
-  } */
+  swan.createCanvasContext = function createCanvasContext(canvasId) {
+    return wx.createCanvasContext(canvasId);
+  };
 
   swan.createCameraContext = function createCameraContext(cameraId) {
     return new _CameraContext2.default(wx.createCameraContext(cameraId));
@@ -328,8 +326,16 @@ var swan = function () {
     return new _LivePlayerContext2.default(wx.createLivePlayerContext(playerId));
   };
 
+  swan.createRtcRoomContext = function createRtcRoomContext() {
+    return console.warn('createRtcRoomContext is not support');
+  };
+
   swan.createVideoContext = function createVideoContext(videoId) {
     return new _VideoContext2.default(wx.createVideoContext(videoId));
+  };
+
+  swan.createAnimationVideo = function createAnimationVideo(videoId) {
+    return wx.createVideoContext(videoId);
   };
 
   swan.canvasToTempFilePath = function canvasToTempFilePath(object) {
@@ -626,6 +632,22 @@ var swan = function () {
     return wx.onUserCaptureScreen(callback);
   };
 
+  swan.addEventOnCalendar = function addEventOnCalendar() {
+    return console.warn('addEventOnCalendar is not support');
+  };
+
+  swan.deleteEventOnCalendar = function deleteEventOnCalendar() {
+    return console.warn('deleteEventOnCalendar is not support');
+  };
+
+  // static onKeyboardHeightChange(callback) {
+  //   return wx.onKeyboardHeightChange(callback)
+  // }
+
+  // static offKeyboardHeightChange(callback) {
+  //   return wx.offKeyboardHeightChange(callback)
+  // }
+
   swan.getScreenBrightness = function getScreenBrightness(object) {
     return wx.getScreenBrightness(object);
   };
@@ -817,6 +839,22 @@ var swan = function () {
 
   swan.chooseLocation = function chooseLocation(object) {
     return wx.chooseLocation(object);
+  };
+
+  swan.startLocationUpdate = function startLocationUpdate(object) {
+    return wx.chooseLocation(object);
+  };
+
+  swan.onLocationChange = function onLocationChange(callback) {
+    return wx.onLocationChange(callback);
+  };
+
+  swan.offLocationChange = function offLocationChange(callback) {
+    return wx.offLocationChange(callback);
+  };
+
+  swan.stopLocationUpdate = function stopLocationUpdate(object) {
+    return wx.stopLocationUpdate(object);
   };
 
   // //////// Media ////////////////////
@@ -1131,6 +1169,28 @@ var swan = function () {
     }
   };
 
+  swan.login = function login(object) {
+    return wx.login(object);
+  };
+
+  swan.getLoginCode = function getLoginCode(object) {
+    return wx.login(object);
+  };
+
+  swan.isLoginSync = function isLoginSync() {
+    if (swan.login()) {
+      var swan_res1 = {
+        isLogin: true
+      };
+      return swan_res1;
+    } else {
+      var swan_res2 = {
+        isLogin: false
+      };
+      return swan_res2;
+    }
+  };
+
   // eslint-disable-next-line consistent-return
   // static login(object) {
   //   const that = this
@@ -1214,6 +1274,26 @@ var swan = function () {
         });
       }
     });
+  };
+
+  swan.setPageInfo = function setPageInfo() {
+    return console.warn('setPageInfo is not support');
+  };
+
+  swan.setMetaDescription = function setMetaDescription() {
+    return console.warn('setMetaDescription is not support');
+  };
+
+  swan.setMetaKeywords = function setMetaKeywords() {
+    return console.warn('setMetaKeywords is not support');
+  };
+
+  swan.setDocumentTitle = function setDocumentTitle() {
+    return console.warn('setDocumentTitle is not support');
+  };
+
+  swan.loadSubPackage = function loadSubPackage() {
+    return console.warn('loadSubPackage is not support');
   };
 
   swan._getUserInfo = function _getUserInfo(data, callback, isAPI) {
@@ -1378,6 +1458,58 @@ var swan = function () {
     return wx.reportAnalytics(object, eventName);
   };
 
+  swan.getSystemRiskInfo = function getSystemRiskInfo() {
+    return console.warn('getSystemRiskInfo is not support');
+  };
+
+  swan.subscribeService = function subscribeService() {
+    return console.warn('subscribeService is not support');
+  };
+
+  swan.insertBookshelf = function insertBookshelf() {
+    return console.warn('insertBookshelf is not support');
+  };
+
+  swan.deleteBookshelf = function deleteBookshelf() {
+    return console.warn('deleteBookshelf is not support');
+  };
+
+  swan.queryBookshelf = function queryBookshelf() {
+    return console.warn('queryBookshelf is not support');
+  };
+
+  swan.updateBookshelfReadTime = function updateBookshelfReadTime() {
+    return console.warn('updateBookshelfReadTime is not support');
+  };
+
+  swan.navigateToBookshelf = function navigateToBookshelf() {
+    return console.warn('navigateToBookshelf is not support');
+  };
+
+  swan.openBdboxWebview = function openBdboxWebview() {
+    return console.warn('openBdboxWebview is not support');
+  };
+
+  swan.getSwanId = function getSwanId() {
+    return console.warn('getSwanId is not support');
+  };
+
+  swan.openShare = function openShare() {
+    return console.warn('openShare is not support');
+  };
+
+  swan.shareFile = function shareFile() {
+    return console.warn('shareFile is not support');
+  };
+
+  swan.navigateToSmartProgram = function navigateToSmartProgram() {
+    return console.warn('navigateToSmartProgram is not support');
+  };
+
+  swan.navigateBackSmartProgram = function navigateBackSmartProgram() {
+    return console.warn('navigateBackSmartProgram is not support');
+  };
+
   swan.requestPayment = function requestPayment(object) {
     return wx.requestPayment(object);
   };
@@ -1408,6 +1540,26 @@ var swan = function () {
 
   swan.chooseInvoiceTitle = function chooseInvoiceTitle(object) {
     return wx.chooseInvoiceTitle(object);
+  };
+
+  swan.openCommunityEditor = function openCommunityEditor() {
+    return console.warn('openCommunityEditor is not support');
+  };
+
+  swan.closeCommunityEditor = function closeCommunityEditor() {
+    return console.warn('closeCommunityEditor is not support');
+  };
+
+  swan.openReplyEditor = function openReplyEditor() {
+    return console.warn('openReplyEditor is not support');
+  };
+
+  swan.closeReplyEditor = function closeReplyEditor() {
+    return console.warn('closeReplyEditor is not support');
+  };
+
+  swan.createRewardedVideoAd = function createRewardedVideoAd(object) {
+    return wx.createRewardedVideoAd(object);
   };
 
   swan.chooseInvoice = function chooseInvoice(object) {
@@ -1633,6 +1785,10 @@ var swan = function () {
     return wx.setTabBarBadge(object);
   };
 
+  swan.showFavoriteGuide = function showFavoriteGuide() {
+    return console.warn('showFavoriteGuide is not support');
+  };
+
   swan.loadFontFace = function loadFontFace(object) {
     return wx.loadFontFace(object);
   };
@@ -1746,7 +1902,7 @@ var swan = function () {
   // /////////////////////////////////
 
   swan.createARCameraContext = function createARCameraContext() {
-    throw new Error('createARCameraContext�ݲ�֧��!!');
+    return console.warn('createARCameraContext is not support');
   };
 
   swan.setURLQuery = function setURLQuery(urlQuery) {
@@ -1774,7 +1930,10 @@ var swan = function () {
     page.query = newURLQuery;
     //
     if (page.onURLQueryChange) {
-      page.onURLQueryChange({ oldURLQuery: oldURLQuery, newURLQuery: newURLQuery });
+      page.onURLQueryChange({
+        oldURLQuery: oldURLQuery,
+        newURLQuery: newURLQuery
+      });
     }
   };
 
@@ -2763,6 +2922,21 @@ exports.default = OnekitPage;
 /* eslint-disable camelcase */
 function OnekitPage(swan_object) {
   var wx_object = {
+    onLoad: function onLoad() {
+      this._setData = this.setData;
+      this.setData = function (keyOrData, value) {
+        if (typeof keyOrData === 'string') {
+          var _setData;
+
+          this._setData((_setData = {}, _setData[keyOrData] = value, _setData));
+        } else {
+          this._setData(keyOrData);
+        }
+      };
+      if (swan_object.onLoad) {
+        swan_object.onLoad.apply(this, this.argument);
+      }
+    },
     getData: function getData(key) {
       return this.data[key];
     }
@@ -2783,10 +2957,6 @@ function OnekitPage(swan_object) {
 
     switch (key) {
       case 'onLoad':
-        wx_object.onLoad = function (query) {
-          this.query = query;
-          swan_object.onLoad.call(this, query);
-        };
         break;
       default:
         wx_object[key] = swan_object[key];
