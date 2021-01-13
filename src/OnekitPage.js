@@ -15,7 +15,7 @@ export default function OnekitPage(swan_object) {
         }
       }
       if (swan_object.onLoad) {
-        swan_object.onLoad.apply(this, options || {})
+        swan_object.onLoad.call(this, options || {})
       }
     },
     getData(key) {
