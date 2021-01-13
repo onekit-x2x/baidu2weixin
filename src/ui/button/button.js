@@ -5,7 +5,6 @@ import baidu_behavior from '../../behavior/baidu_behavior'
 
 Component({
   behaviors: [onekit_behavior, baidu_behavior, 'wx://form-field-button'],
-  // behaviors: [onekit_behavior, baidu_behavior],
   options: {
     virtualHost: true
   },
