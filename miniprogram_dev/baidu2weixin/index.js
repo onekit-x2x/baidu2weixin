@@ -2923,20 +2923,19 @@ exports.default = OnekitPage;
 
 function OnekitPage(swan_object) {
   var wx_object = {
-    onLoad: function onLoad() {
+    onLoad: function onLoad(options) {
       this._setData = this.setData;
-      // this.setData = function (keyOrData, value) {
-      //   if (typeof (keyOrData) === 'string') {
-      //     this._setData({
-      //       [keyOrData]: value
-      //     })
-      //   } else {
-      //     this._setData(keyOrData)
-      //   }
-      // }
+      this.setData = function (keyOrData, value) {
+        if (typeof keyOrData === 'string') {
+          var _setData;
+
+          this._setData((_setData = {}, _setData[keyOrData] = value, _setData));
+        } else {
+          this._setData(keyOrData);
+        }
+      };
       if (swan_object.onLoad) {
-        console.log(this.argument);
-        swan_object.onLoad.apply(this, this.argument);
+        swan_object.onLoad.call(this, options || {});
       }
     },
     getData: function getData(key) {
