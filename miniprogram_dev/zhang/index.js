@@ -1,6 +1,8 @@
 import {OnekitPage} from "../baidu2weixin/index"
 OnekitPage({
-
+data:{
+"x":0
+},
   onLoad() {
 setTimeout(()=>{
 this.setData({x:1})
