@@ -1,8 +1,9 @@
 /* eslint-disable no-console */
 /* eslint-disable camelcase */
+
 export default function OnekitPage(swan_object) {
   const wx_object = {
-    onLoad() {
+    onLoad(options) {
       this._setData = this.setData
       this.setData = function (keyOrData, value) {
         if (typeof (keyOrData) === 'string') {
@@ -14,7 +15,7 @@ export default function OnekitPage(swan_object) {
         }
       }
       if (swan_object.onLoad) {
-        swan_object.onLoad.apply(this, this.argument)
+        swan_object.onLoad.apply(this, options || {})
       }
     },
     getData(key) {

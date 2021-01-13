@@ -1,6 +1,3 @@
-/* eslint-disable no-use-before-define */
-/* eslint-disable max-len */
-/* eslint-disable no-console */
 /* eslint-disable camelcase */
 import lottie from 'lottie-miniprogram'
 import onekit_behavior from '../../behavior/onekit_behavior'

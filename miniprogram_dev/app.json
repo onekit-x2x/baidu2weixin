@@ -1,7 +1,7 @@
 {
   "pages": [
-    "zhang/index",
-    "example/index"
+    "example/index",
+    "example/page2"
   ],
   "window": {
     "navigationBarTextStyle": "black",
